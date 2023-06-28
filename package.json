@@ -13,6 +13,7 @@
     "build": "run-s build:client build:server",
     "build:client": "vite build",
     "build:server": "tsc -p ./server/tsconfig.json",
+    "knex": "knex --knexfile server/db/knexfile.js",
     "test": "vitest",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
     "format": "prettier -w '**/*.{js,jsx,ts,tsx}'"
@@ -28,7 +29,9 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "knex": "^2.4.2",
+    "sqlite3": "^5.1.6"
   },
   "devDependencies": {
     "@devacademy/eslint-config": "^1.8.0",
