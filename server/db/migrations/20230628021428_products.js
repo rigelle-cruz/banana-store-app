@@ -4,7 +4,12 @@ exports.up = (knex) => {
     table.string('name')
     table.decimal('price')
     table.string('description')
-    table.string('img_url')
+    table.string('img_src')
+    table.integer('calorie_count')
+    table.integer('weight')
+    table.string('taste_profile')
+    table.string('origin')
+    table.string('random_fact')
   })
 }
 
