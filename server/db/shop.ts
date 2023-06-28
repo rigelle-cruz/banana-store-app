@@ -1,6 +1,6 @@
 import connection from './connection'
 
-interface Product {
+export interface Product {
   id: number
   name: string
   price: number
