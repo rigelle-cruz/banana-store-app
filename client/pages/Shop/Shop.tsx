@@ -5,6 +5,12 @@ import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
 import { getAllProductsApi } from '../../apis/shop'
 
+interface Products {
+  id: number
+  name: string
+  price: number
+  img_src: string
+}
 
 
 function Shop () {
@@ -12,10 +18,16 @@ function Shop () {
     return await getAllProductsApi()
   })
 
+  const products : Products = data
+
 console.log(data)
   return (
     <>
-      <p>On Shop page</p>
+      <h1>Shop.</h1>
+      {
+        data?.map()
+      }
+      
     </>
   )
 }
