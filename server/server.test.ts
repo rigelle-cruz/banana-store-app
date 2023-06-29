@@ -2,7 +2,8 @@ import { vi, describe, it, expect, beforeEach } from 'vitest'
 import request from 'supertest'
 
 import server from './server'
-import * as db from './db/shop'
+import * as shop from './db/shop'
+import * as product from './db/product'
 
 vi.mock('./db/shop')
 
@@ -20,14 +21,15 @@ describe('GET /api/v1/shop', () => {
       description: 'wow its yellow',
       img_src: 'cavendish.png',
     },
-  ] as unknown as db.Product[]
+  ] as unknown as shop.Products[]
 
   it('responds with correct data structure and values', async () => {
-    vi.mocked(db.getAllProducts).mockResolvedValue(mockedProduct)
+    vi.mocked(shop.getAllProducts).mockResolvedValue(mockedProduct)
 
     const response = await request(server).get('/api/v1/shop')
     const products = response.body.products
 
+    expect(products).toHaveLength(1)
     expect(products[0].id).toBe(1)
     expect(products[0].name).toBe('cavendish')
     expect(products[0].price).toBe(10)
@@ -35,3 +37,5 @@ describe('GET /api/v1/shop', () => {
     expect(products[0].img_src).toBe('cavendish.png')
   })
 })
+
+//PRODUCT GET ROUTE
