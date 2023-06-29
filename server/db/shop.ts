@@ -14,5 +14,16 @@ export interface Products {
 }
 
 export async function getAllProducts(db = connection) {
-  return (await db('products').select()) as Products[]
+  return (await db('products').select(
+    'id',
+    'name',
+    'price',
+    'description',
+    'img_src as imgSrc',
+    'calorie_count as calorieCount',
+    'weight',
+    'taste_profile as tasteProfile',
+    'origin',
+    'random_fact as randomFact'
+  )) as Products[]
 }

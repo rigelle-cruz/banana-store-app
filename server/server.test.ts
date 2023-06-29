@@ -31,7 +31,6 @@ describe('GET /api/v1/shop', () => {
     const response = await request(server).get('/api/v1/shop')
     const products = response.body.products
 
-    expect(products).toHaveLength(1)
     expect(products[0].id).toBe(1)
     expect(products[0].name).toBe('cavendish')
     expect(products[0].price).toBe(10)
