@@ -21,7 +21,7 @@ describe('getAllProducts', () => {
   it('gets correct arr length', async () => {
     const produce = await db.getAllProducts(testDb)
 
-    expect(produce).toHaveLength(1)
+    expect(produce).toHaveLength(12)
   })
   it('gets correct product id', async () => {
     const produce = await db.getAllProducts(testDb)
@@ -31,7 +31,7 @@ describe('getAllProducts', () => {
   it('gets correct product name', async () => {
     const produce = await db.getAllProducts(testDb)
 
-    expect(produce[0].name).toMatch('banana')
+    expect(produce[0].name).toMatch('Cavendish')
   })
   it('gets correct product price', async () => {
     const produce = await db.getAllProducts(testDb)
@@ -41,11 +41,11 @@ describe('getAllProducts', () => {
   it('gets correct product description', async () => {
     const produce = await db.getAllProducts(testDb)
 
-    expect(produce[0].description).toMatch('yellow')
+    expect(produce[0].calorie_count).toBe(110)
   })
   it('gets correct product img', async () => {
     const produce = await db.getAllProducts(testDb)
 
-    expect(produce[0].img_src).toMatch('hi')
+    expect(produce[0].weight).toBe(150)
   })
 })
