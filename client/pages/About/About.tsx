@@ -4,6 +4,7 @@ import FounderStory from '../../components/FounderStory/FounderStory'
 function About() {
   return (
     <>
+    <Banner />
       <div>
         <div>
           <h3>Company Origin</h3>
