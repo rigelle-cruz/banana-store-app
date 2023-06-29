@@ -10,6 +10,7 @@ import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import AboutBanner from './AboutBanner'
 import Shop from '../../pages/Shop/Shop'
 import About from '../../pages/About/About'
+import { QueryClient, QueryClientProvider } from 'react-query'
 
 afterEach(cleanup)
 expect.extend(matchers)
@@ -26,25 +27,29 @@ test('If button is on the page', async () => {
     name: 'view full range',
   })
 
-  console.log()
-
   expect(button).toBeInTheDocument()
 })
 
-// test('If button redirects to shop', async () => {
-//   render(
-//     <MemoryRouter initialEntries={['/about']}>
-//       <AboutBanner />
+test('If button redirects to shop', async () => {
+  render(
+    <QueryClientProvider client={new QueryClient()}>
+      <MemoryRouter initialEntries={['/about']}>
+        <AboutBanner />
 
-//       <Routes>
-//         <Route path="/about" element={<About />} />
-//         <Route path="/shop" element={<Shop />} />
-//       </Routes>
-//     </MemoryRouter>
-//   )
+        <Routes>
+          <Route path="/about" element={<About />} />
+          <Route path="/shop" element={<Shop />} />
+        </Routes>
+      </MemoryRouter>
+    </QueryClientProvider>
+  )
 
-//   const button = screen.getByRole('button', { name: 'view full range' })
-//   await user.click(button)
+  // const buttons = screen.getAllByRole('button', { name: 'view full range' })
+  // const button = buttons[0]
+  const button = screen.getByRole('button', {
+    name: 'view full range',
+  })
+  await user.click(button)
 
-//   expect(window.location.pathname).toBe('/shop')
-// })
+  expect(window.location.pathname).toBe('/shop')
+})
