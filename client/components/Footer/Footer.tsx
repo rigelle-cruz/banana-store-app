@@ -1,9 +1,8 @@
 import { useAuth0 } from '@auth0/auth0-react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function Footer() {
   const { isAuthenticated, logout, loginWithRedirect } = useAuth0()
-  const navigate = useNavigate()
 
   function handleLogin() {
     loginWithRedirect({
@@ -15,10 +14,6 @@ function Footer() {
 
   function handleLogout() {
     logout({ logoutParams: { returnTo: window.location.origin } })
-  }
-
-  function goTo(link: string) {
-    navigate(link)
   }
 
   return (
