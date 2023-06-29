@@ -19,61 +19,30 @@ import Contact from './pages/Contact/Contact'
 import Product from './pages/Product/Product'
 import ErrorPage from './pages/ErrorPage/ErrorPage'
 
-
 export const routes = createRoutesFromElements(
   <Route path="/" element={<AppLayout />} errorElement={<ErrorPage />}>
-    <Route index element={<Home />} />
-    <Route
-      path="home"
-      element={
-          <ProtectedComponent component={Home} />
-      }
-    />
-    <Route
-      path="about"
-      element={
-          <ProtectedComponent component={About} />
-      }
-    />
-    <Route
-      path="cart"
-      element={
-          <ProtectedComponent component={Cart} />
-      }
-    />
-    <Route
-      path="shop"
-      element={
-          <ProtectedComponent component={Shop} />
-      }
-    />
+    <Route index element={<ProtectedComponent component={Home} />} />
+    <Route path="about" element={<ProtectedComponent component={About} />} />
+    <Route path="cart" element={<ProtectedComponent component={Cart} />} />
+    <Route path="shop" element={<ProtectedComponent component={Shop} />} />
     <Route
       path="shop/:id"
-      element={
-          <ProtectedComponent component={Product} />
-      }
+      element={<ProtectedComponent component={Product} />}
     />
     <Route
       path="thankyoupage"
-      element={
-          <ProtectedComponent component={ThankYouPage} />
-      }
+      element={<ProtectedComponent component={ThankYouPage} />}
     />
     <Route
       path="contact"
-      element={
-          <ProtectedComponent component={Contact} />
-      }
-    /> 
+      element={<ProtectedComponent component={Contact} />}
+    />
   </Route>
 )
-
-
 
 function AppProvider() {
   return <RouterProvider router={createBrowserRouter(routes)} />
 }
-
 
 document.addEventListener('DOMContentLoaded', () => {
   const queryClient = new QueryClient()
@@ -94,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }}
     >
       <QueryClientProvider client={queryClient}>
-          <AppProvider />
+        <AppProvider />
       </QueryClientProvider>
     </Auth0Provider>
   )
