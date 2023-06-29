@@ -18,3 +18,6 @@ export function getProductById(id: number, db = connection) {
     )
     .first() as Promise<Products>
 }
+export function getCartById(arg0: number, testDb: Knex<any, unknown[]>) {
+  throw new Error('Function not implemented.')
+}
