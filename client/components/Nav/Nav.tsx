@@ -8,7 +8,7 @@ function Nav() {
   function handleLogin() {
     loginWithRedirect({
       authorizationParams: {
-        redirect_uri: `${window.location.origin}/home`,
+        redirect_uri: `${window.location.origin}/`,
       },
     })
   }
@@ -25,7 +25,7 @@ function Nav() {
     <nav>
       <ul>
         <li>
-          <button onClick={() => goTo('/home')}>home</button>
+          <button onClick={() => goTo('/')}>home</button>
         </li>
         <li>
           <button onClick={() => goTo('/about')}>about</button>
@@ -42,13 +42,13 @@ function Nav() {
 
         {!isAuthenticated && (
           <li>
-            <button onClick={handleLogin}>LOGIN ICON</button>
+            <button onClick={handleLogin}>login</button>
           </li>
         )}
 
         {isAuthenticated && (
           <li>
-            <button onClick={handleLogout}>LOGOUT ICON</button>
+            <button onClick={handleLogout}>logout</button>
           </li>
         )}
       </ul>
