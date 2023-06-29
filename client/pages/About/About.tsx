@@ -28,7 +28,7 @@ function About() {
       </div>
 
       <div>
-        <h3></h3>
+        <h3>Founder Stories</h3>
         <FounderStory />
       </div>
     </>
