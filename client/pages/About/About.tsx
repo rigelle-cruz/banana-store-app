@@ -1,14 +1,15 @@
 /* eslint-disable react/no-unescaped-entities */
+import Banner from '../../components/Banner/Banner'
 import FounderStory from '../../components/FounderStory/FounderStory'
 
 function About() {
   return (
     <>
-    <Banner />
+      <Banner />
       <div>
         <div>
-          <h3>Company Origin</h3>
-          <h4>We're all a bit bananas!</h4>
+          <h1>Company Origin</h1>
+          <h2>We're all a bit bananas!</h2>
           <p>
             In a peculiar twist of fate, a man from Egypt known for his penchant
             for donning a vibrant red jacket and stylish Sony headphones became
@@ -29,7 +30,7 @@ function About() {
       </div>
 
       <div>
-        <h3>Founder Stories</h3>
+        <h2>Founder Stories</h2>
         <FounderStory />
       </div>
     </>
