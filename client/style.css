@@ -2,14 +2,6 @@
 	 Base Styles
 	 ========================================================================== */ 
 
-   *,
-   *::before,
-   *::after {
-	 box-sizing: border-box;
-   }
-  figure {
-    margin: 0;
-  }
   .clearfix::after {
     content: "";
     display: table;
@@ -139,31 +131,72 @@
     }
   }
 
-  /* ==========================================================================
-	 Grid System
+/* ==========================================================================
+	 Header
 	 ========================================================================== */  
 
-  .container {
+  .header {
+    height: 40px;
+    padding: 0 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .header__nav {
+    display: flex;
+    justify-content: flex-end;
     position: relative;
-    max-width: 100%;
-    margin-right: auto;
-    margin-left: auto;
-    padding-right: 1rem;
-    padding-left: 1rem;
+    height: 100%;
   }
-  @media (min-width: 576px) {
-    .container {
-      padding-right: 1.5rem;
-      padding-left: 1.5rem;
-    }
+  .header__nav-list {
+    display: flex;
+    position: absolute;
+    height: 100%;
+    left: 50%;
+    top: 50%; 
+    transform: translate(-50%, -50%);
+    list-style-type: none;
+    margin: 0;
   }
-  @media (min-width: 992px) {
-    .container {
-      max-width: 960px;
-    }
+  .header__nav-list li {
+    display: flex;
+    padding: 0 2rem;
+    height: 100%;
   }
-  @media (min-width: 1200px) {
-    .container {
-      max-width: 1140px;
-    }
-  }  
+  .header__nav-list li.header__border-right {
+    border-right: solid 1px #fff;
+  }
+  .header__user-login-list {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  .header__nav-list button {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.125rem; /* 18px */
+    font-weight: 400; /* regular */
+    color: #fff;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+  }
+  .header__user-login-list button {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.125rem; /* 18px */
+    font-weight: 400; /* regular */
+    color: #fff;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+  }
+  .header__cart-icon {
+    width: 18px;
+    top: 4px;
+position: relative;
+  }
+
+
+  
