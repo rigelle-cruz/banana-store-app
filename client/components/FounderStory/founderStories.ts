@@ -1,9 +1,10 @@
 export const founderStories = [
   {
     name: 'Adam',
-    title: '',
-    description: '',
-    favouriteBanana: '',
+    title: 'Banana Product Designer',
+    description:
+      "Adam's profound adoration for bananas emanates from an inherent recognition of their wholesome attributes and versatile characteristics. Driven by an unwavering passion for the fruit, Adam is compelled to lend expertise and unwavering dedication to a banana company, with a resolute mission to champion the delight, nutritional advantages, and culinary potential that bananas bestow upon individuals across the globe.",
+    favouriteBanana: 'Red Banana',
     image: 'adam.jpg',
   },
   {

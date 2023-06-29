@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import FounderStory from '../../components/FounderStory/FounderStory'
 
 function About() {
@@ -6,7 +7,7 @@ function About() {
       <div>
         <div>
           <h3>Company Origin</h3>
-          <span>We're all a bit bananas!</span>
+          <h4>We're all a bit bananas!</h4>
           <p>
             In a peculiar twist of fate, a man from Egypt known for his penchant
             for donning a vibrant red jacket and stylish Sony headphones became
@@ -22,11 +23,12 @@ function About() {
           </p>
         </div>
         <div>
-          {/* add image here */} <img></img>
+          <img src="company-image.jpg" alt="company" />
         </div>
       </div>
 
       <div>
+        <h3></h3>
         <FounderStory />
       </div>
     </>
