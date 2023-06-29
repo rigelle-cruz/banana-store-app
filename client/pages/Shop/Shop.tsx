@@ -9,7 +9,7 @@ interface Products {
   id: number
   name: string
   price: number
-  img_src: string
+  imgSrc: string
 }
 
 
@@ -18,14 +18,27 @@ function Shop () {
     return await getAllProductsApi()
   })
 
-  const products : Products = data
+  //Check if data is undefined.
+  if (data === undefined) {
+    return (
+      <p>Error getting data!</p>
+    )
+  }
 
-console.log(data)
+const products : Products[] = data
+
   return (
     <>
       <h1>Shop.</h1>
       {
-        data?.map()
+       products.map(product => (
+        <div key = {product.name}>
+          <img src={product.imgSrc} style={{maxWidth : '400px'}} alt="" />
+          <p style={{color : 'white'}}>{product.name}</p>
+          <p style={{color : 'white'}}>${product.price}</p>
+          </div>
+       )
+       )
       }
       
     </>
