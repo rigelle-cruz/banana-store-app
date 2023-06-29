@@ -5,13 +5,13 @@ import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
 
 
-function Product () {
+function ErrorPage () {
 
   return (
     <>
-      <p>On Product page</p>
+      <p>On the Error Page</p>
     </>
   )
 }
 
-export default Product
+export default ErrorPage
