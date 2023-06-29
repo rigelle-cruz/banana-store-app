@@ -33,21 +33,19 @@ function Shop() {
       {!isLoading && data && (
         <>
           <h1>Shop.</h1>
-          {!isLoading &&
-            products &&
-            products.map((product) => (
-              <div key={product.name}>
-                <Link to={`/shop/${product.id}`}>
-                  <img
-                    src={product.imgSrc}
-                    style={{ maxWidth: '400px' }}
-                    alt=""
-                  />
-                  <p style={{ color: 'white' }}>{product.name}</p>
-                </Link>
-                <p style={{ color: 'white' }}>${product.price}</p>
-              </div>
-            ))}
+          {products.map((product) => (
+            <div key={product.name}>
+              <Link to={`/shop/${product.id}`}>
+                <img
+                  src={product.imgSrc}
+                  style={{ maxWidth: '400px' }}
+                  alt=""
+                />
+                <p style={{ color: 'white' }}>{product.name}</p>
+              </Link>
+              <p style={{ color: 'white' }}>${product.price}</p>
+            </div>
+          ))}
         </>
       )}
     </>
