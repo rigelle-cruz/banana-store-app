@@ -21,9 +21,11 @@ function About() {
             camaraderie.
           </p>
         </div>
-
-        <img></img>
+        <div>
+          {/* add image here */} <img></img>
+        </div>
       </div>
+
       <div>
         <FounderStory />
       </div>
