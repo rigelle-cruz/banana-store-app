@@ -2,14 +2,6 @@
 	 Base Styles
 	 ========================================================================== */ 
 
-   *,
-   *::before,
-   *::after {
-	 box-sizing: border-box;
-   }
-  figure {
-    margin: 0;
-  }
   .clearfix::after {
     content: "";
     display: table;
@@ -139,31 +131,7 @@
     }
   }
 
-  /* ==========================================================================
-	 Grid System
-	 ========================================================================== */  
 
-  .container {
-    position: relative;
-    max-width: 100%;
-    margin-right: auto;
-    margin-left: auto;
-    padding-right: 1rem;
-    padding-left: 1rem;
-  }
-  @media (min-width: 576px) {
-    .container {
-      padding-right: 1.5rem;
-      padding-left: 1.5rem;
-    }
-  }
-  @media (min-width: 992px) {
-    .container {
-      max-width: 960px;
-    }
-  }
-  @media (min-width: 1200px) {
-    .container {
-      max-width: 1140px;
-    }
-  }  
+
+
+  
