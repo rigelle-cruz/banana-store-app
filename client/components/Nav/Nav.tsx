@@ -37,7 +37,7 @@ function Nav() {
           <button onClick={() => goTo('/shop')}>shop</button>
         </li>
         <li>
-          <button onClick={() => goTo('/cart')}>CART ICON</button>
+          <button onClick={() => goTo('/cart')}>CART ICON <img src="" alt="" /></button>
         </li>
 
         {!isAuthenticated && (

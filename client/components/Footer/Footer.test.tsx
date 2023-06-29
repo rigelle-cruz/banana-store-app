@@ -1,12 +1,10 @@
 // @vitest-environment jsdom
-import { describe, expect, it, vi } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { describe, expect, it } from 'vitest'
 import userEvent from '@testing-library/user-event'
 import Footer from './Footer'
 import { renderComponent } from '../../test-utils'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from 'react-query'
-import { waitFor } from '@testing-library/dom'
 
 const user = userEvent.setup()
 
@@ -28,6 +26,8 @@ describe('Footer Links', () => {
     expect(links[2]).toHaveTextContent('shop')
     expect(links[3]).toHaveTextContent('contact')
   })
+
+  // --- NEED TO COMPLETE TEST TO CHECK IF LINKS ARE WORKING --- //
 
   // it('should take the user to the correct route when clicking on a Link component', async () => {
   //   const { getByRole } = renderComponent(
