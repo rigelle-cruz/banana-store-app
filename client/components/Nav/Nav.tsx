@@ -22,37 +22,45 @@ function Nav() {
   }
 
   return (
-    <nav>
-      <ul>
-        <li>
-          <button onClick={() => goTo('/')}>home</button>
-        </li>
-        <li>
-          <button onClick={() => goTo('/about')}>about</button>
-        </li>
-        <li>
-          <button onClick={() => goTo('/contact')}>contact</button>
-        </li>
-        <li>
-          <button onClick={() => goTo('/shop')}>shop</button>
-        </li>
-        <li>
-          <button onClick={() => goTo('/cart')}>CART ICON <img src="" alt="" /></button>
-        </li>
-
-        {!isAuthenticated && (
-          <li>
-            <button onClick={handleLogin}>login</button>
+    <header className="header">
+      <nav className="header__nav">
+        <ul className="header__nav-list">
+          <li className="header__border-right">
+            <button onClick={() => goTo('/')}>home</button>
           </li>
-        )}
-
-        {isAuthenticated && (
           <li>
-            <button onClick={handleLogout}>logout</button>
+            <button onClick={() => goTo('/about')}>about</button>
           </li>
-        )}
-      </ul>
-    </nav>
+          <li className="header__border-right">
+            <button onClick={() => goTo('/contact')}>contact</button>
+          </li>
+          <li>
+            <button onClick={() => goTo('/shop')}>shop</button>
+          </li>
+        </ul>
+        <ul className="header__user-login-list">
+          {!isAuthenticated && (
+            <li>
+              <button onClick={handleLogin}>log in</button>
+            </li>
+          )}
+          {isAuthenticated && (
+            <li>
+              <button onClick={handleLogout}>log out</button>
+            </li>
+          )}
+          <li>
+            <button onClick={() => goTo('/cart')}>
+              <img
+                className="header__cart-icon"
+                src="images/icon-cart.svg"
+                alt=""
+              />
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
   )
 }
 
