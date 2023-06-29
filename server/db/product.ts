@@ -1,4 +1,5 @@
 import connection from './connection'
+import { Products } from './shop'
 
 export function getProductById(id: number, db = connection) {
   return db('products')
@@ -15,5 +16,5 @@ export function getProductById(id: number, db = connection) {
       'origin',
       'random_fact as randomFact'
     )
-    .first()
+    .first() as Promise<Products>
 }
