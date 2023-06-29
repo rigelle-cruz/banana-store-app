@@ -15,7 +15,6 @@ function Shop () {
 console.log(data)
   return (
     <>
-    
       <p>On Shop page</p>
     </>
   )

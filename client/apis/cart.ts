@@ -4,7 +4,7 @@ import { fakeCart } from './fakeData'
 const baseUrl = '/api/v1/cart'
 
 
-export async function getCart(userId : number) {
+export async function getCartApi(userId : number) {
   // const response = await request.get(`${baseUrl}/${id}`)
   // return response.body as any
 
