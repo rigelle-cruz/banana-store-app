@@ -15,10 +15,10 @@ describe('GET /api/v1/shop', () => {
   const mockedProduct = [
     {
       id: 1,
-      name: 'cavandish',
+      name: 'cavendish',
       price: 10,
       description: 'wow its yellow',
-      img_src: 'cavandish.png',
+      img_src: 'cavendish.png',
     },
   ] as unknown as db.Product[]
 
@@ -29,9 +29,9 @@ describe('GET /api/v1/shop', () => {
     const products = response.body.products
 
     expect(products[0].id).toBe(1)
-    expect(products[0].name).toBe('cavandish')
+    expect(products[0].name).toBe('cavendish')
     expect(products[0].price).toBe(10)
     expect(products[0].description).toBe('wow its yellow')
-    expect(products[0].img_src).toBe('cavandish.png')
+    expect(products[0].img_src).toBe('cavendish.png')
   })
 })
