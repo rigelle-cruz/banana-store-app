@@ -7,7 +7,11 @@ import * as product from './db/product'
 
 const server = express()
 
-//SHOP GET ROUTE
+server.use(express.json())
+server.use(express.static(join(__dirname, './public')))
+server.use(cors('*' as CorsOptions))
+
+//SHOP GET ROUTE - ALL PRODUCTS
 server.get('/api/v1/shop', async (req, res) => {
   try {
     const products = await shop.getAllProducts()
@@ -19,7 +23,7 @@ server.get('/api/v1/shop', async (req, res) => {
   }
 })
 
-//PRODUCT GET ROUTE
+//PRODUCT GET ROUTE - PRODUCT BY ID
 server.get('/api/v1/shop/:id', async (req, res) => {
   try {
     const id = Number(req.params.id)
@@ -31,9 +35,5 @@ server.get('/api/v1/shop/:id', async (req, res) => {
     }
   }
 })
-
-server.use(express.json())
-server.use(express.static(join(__dirname, './public')))
-server.use(cors('*' as CorsOptions))
 
 export default server
