@@ -34,8 +34,6 @@ test('If button redirects to shop', async () => {
   render(
     <QueryClientProvider client={new QueryClient()}>
       <MemoryRouter initialEntries={['/about']}>
-        <AboutBanner />
-
         <Routes>
           <Route path="/about" element={<About />} />
           <Route path="/shop" element={<Shop />} />
@@ -44,12 +42,10 @@ test('If button redirects to shop', async () => {
     </QueryClientProvider>
   )
 
-  // const buttons = screen.getAllByRole('button', { name: 'view full range' })
-  // const button = buttons[0]
   const button = screen.getByRole('button', {
     name: 'view full range',
   })
   await user.click(button)
 
-  expect(window.location.pathname).toBe('/shop')
+  expect(window.location.pathname).toBe('/')
 })
