@@ -128,10 +128,10 @@ export const fakeProducts = [
     imgSrc: 'cavendish.jpg',
     calorieCount: 110,
     weight: 130,
-    taste_profile:
+    tasteProfile:
       'The Mysore banana offers a delightful taste profile.  The taste is often described as mild and delicate, with a gentle sweetness that is not overly intense. The flesh of the Mysore banana is soft and smooth, providing a pleasant texture as you bite into it. Its flavor profile makes it a popular choice for those who prefer a milder and more nuanced taste in their bananas.',
     origin: 'India',
-    random_fact:
+    randomFact:
       'The Mysore banana is highly regarded for its nutritional value and health benefits. It is rich in essential vitamins and minerals, including vitamin C, vitamin B6, potassium, and dietary fiber. Additionally, the Mysore banana is known for its high resistant starch content, which is a type of starch that is not fully digested in the small intestine. This makes it a valuable source of slow-release energy and can contribute to better blood sugar control.',
   },
   {
@@ -140,13 +140,13 @@ export const fakeProducts = [
     price: 1,
     description:
       'The Gros Michel banana, also known as "Big Mike," is a banana variety that gained popularity in the early 20th century. It features a thick, firm peel that turns from green to bright yellow when fully ripe. The Gros Michel banana is larger in size compared to many modern banana varieties.',
-    img_src: 'cavendish.jpg',
-    calorie_count: 110,
+    imgSrc: 'cavendish.jpg',
+    calorieCount: 110,
     weight: 135,
-    taste_profile:
+    tasteProfile:
       'The Gros Michel banana offers a delightful taste profile. It has a sweet and rich flavor with a creamy and smooth texture. The taste of the Gros Michel banana is often described as more robust and intense compared to other common banana varieties.',
     origin: 'Southeast Asia',
-    random_fact:
+    randomFact:
       'The Gros Michel banana has become less commercially available due to its vulnerability to Panama disease, a destructive fungal infection that led to its replacement by the more disease-resistant Cavendish banana in the mid-20th century.',
   },
   {
@@ -155,13 +155,13 @@ export const fakeProducts = [
     price: 1,
     description:
       'The Pisang Raja banana, also known as the King banana or Musa Belle banana, is a popular banana variety known for its distinct flavor and appearance. It is larger than the average banana, with a length of about 6 to 8 inches (15 to 20 centimeters). The Pisang Raja banana has a bright yellow peel that develops brown speckles as it ripens.',
-    img_src: 'cavendish.jpg',
-    calorie_count: 115,
+    imgSrc: 'cavendish.jpg',
+    calorieCount: 115,
     weight: 170,
-    taste_profile:
+    tasteProfile:
       'The Pisang Raja banana offers a delicious taste profile. It has a rich, sweet flavor with hints of honey and caramel. The taste is often described as exceptionally creamy and smooth, providing a delightful indulgence for banana enthusiasts.',
     origin: 'Southeast Asia',
-    random_fact:
+    randomFact:
       'It is often referred to as the "King banana" due to its regal appearance and superior taste. The name "Raja" in Malay means "King," and it reflects the high regard and esteem in which this banana variety is held. It is often considered a special treat among banana connoisseurs and is highly sought after for its unique characteristics.',
   },
   {
@@ -170,33 +170,33 @@ export const fakeProducts = [
     price: 1,
     description:
       'The Rhino Horn banana, also known as the Rhino Horn Plantain or Cocos Banana, is a distinctive and visually striking banana variety. It gets its name from the unique shape of its fruits, which resemble the horn of a rhinoceros. The Rhino Horn banana is larger than the average banana, with a length of about 8 to 10 inches (20 to 25 centimeters). It has a thick and tough peel that turns from green to yellow as it ripens. ',
-    img_src: 'cavendish.jpg',
-    calorie_count: 140,
+    imgSrc: 'cavendish.jpg',
+    calorieCount: 140,
     weight: 170,
-    taste_profile:
+    tasteProfile:
       'The Rhino Horn banana offers a unique taste profile. It has a mild and slightly sweet flavor, with a hint of tartness. Its taste is often described as less sweet compared to traditional dessert bananas, with a subtle tanginess that adds depth to its flavor. Its distinct taste makes it a favorite choice for those looking for a banana variety with a slightly different flavor profile.',
     origin: 'Southeast Asia',
-    random_fact:
+    randomFact:
       'The Rhino Horn banana is often used for cooking due to its firm texture and starchy nature. It is commonly used in various traditional dishes, especially in African and Caribbean cuisines.',
   }
 ]
 
 
 export const fakeCart = [
-  { id: 1, user_id: 1, product_id: 1, quantity: 1 },
-  { id: 2, user_id: 1, product_id: 2, quantity: 3 },
-  { id: 3, user_id: 2, product_id: 4, quantity: 4 },
-  { id: 4, user_id: 2, product_id: 6, quantity: 2 },
-  { id: 5, user_id: 2, product_id: 9, quantity: 1 },
-  { id: 6, user_id: 4, product_id: 1, quantity: 1 },
-  { id: 7, user_id: 4, product_id: 5, quantity: 7 },
-  { id: 8, user_id: 4, product_id: 9, quantity: 1 },
-  { id: 9, user_id: 3, product_id: 12, quantity: 14 }
+  { id: 1, userId: 1, productId: 1, quantity: 1 },
+  { id: 2, userId: 1, productId: 2, quantity: 3 },
+  { id: 3, userId: 2, productId: 4, quantity: 4 },
+  { id: 4, userId: 2, productId: 6, quantity: 2 },
+  { id: 5, userId: 2, productId: 9, quantity: 1 },
+  { id: 6, userId: 4, productId: 1, quantity: 1 },
+  { id: 7, userId: 4, productId: 5, quantity: 7 },
+  { id: 8, userId: 4, productId: 9, quantity: 1 },
+  { id: 9, userId: 3, productId: 12, quantity: 14 }
 ]
 
 export const fakeUsers = [
-  { id: 1, first_name: 'quinn', last_name: 'gibson', auth0_id: 'a0' },
-  { id: 2, first_name: 'daniel', last_name: 'grabczewski', auth0_id: 'a0' },
-  { id: 3, first_name: 'leroy', last_name: 'brown', auth0_id: 'a0' },
-  { id: 4, first_name: 'adam', last_name: 'crowley', auth0_id: 'a0' },
+  { id: 1, firstName: 'quinn', lastName: 'gibson', auth0Id: 'a0' },
+  { id: 2, firstName: 'daniel', lastName: 'grabczewski', auth0Id: 'a0' },
+  { id: 3, firstName: 'leroy', lastName: 'brown', auth0Id: 'a0' },
+  { id: 4, firstName: 'adam', lastName: 'crowley', auth0Id: 'a0' },
 ]
