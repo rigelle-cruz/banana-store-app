@@ -6,6 +6,7 @@ import * as shop from './db/shop'
 
 const server = express()
 
+//SHOP GET ROUTE
 server.get('/api/v1/shop', async (req, res) => {
   try {
     const products = await shop.getAllProducts()
