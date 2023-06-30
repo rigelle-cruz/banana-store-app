@@ -1,4 +1,4 @@
-export const fakeProducts = [
+export const fakeProductsForShopPage = [
   {
     id: 1,
     name: 'Cavendish',
@@ -72,6 +72,7 @@ export const fakeProducts = [
     imgSrc: 'cavendish.jpg',
   },
 ];
+
 
 
 
