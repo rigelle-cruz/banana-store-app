@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import Banner from '../../components/Banners/AboutBanner'
+import AboutBanner from '../../components/Banners/AboutBanner'
 import FounderStory from '../../components/FounderStory/FounderStory'
 
 function About() {
