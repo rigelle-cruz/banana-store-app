@@ -1,15 +1,76 @@
 /* ==========================================================================
 	 Base Styles
 	 ========================================================================== */ 
-
+   :root {
+    --white: #fff;
+    --light-grey: #eee;
+    --grey: #ccc;
+    --dark-grey: #848484;
+    --black: #4d4d4d;
+  } 
   .clearfix::after {
     content: "";
     display: table;
     clear: both;
   }
+  img {
+    max-width: 100%;
+  }
+  .color-white {
+    color: var(--white);
+  }
+  .border-white {
+    border-color: var(--white);
+  }
+  
+  button {
+    background-color: transparent;
+    outline: 0;
+    padding: 10px 20px 13px;
+    border: solid 1px var(--black);
+    font-family: 'Lato', sans-serif;
+    font-size: 0.875rem; /* 14px */
+    font-weight: 400; /* regular */
+    display: flex;
+    align-items: center;
+  }
+
+  /* ==========================================================================
+	 Layout
+	 ========================================================================== */
+
   .display-flex {
     display: flex;
   }
+  @media (min-width: 768px) {
+    .col-full-bleed {
+      margin-left: -15px;
+      margin-right: -15px;
+      padding-right: 0;
+    }
+  }
+  @media (min-width: 768px) {
+    .col-constrain {
+      width: 354px;
+    }
+  }
+  @media (min-width: 992px) {
+    .col-constrain {
+      width: 466px;
+    }
+  }
+  @media (min-width: 1200px) {
+    .col-constrain {
+      width: 570px;
+    }
+  }
+
+  .col-vertical-center {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
 
   /* ==========================================================================
 	 Typography
@@ -18,8 +79,8 @@
    body {
     font-family: 'Lato', sans-serif;
     margin: 0;
-    color: #fff;
-    background-color: #0A1931;
+    color: var(--black);
+    background-color: var(--white);
     font-size: 1em; /* 16px */
     line-height: 1.4;
     -webkit-font-smoothing: antialiased;
@@ -33,6 +94,7 @@
     font-family: 'Playfair Display', serif;
     font-weight: 400; /* Regular */
     font-size: 3rem; /* 48px */
+    border-bottom: solid 2px var(--black);
   }
   h2 {
     font-family: 'Playfair Display', serif;
@@ -75,7 +137,7 @@
     font-weight: 300; /* light */
     font-size: 0.875rem; /* 14px */
     margin: 1em auto 1em;
-    color: #4d4d4d;
+    color: var(--black)
   }
   @media (min-width: 576px) {
     p {
@@ -87,6 +149,12 @@
       font-size: 1.125rem; /* 18px */
     }
   }
+  p.subtitle {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400; /* Regular */
+    font-size: 1.125rem; /* 18px */
+
+  }
   ul {
     padding: 0 2em;
     margin: 1em auto;
@@ -95,7 +163,7 @@
     font-family: 'Lato', sans-serif;
     font-weight: 300; /* light */
     font-size: 0.875rem; /* 14px */
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--black);
   }
   @media (min-width: 576px) {
     li {
@@ -110,19 +178,19 @@
   a {
     font-family: 'Lato', sans-serif;
     font-weight: 400; /* regular */
-    color: #4d4d4d;
+    color: var(--black);
     text-decoration: none;
     transition: color 0.2s;
   }
   a:hover {
-    color: #fff;
+    color: var(--white);
   }
   strong {
     font-weight: 700;
-    color: #fff;
+    color: var(--white);
   }
   hr {
-    border: solid 1px rgba(255, 255, 255, 0.6);
+    border: solid 1px var(--black);
     margin: 1.5em 0 1.5em;
   }
   @media (min-width: 768px) {
@@ -136,6 +204,8 @@
 	 ========================================================================== */  
 
   .header {
+    position: relative;
+    z-index: 1;
     height: 40px;
     padding: 0 1.5rem;
     margin-top: 1.5rem;
@@ -162,7 +232,8 @@
     height: 100%;
   }
   .header__nav-list li.header__border-right {
-    border-right: solid 1px #fff;
+    border-right-width: 1px;
+    border-right-style: solid;
   }
   .header__user-login-list {
     display: flex;
@@ -172,31 +243,91 @@
     padding: 0;
     height: 100%;
   }
-  .header__nav-list button {
-    font-family: 'Lato', sans-serif;
-    font-size: 1.125rem; /* 18px */
-    font-weight: 400; /* regular */
-    color: #fff;
-    background-color: transparent;
-    border: 0;
-    outline: 0;
-    cursor: pointer;
+  .header__user-login-list li {
+    display: flex;
+    padding-left: 1rem;
+    height: 100%;
   }
   .header__user-login-list button {
     font-family: 'Lato', sans-serif;
     font-size: 1.125rem; /* 18px */
     font-weight: 400; /* regular */
-    color: #fff;
     background-color: transparent;
     border: 0;
     outline: 0;
+    padding: 0;
+    cursor: pointer;
+  }
+  .header__nav-list button {
+    display: block;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.125rem; /* 18px */
+    font-weight: 400; /* regular */
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    padding: 0;
     cursor: pointer;
   }
   .header__cart-icon {
     width: 18px;
-    top: 4px;
+    top: 2px;
 position: relative;
   }
 
-
+/* ==========================================================================
+	 Footer
+	 ========================================================================== */
   
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-top: solid 1px var(--light-grey)
+}
+.footer__copyright {
+  font-family: 'Lato', sans-serif;
+    font-size: 0.875rem; /* 14px */
+    font-weight: 400; /* regular */
+  color: var(--black);
+  margin: 0;
+}
+.footer__list {
+  display: flex;
+  padding: 0;
+margin: 0;
+  list-style-type: none;
+}
+.footer__list li {
+  display: flex;
+  padding: 0 0 0 2rem;
+  height: 100%;
+}
+.footer__list a {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.875rem; /* 14px */
+    font-weight: 400; /* regular */
+  color: var(--black);
+}
+.footer__list button {
+  font-family: 'Lato', sans-serif;
+  display: block;
+  font-size: 0.875rem; /* 14px */
+    font-weight: 400; /* regular */
+    color: var(--black);
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+	 About page
+	 ========================================================================== */
+
+.about-banner {
+  margin-top: -64px;
+}
+.about-banner__subtitle {
+  margin-bottom: 7rem;
+}
