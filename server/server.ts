@@ -17,7 +17,7 @@ server.use(cors('*' as CorsOptions))
 server.get('/api/v1/shop', async (req, res) => {
   try {
     const products = await shop.getAllProducts()
-    res.json({ products })
+    res.json(products)
   } catch (error) {
     if (error instanceof Error) {
       res.status(500).json({ error: error.message })

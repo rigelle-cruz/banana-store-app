@@ -2,10 +2,14 @@ import { founderStories } from './founderStories'
 
 function FounderStory() {
   return (
-    <div>
+    <div className="row">
       {founderStories.map((founder, index) => (
-        <div key={index}>
-          <img src={founder.image} alt={founder.name} />
+        <div className="about-stories__container col-12 col-sm-6" key={index}>
+          <img
+            className="about-stories__img"
+            src={founder.image}
+            alt={founder.name}
+          />
           <h5>{founder.name}</h5>
           <h6>{founder.title}</h6>
           <p>{founder.description}</p>

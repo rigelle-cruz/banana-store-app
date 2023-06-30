@@ -3,11 +3,12 @@ import { useQuery } from 'react-query'
 import { getAllProductsApi } from '../../apis/shop'
 import { ShopProduct } from '../../../models/shop'
 
-
 function Shop() {
   const { isLoading, data } = useQuery('getProducts', async () => {
     return await getAllProductsApi()
   })
+
+
 
   //Check if data is undefined.
   if (isLoading) {
@@ -22,9 +23,9 @@ function Shop() {
 
   return (
     <>
+      <h1>shop.</h1>
       {!isLoading && data && (
         <>
-          <h1>shop.</h1>
           {products.map((product) => (
             <div key={product.name}>
               <Link to={`/shop/${product.id}`}>
@@ -33,9 +34,9 @@ function Shop() {
                   style={{ maxWidth: '400px' }}
                   alt=""
                 />
-                <p >{product.name}</p>
+                <p>{product.name}</p>
               </Link>
-              <p >${product.price}</p>
+              <p>${product.price}</p>
             </div>
           ))}
         </>

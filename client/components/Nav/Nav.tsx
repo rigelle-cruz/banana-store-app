@@ -57,7 +57,7 @@ function Nav() {
             <button onClick={() => goTo('/cart')}>
               <img
                 className="header__cart-icon"
-                src="images/icon-cart.svg"
+                src="/images/icon-cart.svg"
                 alt=""
               />
             </button>
