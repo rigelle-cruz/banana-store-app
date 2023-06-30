@@ -8,6 +8,8 @@ function Shop() {
     return await getAllProductsApi()
   })
 
+
+
   //Check if data is undefined.
   if (isLoading) {
     return <p>Loading...</p>
