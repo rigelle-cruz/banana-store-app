@@ -52,6 +52,21 @@ server.get('/api/v1/cart/:id', async (req, res) => {
   }
 })
 
+//CART POST ROUTE - ADD TO CART BY ID
+server.post('/api/v1/cart', async (req, res) => {
+  try {
+    const newItem = req.body
+
+    await cart.addToCartById(newItem)
+
+    res.sendStatus(200)
+  } catch (error) {
+    if (error instanceof Error) {
+      res.status(500).json({ error: error.message })
+    }
+  }
+})
+
 //HOME GET ROUTE - FEATURED BY ID
 server.post('/api/v1/home', async (req, res) => {
   try {
