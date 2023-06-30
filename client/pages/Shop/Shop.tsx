@@ -4,13 +4,8 @@ import { useMutation } from 'react-query'
 import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
 import { getAllProductsApi } from '../../apis/shop'
+import { ShopProduct } from '../../../models/shop'
 
-interface Products {
-  id: number
-  name: string
-  price: number
-  imgSrc: string
-}
 
 function Shop() {
   const { isLoading, data } = useQuery('getProducts', async () => {
@@ -26,7 +21,7 @@ function Shop() {
     return <p>Error loading data!</p>
   }
 
-  const products: Products[] = data
+  const products: ShopProduct[] = data
 
   return (
     <>
