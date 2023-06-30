@@ -8,9 +8,18 @@ import { getProductByIdApi } from '../../apis/shop'
 
 
 function Product () {
+  
+  const params = useParams()
+  const id = Number(params.id)
   const { isLoading, data } = useQuery('getSongs', async () => {
-    return await getProductByIdApi(2)
+    if (id === undefined) {
+      return (
+        <div>Error with parameter!</div>
+      )
+    }
+    return await getProductByIdApi(id)
   })
+  
 
 console.log(data)
 
