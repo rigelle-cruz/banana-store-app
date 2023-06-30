@@ -6,38 +6,30 @@ import { useParams } from 'react-router-dom'
 import { getProductByIdApi } from '../../apis/shop'
 import { IndividualProduct } from '../../../models/product'
 
-
-
-function Product () {
-  
+function Product() {
   const params = useParams()
   const id = Number(params.id)
   const { isLoading, data } = useQuery('getProduct', async () => {
     if (id === undefined) {
-      return (
-        <div>Error with parameter!</div>
-      )
+      return <div>Error with parameter!</div>
     }
     return await getProductByIdApi(id)
   })
 
   if (data === undefined) {
-    return (
-      <div>Error getting product!</div>
-    )
+    return <div>Error getting product!</div>
   }
   console.log(data)
-  const product : any = data
-
-
+  const product: any = data
 
   return (
     <>
-
       <p>On Product page</p>
       <div>
         <p>{product.name}</p>
-        <div><img src={product.imgSrc} alt="" /></div>
+        <div>
+          <img src={product.imgSrc} alt="" />
+        </div>
         <div></div>
       </div>
     </>
