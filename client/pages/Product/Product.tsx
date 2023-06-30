@@ -77,7 +77,6 @@ function Product() {
       </div>
 
       <div>
-        <h2>Best sellers</h2>
         <FeaturedBanana />
       </div>
     </>
