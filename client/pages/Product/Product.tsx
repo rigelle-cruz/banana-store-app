@@ -29,7 +29,7 @@ console.log(data)
 
       <p>On Product page</p>
       <div>
-        <div><img src={data.} alt="" /></div>
+        <div><img src="" alt="" /></div>
         <div></div>
       </div>
     </>
