@@ -5,10 +5,12 @@ import server from './server'
 import * as shop from './db/shop'
 import * as product from './db/product'
 import * as cart from './db/cart'
+import * as home from './db/home'
 
 vi.mock('./db/shop')
 vi.mock('./db/product')
 vi.mock('./db/cart')
+vi.mock('./db/home')
 
 beforeEach(() => {
   vi.clearAllMocks()
@@ -135,6 +137,56 @@ describe('GET /api/v1/cart/:id', () => {
     vi.mocked(cart.getCartById).mockRejectedValue(mockedError)
 
     const response = await request(server).get('/api/v1/cart/1')
+
+    expect(response.status).toBe(500)
+    expect(response.body.error).toBe('Internal Server Error')
+  })
+})
+
+//HOME POST ROUTE SUCCESS
+describe('POST /api/v1/home', () => {
+  const mockedFeatured = [
+    {
+      id: 2,
+      name: 'Red Banana',
+      price: 1,
+      imgSrc: 'h1',
+    },
+    {
+      id: 4,
+      name: 'Lady Finger',
+      price: 1,
+      imgSrc: 'hi',
+    },
+    {
+      id: 7,
+      name: 'Goldfinger',
+      price: 1,
+      imgSrc: 'hi',
+    },
+  ] as unknown as home.Featured[]
+
+  it('responds with correct data structure and values', async () => {
+    vi.mocked(home.getFeaturedById).mockResolvedValue(mockedFeatured)
+
+    const response = await request(server).post('/api/v1/home')
+    const featuredArr = response.body
+
+    expect(featuredArr[0].id).toBe(2)
+    expect(featuredArr[0].name).toBe('Red Banana')
+    expect(featuredArr[0].price).toBe(1)
+    expect(featuredArr[0].imgSrc).toBe('h1')
+  })
+})
+
+//HOME POST ROUTE FAIL
+describe('POST /api/v1/home', () => {
+  const mockedError = new Error('Internal Server Error')
+
+  it('responds with status 500 and error message on failure', async () => {
+    vi.mocked(home.getFeaturedById).mockRejectedValue(mockedError)
+
+    const response = await request(server).post('/api/v1/home')
 
     expect(response.status).toBe(500)
     expect(response.body.error).toBe('Internal Server Error')

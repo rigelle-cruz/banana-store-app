@@ -5,6 +5,7 @@ import cors, { CorsOptions } from 'cors'
 import * as shop from './db/shop'
 import * as product from './db/product'
 import * as cart from './db/cart'
+import * as home from './db/home'
 
 const server = express()
 
@@ -44,6 +45,20 @@ server.get('/api/v1/cart/:id', async (req, res) => {
     const targetCart = await cart.getCartById(id)
 
     res.json(targetCart)
+  } catch (error) {
+    if (error instanceof Error) {
+      res.status(500).json({ error: error.message })
+    }
+  }
+})
+
+//HOME GET ROUTE - FEATURED BY ID
+server.post('/api/v1/home', async (req, res) => {
+  try {
+    const featuredArr = req.body
+    const targetProducts = await home.getFeaturedById(featuredArr)
+
+    res.json(targetProducts)
   } catch (error) {
     if (error instanceof Error) {
       res.status(500).json({ error: error.message })
