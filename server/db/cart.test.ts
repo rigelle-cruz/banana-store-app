@@ -36,19 +36,6 @@ describe('getCartById', () => {
 })
 
 describe('addToCartById', () => {
-  it('should insert', async () => {
-    const cart = await db.getCartById(1, testDb)
-
-    expect(cart[0].name).toBe('Cavendish')
-  })
-  it('first product has correct quantity', async () => {
-    const cart = await db.getCartById(1, testDb)
-
-    expect(cart[0].quantity).toBe(1)
-  })
-})
-
-describe('addToCartById', () => {
   it('adds an item to cart', async () => {
     const test = {
       userId: 2,
