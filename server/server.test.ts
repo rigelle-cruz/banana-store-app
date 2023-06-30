@@ -4,10 +4,11 @@ import request from 'supertest'
 import server from './server'
 import * as shop from './db/shop'
 import * as product from './db/product'
-import connection from './db/connection'
+import * as cart from './db/cart'
 
 vi.mock('./db/shop')
 vi.mock('./db/product')
+vi.mock('./db/cart')
 
 beforeEach(() => {
   vi.clearAllMocks()
@@ -53,7 +54,7 @@ describe('GET /api/v1/shop', () => {
   })
 })
 
-//PRODUCT GET ROUTE
+//PRODUCT GET ROUTE SUCCESS
 describe('GET /api/v1/shop/:id', () => {
   it('responds with the correct banana', async () => {
     vi.mocked(product.getProductById).mockImplementation(() => {
@@ -69,7 +70,7 @@ describe('GET /api/v1/shop/:id', () => {
         origin: 'nz',
         random_fact: 'tree',
       })
-    })
+    }) as unknown as shop.Products[]
 
     const res = await request(server).get('/api/v1/shop/1')
 
@@ -87,6 +88,53 @@ describe('GET /api/v1/shop/:id', () => {
     vi.mocked(product.getProductById).mockRejectedValue(mockedError)
 
     const response = await request(server).get('/api/v1/shop/1')
+
+    expect(response.status).toBe(500)
+    expect(response.body.error).toBe('Internal Server Error')
+  })
+})
+
+//CART GET ROUTE SUCCESS
+describe('GET /api/v1/cart/:id', () => {
+  const mockedCart = [
+    {
+      id: 1,
+      name: 'cavendish',
+      price: 10,
+      quantity: 1,
+      weight: 150,
+    },
+    {
+      id: 1,
+      name: 'red banana',
+      price: 5,
+      quantity: 5,
+      weight: 120,
+    },
+  ] as unknown as cart.Cart[]
+
+  it('responds with correct data structure and values', async () => {
+    vi.mocked(cart.getCartById).mockResolvedValue(mockedCart)
+
+    const response = await request(server).get('/api/v1/cart/1')
+    const products = response.body
+
+    expect(products[0].id).toBe(1)
+    expect(products[0].name).toBe('cavendish')
+    expect(products[0].price).toBe(10)
+    expect(products[0].quantity).toBe(1)
+    expect(products[0].weight).toBe(150)
+  })
+})
+
+//CART GET ROUTE FAIL
+describe('GET /api/v1/cart/:id', () => {
+  const mockedError = new Error('Internal Server Error')
+
+  it('responds with status 500 and error message on failure', async () => {
+    vi.mocked(cart.getCartById).mockRejectedValue(mockedError)
+
+    const response = await request(server).get('/api/v1/cart/1')
 
     expect(response.status).toBe(500)
     expect(response.body.error).toBe('Internal Server Error')
