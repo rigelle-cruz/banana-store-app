@@ -4,7 +4,7 @@ export interface Products {
   id: number
   name: string
   price: number
-  img_src: string
+  imgSrc: string
 }
 
 export async function getAllProducts(db = connection) {
