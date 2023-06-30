@@ -14,7 +14,6 @@ export async function getAllProductsApi() {
 export async function getProductByIdApi(id : number) {
   // const response = await request.get(`${baseUrl}/${id}`)
   // return response.body as any
-  console.log('inside api, id = ', id)
   //MOCKED RESPONSE
   return Promise.resolve(fakeProducts.find(product => product.id === id))
 }

@@ -19,13 +19,19 @@ function Product () {
     }
     return await getProductByIdApi(id)
   })
+
   
 
 console.log(data)
 
   return (
     <>
+
       <p>On Product page</p>
+      <div>
+        <div><img src={data.} alt="" /></div>
+        <div></div>
+      </div>
     </>
   )
 }
