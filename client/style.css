@@ -14,6 +14,7 @@
     clear: both;
   }
   img {
+    display: block;
     max-width: 100%;
   }
   .color-white {
@@ -51,17 +52,17 @@
   }
   @media (min-width: 768px) {
     .col-constrain {
-      width: 354px;
+      width: 330px;
     }
   }
   @media (min-width: 992px) {
     .col-constrain {
-      width: 466px;
+      width: 450px;
     }
   }
   @media (min-width: 1200px) {
     .col-constrain {
-      width: 570px;
+      width: 540px;
     }
   }
 
@@ -69,6 +70,10 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+  }
+
+  .col-flex-end {
+    align-items: flex-end;
   }
 
 
@@ -93,19 +98,22 @@
   h1 {
     font-family: 'Playfair Display', serif;
     font-weight: 400; /* Regular */
-    font-size: 3rem; /* 48px */
+    font-size: 4.5rem; /* 72px */
+    line-height: 1;
     border-bottom: solid 2px var(--black);
+    padding-bottom: 0.2em;
   }
   h2 {
     font-family: 'Playfair Display', serif;
     font-weight: 400; /* Regular */
     font-size: 2.25rem; /* 36px */
     line-height: 1;
-    margin-bottom: 0.4em;
+    border-bottom: solid 2px var(--black);
+    padding-bottom: 0.2em;
   }
   @media (min-width: 768px) {
     h2 {
-      font-size: 3rem; /* 48px */
+      font-size: 2.25rem; /* 36px */
     }
   }
   h3 {
@@ -132,6 +140,16 @@
       font-size: 1.125rem; /* 18px */
     }
   }
+  h5 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500; /* Medium */
+    font-size: 1.5rem; /* 24px */
+  }
+  h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400; /* Regular */
+    font-size: 1rem; /* 16px */
+  }
   p {
     font-family: 'Lato', sans-serif;
     font-weight: 300; /* light */
@@ -142,11 +160,6 @@
   @media (min-width: 576px) {
     p {
       font-size: 1rem; /* 16px */
-    }
-  }
-  @media (min-width: 992px) {
-    p {
-      font-size: 1.125rem; /* 18px */
     }
   }
   p.subtitle {
@@ -300,6 +313,7 @@ margin: 0;
 }
 .footer__list li {
   display: flex;
+  align-items: center;
   padding: 0 0 0 2rem;
   height: 100%;
 }
@@ -318,6 +332,7 @@ margin: 0;
     background-color: transparent;
     border: 0;
     outline: 0;
+    padding: 0;
     cursor: pointer;
 }
 
@@ -330,4 +345,24 @@ margin: 0;
 }
 .about-banner__subtitle {
   margin-bottom: 7rem;
+}
+
+.about-stories {
+  margin: 4rem 0;
+}
+.about-stories__container {
+  margin-top: 4rem;
+}
+.about-stories h2 {
+  display: inline-block;
+}
+.about-stories__img {
+  margin-bottom: 1rem;
+}
+.about-stories h5 {
+  margin-bottom: 0.3em;
+}
+
+.about-origin h2 {
+  display: inline-block;
 }
