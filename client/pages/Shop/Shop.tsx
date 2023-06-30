@@ -1,8 +1,5 @@
-import { useAuth0 } from '@auth0/auth0-react'
-import { Link, useNavigate } from 'react-router-dom'
-import { useMutation } from 'react-query'
+import { Link } from 'react-router-dom'
 import { useQuery } from 'react-query'
-import { useParams } from 'react-router-dom'
 import { getAllProductsApi } from '../../apis/shop'
 import { ShopProduct } from '../../../models/shop'
 
@@ -27,7 +24,7 @@ function Shop() {
     <>
       {!isLoading && data && (
         <>
-          <h1>Shop.</h1>
+          <h1>shop.</h1>
           {products.map((product) => (
             <div key={product.name}>
               <Link to={`/shop/${product.id}`}>
