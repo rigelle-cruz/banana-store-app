@@ -33,18 +33,17 @@ test('Shop page fetches an array of products', async () => {
   // intercept http requests to respond with our mock data
   nock('http://localhost').get('/api/v1/shop').reply(200, shopProducts)
 
-  const { getAllByRole } = renderComponent(
+  const { findAllByRole } = renderComponent(
     <QueryClientProvider client={new QueryClient()}>
       <MemoryRouter>
         <Routes>
-          <Route path="/shop" element={<Shop />} />
+          <Route path="/" element={<Shop />} />
         </Routes>
       </MemoryRouter>
     </QueryClientProvider>
   )
 
-  const titles = getAllByRole('heading', { level: 1 })
-  console.log('LOG', titles)
+  const titles = await findAllByRole('heading', { level: 1 })
   expect(titles[0].textContent).toMatch('shop.')
 
   // const images = getAllByRole('img')
