@@ -4,12 +4,14 @@ import { useMutation } from 'react-query'
 import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
 import FeaturedBanana from '../../components/FeaturedBanana/FeaturedBanana'
+import HomeBanner from '../../components/Banners/HomeBanner'
 
 function Home() {
   return (
     <>
-      <FeaturedBanana />
+      <HomeBanner />
       <p>On Home page</p>
+      <FeaturedBanana />
     </>
   )
 }
