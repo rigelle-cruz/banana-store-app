@@ -25,11 +25,15 @@ function Nav() {
     <header className="header">
       <nav className="header__nav">
         <ul className="header__nav-list">
-          <li className="header__border-right">
-            <button onClick={() => goTo('/')}>home</button>
+          <li className="header__border-right border-white">
+            <button className="color-white" onClick={() => goTo('/')}>
+              home
+            </button>
           </li>
           <li>
-            <button onClick={() => goTo('/about')}>about</button>
+            <button className="color-white" onClick={() => goTo('/about')}>
+              about
+            </button>
           </li>
           <li className="header__border-right">
             <button onClick={() => goTo('/contact')}>contact</button>
