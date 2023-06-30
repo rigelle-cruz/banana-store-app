@@ -1,77 +1,78 @@
-export const fakeProducts = [
+export const fakeProductsForShopPage = [
   {
     id: 1,
     name: 'Cavendish',
     price: 1,
-    imgSrc: 'cavendish.jpg',
+    imgSrc: 'images/cavendish.jpg',
   },
   {
     id: 2,
     name: 'Red Banana',
     price: 1,
-    imgSrc: 'red-banana.jpg',
+    imgSrc: 'images/red-banana.jpg',
   },
   {
     id: 3,
     name: 'Blue Java',
     price: 1,
-    imgSrc: 'blue-java.jpg',
+    imgSrc: 'images/blue-java.jpg',
   },
   {
     id: 4,
     name: 'Lady Finger',
     price: 1,
-    imgSrc: 'cavendish.jpg',
+    imgSrc: 'images/cavendish.jpg',
   },
   {
     id: 5,
     name: 'Manzano',
     price: 1,
-    imgSrc: 'cavendish.jpg',
+    imgSrc: 'images/cavendish.jpg',
   },
   {
     id: 6,
     name: 'Barangan',
     price: 1,
-    imgSrc: 'cavendish.jpg',
+    imgSrc: 'images/cavendish.jpg',
   },
   {
     id: 7,
     name: 'Goldfinger',
     price: 1,
-    imgSrc: 'goldfinger.jpg',
+    imgSrc: 'images/goldfinger.jpg',
   },
   {
     id: 8,
     name: 'Praying Hands',
     price: 1,
-    imgSrc: 'cavendish.jpg',
+    imgSrc: 'images/cavendish.jpg',
   },
   {
     id: 9,
     name: 'Mysore',
     price: 1,
-    imgSrc: 'cavendish.jpg',
+    imgSrc: 'images/cavendish.jpg',
   },
   {
     id: 10,
     name: 'Gros Michel',
     price: 1,
-    imgSrc: 'cavendish.jpg',
+    imgSrc: 'images/cavendish.jpg',
   },
   {
     id: 11,
     name: 'Pisang Raja',
     price: 1,
-    imgSrc: 'cavendish.jpg',
+    imgSrc: 'images/cavendish.jpg',
   },
   {
     id: 12,
     name: 'Rhino Horn',
     price: 1,
-    imgSrc: 'cavendish.jpg',
+    imgSrc: 'images/cavendish.jpg',
   },
 ];
+
 
 
 
