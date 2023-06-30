@@ -192,3 +192,36 @@ describe('POST /api/v1/home', () => {
     expect(response.body.error).toBe('Internal Server Error')
   })
 })
+
+//CART POST ROUTE SUCCESS
+describe('POST /api/v1/cart', () => {
+  const mockedFeatured = [
+    {
+      userId: 2,
+      productId: 5,
+      quantity: 2,
+    },
+  ] as unknown as cart.newItem
+
+  it('responds with correct data structure and values', async () => {
+    vi.mocked(cart.addToCartById).mockResolvedValue(mockedFeatured)
+
+    const response = await request(server).post('/api/v1/cart')
+
+    expect(response.status).toBe(200)
+  })
+})
+
+//CART POST ROUTE FAIL
+describe('POST /api/v1/cart', () => {
+  const mockedError = new Error('Internal Server Error')
+
+  it('responds with status 500 and error message on failure', async () => {
+    vi.mocked(cart.addToCartById).mockRejectedValue(mockedError)
+
+    const response = await request(server).post('/api/v1/cart')
+
+    expect(response.status).toBe(500)
+    expect(response.body.error).toBe('Internal Server Error')
+  })
+})
