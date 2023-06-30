@@ -5,17 +5,19 @@ import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
 import { getProductByIdApi } from '../../apis/shop'
 import { IndividualProduct } from '../../../models/product'
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 import FeaturedBanana from '../../components/FeaturedBanana/FeaturedBanana'
 
 function Product() {
   const params = useParams()
   const id = Number(params.id)
   const [selectedValue, setSelectedValue] = useState<string>('')
-  const { isLoading, data } = useQuery('getProduct', async () => {
+
+  const { isLoading, data } = useQuery(['getProduct', id], async () => {
     if (id === undefined) {
       return <div>Error with parameter!</div>
     }
+    window.scrollTo(0, 0)
     return await getProductByIdApi(id)
   })
 
