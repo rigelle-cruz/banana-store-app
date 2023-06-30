@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 
-function AboutBanner() {
+function HomeBanner() {
   const navigate = useNavigate()
   function goTo(link: string) {
     navigate(link)
@@ -12,14 +12,15 @@ function AboutBanner() {
         <div className="row">
           <div className="col col-md-6">
             <div className="col-full-bleed">
-              <img src="images/about-hero.jpg" alt="team"></img>
+              <img src="images/leaningbanana.png" alt="team"></img>
             </div>
           </div>
           <div className="col col-md-6 col-vertical-center">
             <div className="col-constrain">
-              <h1>Meet Our Team.</h1>
+              <img src="images/logo.png" alt="logo"></img>
+              <h1>Bnana.</h1>
               <p className="subtitle about-banner__subtitle">
-                Bananas are awesome and so is our team!
+                Take a tropical journey with our luscious tropical bananas.
               </p>
               <button onClick={() => goTo('/shop')}>view full range</button>
             </div>
@@ -30,4 +31,4 @@ function AboutBanner() {
   )
 }
 
-export default AboutBanner
+export default HomeBanner

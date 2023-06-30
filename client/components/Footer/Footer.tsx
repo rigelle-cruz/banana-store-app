@@ -17,8 +17,11 @@ function Footer() {
   }
 
   return (
-    <footer>
-      <ul>
+    <footer className="footer">
+      <p className="footer__copyright">
+        © BNana Corp Ltd {new Date().getFullYear()}
+      </p>
+      <ul className="footer__list">
         <li>
           <Link to="/">home</Link>
         </li>
@@ -34,13 +37,13 @@ function Footer() {
 
         {!isAuthenticated && (
           <li>
-            <button onClick={handleLogin}>login</button>
+            <button onClick={handleLogin}>log in</button>
           </li>
         )}
 
         {isAuthenticated && (
           <li>
-            <button onClick={handleLogout}>logout</button>
+            <button onClick={handleLogout}>log out</button>
           </li>
         )}
       </ul>

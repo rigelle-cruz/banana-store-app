@@ -1,5 +1,8 @@
 import request from 'superagent'
-import { fakeProducts } from './fakeData'
+import { fakeProductsForShopPage } from './fakeData'
+import { IndividualProduct } from '../../models/product'
+
+
 
 const baseUrl = '/api/v1/shop'
 
@@ -8,15 +11,14 @@ export async function getAllProductsApi() {
   // return response.body as any
 
   //MOCKED RESPONSE
-  return Promise.resolve(fakeProducts)
+  return Promise.resolve(fakeProductsForShopPage)
 }
 
 export async function getProductByIdApi(id : number) {
-  // const response = await request.get(`${baseUrl}/${id}`)
-  // return response.body as any
-  console.log('inside api, id = ', id)
+  const response = await request.get(`${baseUrl}/${id}`)
+  return response.body as IndividualProduct
   //MOCKED RESPONSE
-  return Promise.resolve(fakeProducts.find(product => product.id === id))
+  //return Promise.resolve(fakeProductsForShopPage.find(product => product.id === id))
 }
 
 

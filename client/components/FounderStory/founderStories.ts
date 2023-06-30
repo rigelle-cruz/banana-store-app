@@ -33,7 +33,7 @@ export const founderStories = [
   },
   {
     name: 'Leroy',
-    title: 'Banana Curator and Master of Gastronomic ',
+    title: 'Banana Curator and Master of Gastronomic',
     description:
       'Leroy embarked on an enthralling journey driven by his unquenchable curiosity for bananas. Through extensive research, hands-on experience, and a natural talent for gastronomy, Leroy honed his expertise in exploring the diverse world of bananas, their varieties, flavors, and culinary applications. His unwavering dedication to banana knowledge and ability to elevate this humble fruit captured our attention.',
     favouriteBanana: 'Goldfinger',
