@@ -33,9 +33,9 @@ function Shop() {
                   style={{ maxWidth: '400px' }}
                   alt=""
                 />
-                <p style={{ color: 'white' }}>{product.name}</p>
+                <p >{product.name}</p>
               </Link>
-              <p style={{ color: 'white' }}>${product.price}</p>
+              <p >${product.price}</p>
             </div>
           ))}
         </>
