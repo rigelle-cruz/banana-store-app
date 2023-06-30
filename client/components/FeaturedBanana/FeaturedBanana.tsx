@@ -30,7 +30,7 @@ function FeaturedBanana() {
           <h2>Best sellers</h2>
 
           {filteredProducts.map((product) => (
-            <div key={product.name}>
+            <div key={product.id}>
               <Link to={`/shop/${product.id}`}>
                 <img
                   src={product.imgSrc}

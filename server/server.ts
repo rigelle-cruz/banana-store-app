@@ -17,7 +17,7 @@ server.use(cors('*' as CorsOptions))
 server.get('/api/v1/shop', async (req, res) => {
   try {
     const products = await shop.getAllProducts()
-    res.json({ products })
+    res.json(products)
   } catch (error) {
     if (error instanceof Error) {
       res.status(500).json({ error: error.message })
@@ -45,6 +45,21 @@ server.get('/api/v1/cart/:id', async (req, res) => {
     const targetCart = await cart.getCartById(id)
 
     res.json(targetCart)
+  } catch (error) {
+    if (error instanceof Error) {
+      res.status(500).json({ error: error.message })
+    }
+  }
+})
+
+//CART POST ROUTE - ADD TO CART BY ID
+server.post('/api/v1/cart', async (req, res) => {
+  try {
+    const newItem = req.body
+
+    await cart.addToCartById(newItem)
+
+    res.sendStatus(200)
   } catch (error) {
     if (error instanceof Error) {
       res.status(500).json({ error: error.message })
