@@ -5,12 +5,12 @@ export interface Products {
   name: string
   price: number
   description: string
-  img_src: string
-  calorie_count: number
+  imgSrc: string
+  calorieCount: number
   weight: number
-  taste_profile: string
+  tasteProfile: string
   origin: string
-  random_fact: string
+  randomFact: string
 }
 
 export async function getAllProducts(db = connection) {

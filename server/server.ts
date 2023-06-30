@@ -4,6 +4,7 @@ import cors, { CorsOptions } from 'cors'
 
 import * as shop from './db/shop'
 import * as product from './db/product'
+import * as cart from './db/cart'
 
 const server = express()
 
@@ -29,6 +30,20 @@ server.get('/api/v1/shop/:id', async (req, res) => {
     const id = Number(req.params.id)
     const targetProduct = await product.getProductById(id)
     res.json(targetProduct)
+  } catch (error) {
+    if (error instanceof Error) {
+      res.status(500).json({ error: error.message })
+    }
+  }
+})
+
+//CART GET ROUTE - CART BY USER ID
+server.get('/api/v1/cart/:id', async (req, res) => {
+  try {
+    const id = Number(req.params.id)
+    const targetCart = await cart.getCartById(id)
+
+    res.json(targetCart)
   } catch (error) {
     if (error instanceof Error) {
       res.status(500).json({ error: error.message })
