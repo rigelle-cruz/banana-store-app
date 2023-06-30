@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 
-function Banner() {
+function AboutBanner() {
   const navigate = useNavigate()
   function goTo(link: string) {
     navigate(link)
@@ -30,4 +30,4 @@ function Banner() {
   )
 }
 
-export default Banner
+export default AboutBanner

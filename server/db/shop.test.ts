@@ -38,14 +38,10 @@ describe('getAllProducts', () => {
 
     expect(produce[0].price).toBe(1)
   })
-  it('gets correct product description', async () => {
+  it('gets correct image source', async () => {
     const produce = await db.getAllProducts(testDb)
 
-    expect(produce[0].calorie_count).toBe(110)
+    expect(produce[0].imgSrc).toBe('hi')
   })
-  it('gets correct product img', async () => {
-    const produce = await db.getAllProducts(testDb)
-
-    expect(produce[0].weight).toBe(150)
-  })
+ 
 })

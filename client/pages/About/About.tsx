@@ -5,7 +5,7 @@ import FounderStory from '../../components/FounderStory/FounderStory'
 function About() {
   return (
     <>
-      <Banner />
+      <AboutBanner />
       <div className="container">
         <div className="row">
           <div className="col">
