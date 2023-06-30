@@ -12,7 +12,7 @@ function Product () {
   
   const params = useParams()
   const id = Number(params.id)
-  const { isLoading, data } = useQuery('getSongs', async () => {
+  const { isLoading, data } = useQuery('getProduct', async () => {
     if (id === undefined) {
       return (
         <div>Error with parameter!</div>
@@ -26,17 +26,18 @@ function Product () {
       <div>Error getting product!</div>
     )
   }
+  console.log(data)
+  const product : any = data
 
-  const product : IndividualProduct = data
 
-console.log(data)
 
   return (
     <>
 
       <p>On Product page</p>
       <div>
-        <div><img src={data.imgSrc} alt="" /></div>
+        <p>{product.name}</p>
+        <div><img src={product.imgSrc} alt="" /></div>
         <div></div>
       </div>
     </>
