@@ -18,15 +18,18 @@ function FeaturedBanana() {
   }
 
   const products: ShopProduct[] = data
+  const productIdsToShow = [2, 3]
+  const filteredProducts = products.filter((product) =>
+    productIdsToShow.includes(product.id)
+  )
 
   return (
     <>
       {!isLoading && data && (
         <>
           <h2>Best sellers</h2>
-          
 
-          {products.map((product) => (
+          {filteredProducts.map((product) => (
             <div key={product.name}>
               <Link to={`/shop/${product.id}`}>
                 <img
@@ -34,9 +37,9 @@ function FeaturedBanana() {
                   style={{ maxWidth: '400px' }}
                   alt={product.name}
                 />
-                <p style={{ color: 'white' }}>{product.name}</p>
+                <p>{product.name}</p>
               </Link>
-              <p style={{ color: 'white' }}>${product.price}</p>
+              <p>${product.price}</p>
             </div>
           ))}
         </>
