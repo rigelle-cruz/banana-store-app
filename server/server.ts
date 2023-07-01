@@ -67,6 +67,21 @@ server.post('/api/v1/cart', async (req, res) => {
   }
 })
 
+//CART PATCH ROUTE - ADD TO CART BY ID
+server.patch('/api/v1/cart', async (req, res) => {
+  try {
+    const updateItem = req.body
+
+    await cart.updateCartItemQuantityByProductId(updateItem)
+
+    res.sendStatus(200)
+  } catch (error) {
+    if (error instanceof Error) {
+      res.status(500).json({ error: error.message })
+    }
+  }
+})
+
 //HOME GET ROUTE - FEATURED BY ID
 server.post('/api/v1/home', async (req, res) => {
   try {
