@@ -74,3 +74,14 @@ describe('updateCartItemQuantityByProductId', () => {
     expect(updateItem.quantity).toBe(test.quantity)
   })
 })
+
+describe('clearCart', () => {
+  it('clears the cart for a given user', async () => {
+    const test = 1
+
+    await db.clearCart(test, testDb)
+    const clearedCart = await testDb('cart').where('user_id', test)
+
+    expect(clearedCart).toHaveLength(0)
+  })
+})

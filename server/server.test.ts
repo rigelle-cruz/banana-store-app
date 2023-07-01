@@ -244,3 +244,19 @@ describe('POST /api/v1/cart', () => {
     expect(response.status).toBe(200)
   })
 })
+
+//CART PATCH ROUTE FAIL
+describe('POST /api/v1/cart', () => {
+  const mockedError = new Error('Internal Server Error')
+
+  it('responds with status 500 and error message on failure', async () => {
+    vi.mocked(cart.updateCartItemQuantityByProductId).mockRejectedValue(
+      mockedError
+    )
+
+    const response = await request(server).patch('/api/v1/cart')
+
+    expect(response.status).toBe(500)
+    expect(response.body.error).toBe('Internal Server Error')
+  })
+})
