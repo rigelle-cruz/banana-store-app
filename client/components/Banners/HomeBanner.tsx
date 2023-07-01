@@ -7,7 +7,7 @@ function HomeBanner() {
   }
 
   return (
-    <div className="about-banner">
+    <div className="home-banner">
       <div className="container-fluid">
         <div className="row">
           <div className="col col-md-6">
