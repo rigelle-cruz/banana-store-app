@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom'
 import { getCartApi, getCartByIdApi } from '../../apis/cart'
 import { useState } from 'react'
 import { getProductByIdApi } from '../../apis/shop'
+import { CartItem } from '../../../models/cart'
 
 function Cart() {
   const { isLoading, data } = useQuery('getCart', async () => {
@@ -25,22 +26,19 @@ function Cart() {
       }
     }
 
-
- 
-
-  console.log(data)
+const products : CartItem[] = data
 
   return (
     <>
-      { data &&
-        data.map((item) => (
+      { products &&
+        products.map((item) => (
           <div key = {item.name}>
             <div>
               <img src={item.imgSrc} style = {{maxWidth : '200px'}}alt="" />
             </div>
             <div>
               <h2>{item.name}</h2>
-              <p>{item.weight}</p>
+              <p>{item.weight * item.quantity}g</p>
             </div>
             <div>
               <p>$ {item.price * item.quantity}</p>
