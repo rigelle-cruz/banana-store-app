@@ -6,6 +6,7 @@ import { useMutation } from 'react-query'
 import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
 import {
+  clearCartApi,
   getCartByIdApi,
   updateCartItemQuantityByProductIdApi,
 } from '../../apis/cart'
@@ -47,8 +48,7 @@ function Cart() {
   }
 
   async function handleRemoveAll() {
-    console.log('Clicked on handle remove all!')
-    //ADD API THAT REMOVES ALL ITEMS IN CART
+    await clearCartApi(userId)
     refetch()
   }
 
