@@ -5,7 +5,7 @@ import { render, screen } from '@testing-library/react'
 import { cleanup } from '@testing-library/react'
 import matchers from '@testing-library/jest-dom/matchers'
 import userEvent from '@testing-library/user-event'
-import { MemoryRouter } from 'react-router-dom'
+import { MemoryRouter, Route, Routes } from 'react-router-dom'
 
 import ErrorPage from './ErrorPage'
 
@@ -38,5 +38,4 @@ test('If button redirects to root route', async () => {
   await user.click(button)
 
   expect(window.location.pathname).toBe('/')
-  // expect(screen.getByText('Banana Benefits')).toBeInTheDocument()
 })
