@@ -83,7 +83,7 @@ server.patch('/api/v1/cart', async (req, res) => {
 })
 
 //CART DELETE ROUTE - CLEAR CART
-server.delete('/api/v1/cart', async (req, res) => {
+server.delete('/api/v1/cart/all', async (req, res) => {
   try {
     const input = req.body
 
@@ -98,7 +98,7 @@ server.delete('/api/v1/cart', async (req, res) => {
 })
 
 //CART DELETE ROUTE - CLEAR ITEM
-server.delete('/api/v1/cart', async (req, res) => {
+server.delete('/api/v1/cart/single', async (req, res) => {
   try {
     const deleteItem = req.body as cart.deleteItem
 
