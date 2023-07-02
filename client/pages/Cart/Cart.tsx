@@ -3,30 +3,32 @@ import { useNavigate } from 'react-router-dom'
 import { useMutation } from 'react-query'
 import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
-import { getCartApi, getCartByIdApi } from '../../apis/cart'
+import { getCartApi, getCartByIdApi, updateCartItemQuantityByProductIdApi } from '../../apis/cart'
 import { useState } from 'react'
 import { getProductByIdApi } from '../../apis/shop'
-import { CartItem } from '../../../models/cart'
+import { CartItem, UpdatedCartItemQuantity } from '../../../models/cart'
 
 function Cart() {
-  const { isLoading, data } = useQuery('getCart', async () => {
+ 
+  const { isLoading, data, refetch } = useQuery(['getCart'], async () => {
     return getCartByIdApi(1)
   })
 
-
-    const [number, setNumber] = useState(1);
+  //Hardcoded user id. This will change if we implement Auth0.
+  const userId = 1
+   
   
-    const handleIncrease = () => {
-      setNumber(number + 1);
-    };
+    async function handleIncrease (updatedCartItemQuantity : UpdatedCartItemQuantity) {
+      await updateCartItemQuantityByProductIdApi(updatedCartItemQuantity)
+      refetch()
+    }
   
-    const handleDecrease = () => {
-      if (number > 1) {
-      setNumber(number - 1);
-      }
+    async function handleDecrease (updatedCartItemQuantity : UpdatedCartItemQuantity) {
+      await updateCartItemQuantityByProductIdApi(updatedCartItemQuantity)
+      refetch()
     }
 
-const products : CartItem[] = data
+ const products : CartItem[] = data
 
   return (
     <>
@@ -45,9 +47,17 @@ const products : CartItem[] = data
             </div>
             <div>
                 <div>
-                <button onClick={handleDecrease}>-</button>
+                <button onClick={() => handleDecrease({
+                  userId : userId,
+                  productId : item.productId,
+                  quantity : item.quantity - 1
+                })}>-</button>
                 <p>{item.quantity}</p>
-                <button onClick={handleIncrease}>+</button>
+                <button onClick={() => handleIncrease({
+                  userId : userId,
+                  productId : item.productId,
+                  quantity : item.quantity + 1
+                })}>+</button>
                 </div>
                 <div>
                   remove
