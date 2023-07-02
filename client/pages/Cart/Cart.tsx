@@ -26,6 +26,7 @@ function Cart() {
   //Hardcoded user id. This will change if we implement Auth0.
   const userId = 1
 
+  //FUNCTIONS TO HANDLE QUANTITY CHANGES
   async function handleIncrease(
     updatedCartItemQuantity: UpdatedCartItemQuantity
   ) {
@@ -43,6 +44,12 @@ function Cart() {
   async function handleRemove(removedItem: RemovedItem) {
     console.log('You clicked on the remove button!')
     //ADD API THAT REMOVES THE ITEM.
+    refetch()
+  }
+
+  async function handleRemoveAll() {
+    console.log('Clicked on handle remove all!')
+    //ADD API THAT REMOVES ALL ITEMS IN CART
     refetch()
   }
 
@@ -110,20 +117,9 @@ function Cart() {
             {item.name}
           </div>
         ))}
+      <button style={{ cursor: 'pointer' }} onClick={() => handleRemoveAll()}>clear cart</button>
     </>
   )
 }
 
 export default Cart
-
-//Run getCart to get all of the cart.
-//For each item in the cart, run through and put the id into getProductById, and then store each banana into a seperate array in a state.
-//Loop through the cart items, displaying all the details from the matching item in the detailed array.
-//For the price, take the price of the item and multiply it by the quantity.
-//Create a combined array? Store it in state.
-
-//Store state of total cost of cart, by going through cart items and adding up the total cost.
-//When user clicks on increase/decrease quantity, run updateQuantity function.
-//When user clicks on remove button for an item, run removeFromCartById
-//A button that, when the user clicks will run clearCart.
-//When user clicks on Checkout, clearCart() and redirect to a thank you page.
