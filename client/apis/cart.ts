@@ -1,5 +1,5 @@
 import request from 'superagent'
-import { UpdatedCartItemQuantity } from '../../models/cart'
+import { UpdatedCartItemQuantity, RemovedItem } from '../../models/cart'
 
 const baseUrl = '/api/v1/cart'
 
@@ -22,4 +22,12 @@ export async function clearCartApi(userId: number) {
     .delete(`${baseUrl}/all`)
     .send({ userId })
     .set('Content-Type', 'application/json')
+}
+
+
+export async function removeCartItemApi(removedItem : RemovedItem) {
+  await request
+  .delete(`${baseUrl}/single`)
+  .send(removedItem)
+  .set('Content-Type', 'application/json')
 }

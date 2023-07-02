@@ -4,6 +4,7 @@ import { useQuery } from 'react-query'
 import {
   clearCartApi,
   getCartByIdApi,
+  removeCartItemApi,
   updateCartItemQuantityByProductIdApi,
 } from '../../apis/cart'
 import {
@@ -44,7 +45,7 @@ function Cart() {
 
   async function handleRemove(removedItem: RemovedItem) {
     console.log('You clicked on the remove button!')
-    //ADD API THAT REMOVES THE ITEM.
+    removeCartItemApi(removedItem)
     refetch()
   }
 
