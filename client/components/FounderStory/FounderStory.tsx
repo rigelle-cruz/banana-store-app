@@ -7,6 +7,7 @@ function FounderStory() {
         <div className="about-stories__container col-12 col-sm-6" key={index}>
           <img
             className="about-stories__img"
+            style={{ filter: 'grayscale(100%)' }}
             src={founder.image}
             alt={founder.name}
           />

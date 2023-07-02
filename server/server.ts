@@ -67,7 +67,7 @@ server.post('/api/v1/cart', async (req, res) => {
   }
 })
 
-//CART PATCH ROUTE - UPDATE CART BY ID
+//CART PATCH ROUTE - UPDATE QUANTITY BY ID
 server.patch('/api/v1/cart', async (req, res) => {
   try {
     const updateItem = req.body
