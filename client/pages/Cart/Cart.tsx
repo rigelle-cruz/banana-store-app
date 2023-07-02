@@ -5,24 +5,39 @@ import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
 import { getCartApi } from '../../apis/cart'
 import { useState } from 'react'
-import { getProductById } from '../../../server/db/product'
+import { getProductByIdApi } from '../../apis/shop'
 
-
-function Cart () {
+function Cart() {
   const { isLoading, data } = useQuery('getCart', async () => {
     const cart = await getCartApi(1)
-    console.log('inside useQuery, here is the cart: ', cart)
-    const productsInCart = cart.map(async item => await getProductById(item.productId))
-    console.log('inside useQuery, here is the productsInCart: ', productsInCart)
-    return cart
+    const productsInCart = await Promise.all(
+      cart.map(async (item) => {
+        const productData = await getProductByIdApi(item.productId)
+        return {
+          ...item, 
+          ...productData, 
+        }
+      })
+    )
+    return productsInCart
   })
 
-  //const [cart, setCart] = useState(data)
+  if (data === undefined) {
+    return <div>Error getting cart!</div>
+  }
 
-console.log(data)
+  console.log(data)
 
   return (
     <>
+      {
+        data.map((item) => (
+          <div key = {item.name}>
+            {item.name}
+            
+            </div>
+        ))
+      }
       <p>On Cart page</p>
     </>
   )
@@ -32,7 +47,7 @@ export default Cart
 
 //Run getCart to get all of the cart.
 //For each item in the cart, run through and put the id into getProductById, and then store each banana into a seperate array in a state.
-//Loop through the cart items, displaying all the details from the matching item in the detailed array. 
+//Loop through the cart items, displaying all the details from the matching item in the detailed array.
 //For the price, take the price of the item and multiply it by the quantity.
 //Create a combined array? Store it in state.
 
