@@ -22,17 +22,49 @@ function Cart() {
     return productsInCart
   })
 
-  if (data === undefined) {
-    return <div>Error getting cart!</div>
-  }
+
+    const [number, setNumber] = useState(1);
+  
+    const handleIncrease = () => {
+      setNumber(number + 1);
+    };
+  
+    const handleDecrease = () => {
+      if (number > 1) {
+      setNumber(number - 1);
+      }
+    }
+
+
+ 
 
   console.log(data)
 
   return (
     <>
-      {
+      { data &&
         data.map((item) => (
           <div key = {item.name}>
+            <div>
+              <img src={item.imgSrc} style = {{maxWidth : '200px'}}alt="" />
+            </div>
+            <div>
+              <h2>{item.name}</h2>
+              <p>{item.weight}</p>
+            </div>
+            <div>
+              <p>$ {item.price * item.quantity}</p>
+            </div>
+            <div>
+                <div>
+                <button onClick={handleDecrease}>-</button>
+                <p>{item.quantity}</p>
+                <button onClick={handleIncrease}>+</button>
+                </div>
+                <div>
+                  remove
+                </div>
+            </div>
             {item.name}
             
             </div>
