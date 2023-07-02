@@ -6,6 +6,7 @@ export interface Cart {
   price: number
   quantity: number
   weight: number
+  imgSrc : string
 }
 
 export interface newItem {
@@ -23,6 +24,7 @@ export async function getCartById(id: number, db = connection) {
       'products.name as name',
       'products.price as price',
       'cart.quantity as quantity',
+      'products.img_src as imgSrc',
       'products.weight as weight'
     ) as unknown as Cart[]
 }

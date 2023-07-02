@@ -3,11 +3,17 @@ import { fakeCart } from './fakeData'
 
 const baseUrl = '/api/v1/cart'
 
-
-export async function getCartApi(userId : number) {
+export async function getCartApi(userId: number) {
   // const response = await request.get(`${baseUrl}/${id}`)
   // return response.body as any
 
   //MOCKED RESPONSE
-  return Promise.resolve(fakeCart.filter(cartItem => cartItem.userId === userId))
+  return Promise.resolve(
+    fakeCart.filter((cartItem) => cartItem.userId === userId)
+  )
+}
+
+export async function getCartByIdApi(userId: number) {
+  const response = await request.get(`${baseUrl}/${userId}`)
+  return response.body as any
 }

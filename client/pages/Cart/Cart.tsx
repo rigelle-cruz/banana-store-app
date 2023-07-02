@@ -3,23 +3,13 @@ import { useNavigate } from 'react-router-dom'
 import { useMutation } from 'react-query'
 import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
-import { getCartApi } from '../../apis/cart'
+import { getCartApi, getCartByIdApi } from '../../apis/cart'
 import { useState } from 'react'
 import { getProductByIdApi } from '../../apis/shop'
 
 function Cart() {
   const { isLoading, data } = useQuery('getCart', async () => {
-    const cart = await getCartApi(1)
-    const productsInCart = await Promise.all(
-      cart.map(async (item) => {
-        const productData = await getProductByIdApi(item.productId)
-        return {
-          ...item, 
-          ...productData, 
-        }
-      })
-    )
-    return productsInCart
+    return getCartByIdApi(1)
   })
 
 
