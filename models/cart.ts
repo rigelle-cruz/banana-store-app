@@ -1,6 +1,6 @@
 export interface CartItem {
   id: number
-  productId : number
+  productId: number
   name: string
   price: number
   quantity: number
@@ -12,4 +12,9 @@ export interface UpdatedCartItemQuantity {
   userId: number
   productId: number
   quantity: number
+}
+
+export interface RemovedItem {
+  userId: number
+  productId: number
 }
