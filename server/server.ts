@@ -67,7 +67,7 @@ server.post('/api/v1/cart', async (req, res) => {
   }
 })
 
-//CART DELETE ROUTE - ADD TO CART BY ID
+//CART PATCH ROUTE - UPDATE CART BY ID
 server.patch('/api/v1/cart', async (req, res) => {
   try {
     const updateItem = req.body
@@ -82,12 +82,27 @@ server.patch('/api/v1/cart', async (req, res) => {
   }
 })
 
-//CART DELETE ROUTE - ADD TO CART BY ID
-server.delete('/api/v1/cart', async (req, res) => {
+//CART DELETE ROUTE - CLEAR CART
+server.delete('/api/v1/cart/all', async (req, res) => {
   try {
-    const input = req.body
+    const input = req.body.userId
 
     await cart.clearCart(input)
+
+    res.sendStatus(200)
+  } catch (error) {
+    if (error instanceof Error) {
+      res.status(500).json({ error: error.message })
+    }
+  }
+})
+
+//CART DELETE ROUTE - CLEAR ITEM
+server.delete('/api/v1/cart/single', async (req, res) => {
+  try {
+    const deleteItem = req.body as cart.deleteItem
+
+    await cart.removeCartItemByProductId(deleteItem)
 
     res.sendStatus(200)
   } catch (error) {
