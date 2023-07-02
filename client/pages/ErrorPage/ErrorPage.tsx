@@ -8,6 +8,7 @@ function ErrorPage() {
   return (
     <>
       <div>
+        <img src="images/notice.svg" alt="notice" />
         <p>something went wrong!</p>
         <button onClick={() => goTo('/')}>home</button>
       </div>
