@@ -31,6 +31,8 @@ function Contact() {
 
     // Display 'submitted' message
     setSubmitted(true)
+
+    setFormData(initialFormData)
   }
 
   return (
