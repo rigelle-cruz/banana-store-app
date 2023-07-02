@@ -300,3 +300,17 @@ describe('DELETE /api/v1/cart/single', () => {
     expect(response.status).toBe(200)
   })
 })
+
+//CART DELETE ROUTE FAIL - REMOVE ITEM
+describe('DELETE /api/v1/cart/single', () => {
+  const mockedError = new Error('Internal Server Error')
+
+  it('responds with status 500 and error message on failure', async () => {
+    vi.mocked(cart.removeCartItemByProductId).mockRejectedValue(mockedError)
+
+    const response = await request(server).delete('/api/v1/cart/single')
+
+    expect(response.status).toBe(500)
+    expect(response.body.error).toBe('Internal Server Error')
+  })
+})

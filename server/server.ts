@@ -85,7 +85,7 @@ server.patch('/api/v1/cart', async (req, res) => {
 //CART DELETE ROUTE - CLEAR CART
 server.delete('/api/v1/cart/all', async (req, res) => {
   try {
-    const input = req.body
+    const input = req.body.userId
 
     await cart.clearCart(input)
 

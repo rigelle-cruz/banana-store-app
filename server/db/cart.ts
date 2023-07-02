@@ -61,5 +61,5 @@ export async function removeCartItemByProductId(
   return db('cart')
     .where('user_id', deleteItem.userId)
     .andWhere('product_id', deleteItem.productId)
-    .del()
+    .del() as unknown as deleteItem
 }
