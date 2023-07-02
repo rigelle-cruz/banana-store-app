@@ -261,7 +261,7 @@ describe('PATCH /api/v1/cart', () => {
   })
 })
 
-//CART DELETE ROUTE SUCCESS
+//CART DELETE ROUTE SUCCESS - CLEART CART
 describe('DELETE /api/v1/cart', () => {
   const mockedUser = 1
 
@@ -285,5 +285,18 @@ describe('DELETE /api/v1/cart', () => {
 
     expect(response.status).toBe(500)
     expect(response.body.error).toBe('Internal Server Error')
+  })
+})
+
+//CART DELETE ROUTE SUCCESS - REMOVE ITEM
+describe('DELETE /api/v1/cart', () => {
+  const mockedItem = 1 //needs to be obj
+
+  it('responds with status 200', async () => {
+    vi.mocked(cart.removeCartItemByProductId).mockResolvedValue(mockedItem)
+
+    const response = await request(server).delete('/api/v1/cart')
+
+    expect(response.status).toBe(200)
   })
 })
