@@ -85,3 +85,16 @@ describe('clearCart', () => {
     expect(clearedCart).toHaveLength(0)
   })
 })
+
+describe('removeCartItemByProductId', () => {
+  it("clears a given item from a user's cart", async () => {
+    const test = { userId: 1, productId: 3 }
+
+    await db.removeCartItemByProductId(test, testDb)
+    const clearedItem = await testDb('cart')
+      .where('user_id', test.userId)
+      .andWhere('product_id', test.productId)
+
+    expect(clearedItem).toHaveLength(0)
+  })
+})
