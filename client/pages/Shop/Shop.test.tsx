@@ -44,8 +44,5 @@ test('Shop page fetches an array of products', async () => {
   )
 
   const titles = await findAllByRole('heading', { level: 1 })
-  expect(titles[0].textContent).toMatch('shop.')
-
-  // const images = getAllByRole('img')
-  // console.log(images)
+  expect(titles[0].textContent).toMatch('Shop.')
 })
