@@ -18,7 +18,7 @@ function HomeBanner() {
           <div className="col col-md-6 col-vertical-center">
             <div className="col-constrain">
               <img src="images/logo.png" alt="logo"></img>
-              <h1>Bnana.</h1>
+              <h1>Bnana.&nbsp;&nbsp;</h1>
               <p className="subtitle about-banner__subtitle">
                 Take a tropical journey with our luscious tropical bananas.
               </p>
