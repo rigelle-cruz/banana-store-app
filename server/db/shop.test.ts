@@ -41,7 +41,6 @@ describe('getAllProducts', () => {
   it('gets correct image source', async () => {
     const produce = await db.getAllProducts(testDb)
 
-    expect(produce[0].imgSrc).toBe('hi')
+    expect(produce[0].imgSrc).toBe('/images/cavendish.jpg')
   })
- 
 })
