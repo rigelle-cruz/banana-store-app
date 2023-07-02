@@ -51,72 +51,71 @@ function Cart() {
 
   return (
     <>
-    <div>
-      {products &&
-        products.map((item) => (
-          <div key={item.name}>
-            <div>
-              <img src={item.imgSrc} style={{ maxWidth: '200px' }} alt="" />
-            </div>
-            <div>
-              <h2>{item.name}</h2>
-              <p>{item.weight * item.quantity}g</p>
-            </div>
-            <div>
-              <p>$ {item.price * item.quantity}</p>
-            </div>
-            <div>
+      <div>
+        {products &&
+          products.map((item) => (
+            <div key={item.name}>
               <div>
-                <button
-                  style={{ cursor: 'pointer' }}
-                  onClick={() =>
-                    handleDecrease({
-                      userId: userId,
-                      productId: item.productId,
-                      quantity: item.quantity - 1,
-                    })
-                  }
-                >
-                  -
-                </button>
-                <p>{item.quantity}</p>
-                <button
-                  style={{ cursor: 'pointer' }}
-                  onClick={() =>
-                    handleIncrease({
-                      userId: userId,
-                      productId: item.productId,
-                      quantity: item.quantity + 1,
-                    })
-                  }
-                >
-                  +
-                </button>
+                <img src={item.imgSrc} style={{ maxWidth: '200px' }} alt="" />
               </div>
               <div>
-                <img
-                  style={{
-                    cursor: 'pointer',
-                  }}
-                  src="/images/trash-can.svg"
-                  alt=""
-                  onClick={() =>
-                    handleRemove({
-                      productId: item.productId,
-                      userId: userId,
-                    })
-                  }
-                />
+                <h2>{item.name}</h2>
+                <p>{item.weight * item.quantity}g</p>
               </div>
+              <div>
+                <p>$ {item.price * item.quantity}</p>
+              </div>
+              <div>
+                <div>
+                  <button
+                    onClick={() =>
+                      handleDecrease({
+                        userId: userId,
+                        productId: item.productId,
+                        quantity: item.quantity - 1,
+                      })
+                    }
+                  >
+                    -
+                  </button>
+                  <p>{item.quantity}</p>
+                  <button
+                    onClick={() =>
+                      handleIncrease({
+                        userId: userId,
+                        productId: item.productId,
+                        quantity: item.quantity + 1,
+                      })
+                    }
+                  >
+                    +
+                  </button>
+                </div>
+                <div>
+                  <img
+                    style={{
+                      cursor: 'pointer',
+                    }}
+                    src="/images/trash-can.svg"
+                    alt=""
+                    onClick={() =>
+                      handleRemove({
+                        productId: item.productId,
+                        userId: userId,
+                      })
+                    }
+                  />
+                </div>
+              </div>
+              {item.name}
             </div>
-            {item.name}
-          </div>
-        ))}
-      <button style={{ cursor: 'pointer' }} onClick={() => handleRemoveAll()}>clear cart</button>
+          ))}
+        <button style={{ cursor: 'pointer' }} onClick={() => handleRemoveAll()}>
+          clear cart
+        </button>
       </div>
       <div>
-      <CartSummaryDetails products={products}/>
-      
+        <CartSummaryDetails products={products} />
       </div>
     </>
   )
