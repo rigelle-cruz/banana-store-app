@@ -43,7 +43,7 @@ function ContactForm() {
           <input
             type="text"
             name="fullName"
-            placeholder="FULL NAME"
+            placeholder="full name"
             value={formData.fullName}
             onChange={handleInputChange}
             required
@@ -54,7 +54,7 @@ function ContactForm() {
           <input
             type="email"
             name="email"
-            placeholder="EMAIL"
+            placeholder="email"
             value={formData.email}
             onChange={handleInputChange}
             required
@@ -65,7 +65,7 @@ function ContactForm() {
           <input
             type="text"
             name="topic"
-            placeholder="TOPIC"
+            placeholder="topic"
             value={formData.topic}
             onChange={handleInputChange}
             required
@@ -75,7 +75,7 @@ function ContactForm() {
         <label>
           <textarea
             name="message"
-            placeholder="MESSAGE"
+            placeholder="message"
             value={formData.message}
             onChange={handleInputChange}
             required
