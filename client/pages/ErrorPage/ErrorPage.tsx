@@ -7,10 +7,27 @@ function ErrorPage() {
   }
   return (
     <>
-      <div>
+      <div
+        style={{
+          margin: 'auto',
+          width: '200px',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          minHeight: '100vh',
+        }}
+      >
         <img src="images/notice.svg" alt="notice" />
-        <p>something went wrong!</p>
-        <button onClick={() => goTo('/')}>home</button>
+        <p>oops something went wrong!</p>
+        <button
+          style={{
+            width: 'auto',
+          }}
+          onClick={() => goTo('/')}
+        >
+          home
+        </button>
       </div>
     </>
   )
