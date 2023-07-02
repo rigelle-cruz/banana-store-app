@@ -44,3 +44,7 @@ export async function updateCartItemQuantityByProductId(
     .andWhere('product_id', newItem.productId)
     .update('quantity', newItem.quantity) as unknown as newItem
 }
+
+export async function clearCart(userId: number, db = connection) {
+  return db('cart').where('user_id', userId).del()
+}
