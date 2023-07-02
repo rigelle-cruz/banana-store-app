@@ -65,16 +65,16 @@ test('Banana benefits subheading 2 is visible', async () => {
   expect(screen.getByText(/Mood Enhancement/i)).toBeDefined()
 })
 
-// test('View full range button is visible', async () => {
-//   const queryClient = new QueryClient()
+test('View full range button is visible', async () => {
+  const queryClient = new QueryClient()
 
-//   render(
-//     <QueryClientProvider client={queryClient}>
-//       <MemoryRouter>
-//         <Home />
-//       </MemoryRouter>
-//     </QueryClientProvider>
-//   )
+  render(
+    <QueryClientProvider client={queryClient}>
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>
+    </QueryClientProvider>
+  )
 
-//   expect(screen.getAllByRole('button')).toBeDefined()
-// })
+  expect(screen.getAllByRole('button')).toBeDefined()
+})
