@@ -31,3 +31,11 @@ export async function removeCartItemApi(removedItem : RemovedItem) {
   .send(removedItem)
   .set('Content-Type', 'application/json')
 }
+
+
+export async function addToCartByIdApi(newItem : UpdatedCartItemQuantity) {
+  await request
+  .post(`${baseUrl}`)
+  .send(newItem)
+  .set('Content-Type', 'application/json')
+}

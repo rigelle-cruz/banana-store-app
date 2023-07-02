@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 import { useNavigate } from 'react-router-dom'
 import { useMutation } from 'react-query'
@@ -5,19 +6,24 @@ import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
 import { getProductByIdApi } from '../../apis/shop'
 import { IndividualProduct } from '../../../models/product'
-import { ChangeEvent, useEffect, useState } from 'react'
+import { ChangeEvent } from 'react'
 import FeaturedBanana from '../../components/FeaturedBanana/FeaturedBanana'
+import { UpdatedCartItemQuantity } from '../../../models/cart'
+import { addToCartByIdApi } from '../../apis/cart'
 
 function Product() {
   const params = useParams()
   const id = Number(params.id)
-  const [selectedValue, setSelectedValue] = useState<string>('')
+  const [selectedQuantity, setSelectedQuantity] = useState<string>('1')
+  const [buttonText, setButtonText] = useState('Add to Cart')
+
+  // Hardcoded user id
+  const userId = 1
 
   const { isLoading, data } = useQuery(['getProduct', id], async () => {
     if (id === undefined) {
       return <div>Error with parameter!</div>
     }
-    window.scrollTo(0, 0)
     return await getProductByIdApi(id)
   })
 
@@ -26,14 +32,20 @@ function Product() {
   }
 
   function handleSelectChange(event: ChangeEvent<HTMLSelectElement>) {
-    setSelectedValue(event.target.value)
+    setSelectedQuantity(event.target.value)
   }
 
-  function handleClick() {
-    //implement logic to add to cart.
+  async function handleClick(newItem: UpdatedCartItemQuantity) {
+    await addToCartByIdApi(newItem)
+    setSelectedQuantity('1')
+    setButtonText('Added to Cart')
+    setTimeout(() => {
+      setButtonText('Add to Cart')
+    }, 2000)
   }
 
   const product: any = data
+
 
   return (
     <>
@@ -52,7 +64,7 @@ function Product() {
                   </p>
                   <p className="shop-single-product__price">${product.price}</p>
                   <select
-                    value={selectedValue}
+                    value={selectedQuantity}
                     onChange={handleSelectChange}
                     className="shop-single-product__select"
                   >
@@ -66,7 +78,17 @@ function Product() {
                   <p className="shop-single-product__description">
                     {product.description}
                   </p>
-                  <button onClick={() => handleClick}>Add to cart</button>
+                  <button
+            onClick={() =>
+              handleClick({
+                userId: userId,
+                productId: product.id,
+                quantity: Number(selectedQuantity),
+              })
+            }
+          >
+            {buttonText}
+          </button>
                 </div>
               </div>
             </div>
