@@ -43,7 +43,7 @@ function About() {
             </div>
             <div className="col col-md-6">
               <div className="col-full-bleed">
-                <img src="https://placehold.co/703x1121" alt="company" />
+                <img src="images/company-origin.jpg" alt="company" />
               </div>
             </div>
           </div>
