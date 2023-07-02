@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 import { useNavigate } from 'react-router-dom'
 import { useMutation } from 'react-query'
@@ -5,7 +6,7 @@ import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
 import { getProductByIdApi } from '../../apis/shop'
 import { IndividualProduct } from '../../../models/product'
-import { ChangeEvent, useEffect, useState } from 'react'
+import { ChangeEvent } from 'react'
 import FeaturedBanana from '../../components/FeaturedBanana/FeaturedBanana'
 import { UpdatedCartItemQuantity } from '../../../models/cart'
 import { addToCartByIdApi } from '../../apis/cart'
@@ -14,8 +15,9 @@ function Product() {
   const params = useParams()
   const id = Number(params.id)
   const [selectedQuantity, setSelectedQuantity] = useState<string>('1')
+  const [buttonText, setButtonText] = useState('Add to Cart')
 
-  //Hardcoded user id
+  // Hardcoded user id
   const userId = 1
 
   const { isLoading, data } = useQuery(['getProduct', id], async () => {
@@ -33,13 +35,17 @@ function Product() {
     setSelectedQuantity(event.target.value)
   }
 
-  function handleClick(newItem: UpdatedCartItemQuantity) {
-    addToCartByIdApi(newItem)
+  async function handleClick(newItem: UpdatedCartItemQuantity) {
+    await addToCartByIdApi(newItem)
+    setSelectedQuantity('1')
+    setButtonText('Added to Cart')
+    setTimeout(() => {
+      setButtonText('Add to Cart')
+    }, 2000)
   }
 
   const product: any = data
 
-  console.log(product)
 
   return (
     <>
@@ -69,7 +75,7 @@ function Product() {
               })
             }
           >
-            Add to cart
+            {buttonText}
           </button>
         </div>
       </div>
