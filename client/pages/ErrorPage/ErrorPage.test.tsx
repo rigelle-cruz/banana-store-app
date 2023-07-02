@@ -5,7 +5,7 @@ import { render, screen } from '@testing-library/react'
 import { cleanup } from '@testing-library/react'
 import matchers from '@testing-library/jest-dom/matchers'
 import userEvent from '@testing-library/user-event'
-import { MemoryRouter, Route, Routes } from 'react-router-dom'
+import { MemoryRouter } from 'react-router-dom'
 
 import ErrorPage from './ErrorPage'
 
