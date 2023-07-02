@@ -67,7 +67,7 @@ server.post('/api/v1/cart', async (req, res) => {
   }
 })
 
-//CART DELETE ROUTE - ADD TO CART BY ID
+//CART PATCH ROUTE - UPDATE QUANTITY BY ID
 server.patch('/api/v1/cart', async (req, res) => {
   try {
     const updateItem = req.body
@@ -82,7 +82,7 @@ server.patch('/api/v1/cart', async (req, res) => {
   }
 })
 
-//CART DELETE ROUTE - ADD TO CART BY ID
+//CART DELETE ROUTE - DELETE FROM CART BY ID
 server.delete('/api/v1/cart', async (req, res) => {
   try {
     const input = req.body

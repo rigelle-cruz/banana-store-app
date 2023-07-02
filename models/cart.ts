@@ -6,3 +6,9 @@ export interface CartItem {
   imgSrc: string
   weight: number
 }
+
+export interface UpdatedCartItemQuantity {
+  userId: number
+  productId: number
+  quantity: number
+}
