@@ -37,6 +37,7 @@
     "jsdom": "^22.1.0",
     "knex": "^2.4.2",
     "nock": "^13.3.1",
+    "react-icons": "^4.10.1",
     "react-query": "^3.39.3",
     "react-router-dom": "^6.14.0",
     "sqlite3": "^5.1.6"
