@@ -1,55 +1,66 @@
 import { useState } from 'react'
 import { CartItem } from '../../../models/cart'
+import { useNavigate } from 'react-router-dom'
 
 interface Props {
   products: CartItem[]
 }
 
 function calculateTotalCost(cart: CartItem[], shippingPrice: number): number {
-  let totalCost = 0;
+  let totalCost = 0
 
   if (cart && cart.length > 0) {
     for (const item of cart) {
-      const itemCost = item.price * item.quantity;
-      totalCost += itemCost;
+      const itemCost = item.price * item.quantity
+      totalCost += itemCost
     }
   }
 
   // Add the selected shipping price to the total cost
-  totalCost += shippingPrice;
+  totalCost += shippingPrice
 
-  return totalCost;
+  return totalCost
 }
 
 function CartSummaryDetails({ products }: Props) {
- 
-  const [orderNotes, setOrderNotes] = useState('');
-  const [showOrderNotes, setShowOrderNotes] = useState(false);
-  const [showShippingDetails, setShowShippingDetails] = useState(false);
-  const [selectedShippingPrice, setSelectedShippingPrice] = useState(0);
+  const navigate = useNavigate()
+  function goTo(link: string) {
+    navigate(link)
+  }
+
+  const [orderNotes, setOrderNotes] = useState('')
+  const [showOrderNotes, setShowOrderNotes] = useState(false)
+  const [showShippingDetails, setShowShippingDetails] = useState(false)
+  const [selectedShippingPrice, setSelectedShippingPrice] = useState(0)
 
   const handleOrderNotesClick = () => {
-    setShowOrderNotes(prevState => !prevState);
-  };
+    setShowOrderNotes((prevState) => !prevState)
+  }
 
-  const handleOrderNotesChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setOrderNotes(event.target.value);
-  };
+  const handleOrderNotesChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setOrderNotes(event.target.value)
+  }
 
   const handleShippingDetailsClick = () => {
-    setShowShippingDetails(prevState => !prevState);
-  };
+    setShowShippingDetails((prevState) => !prevState)
+  }
 
-  const handleShippingOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedShippingPrice(Number(event.target.value));
-  };
+  const handleShippingOptionChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setSelectedShippingPrice(Number(event.target.value))
+  }
 
   const totalCost = calculateTotalCost(products, selectedShippingPrice)
 
   return (
     <div>
       <div>
-        <h2>Total: <span>{totalCost}</span></h2>
+        <h2>
+          Total: <span>{totalCost}</span>
+        </h2>
       </div>
 
       <div>
@@ -68,7 +79,9 @@ function CartSummaryDetails({ products }: Props) {
       </div>
       <div>
         <button onClick={handleShippingDetailsClick}>
-          {showShippingDetails ? 'Hide shipping details' : 'View shipping details'}
+          {showShippingDetails
+            ? 'Hide shipping details'
+            : 'View shipping details'}
         </button>
 
         {showShippingDetails && (
@@ -106,14 +119,23 @@ function CartSummaryDetails({ products }: Props) {
                   checked={selectedShippingPrice === 30}
                   onChange={handleShippingOptionChange}
                 />
-                <label htmlFor="overnightShipping">Overnight Shipping: $30</label>
+                <label htmlFor="overnightShipping">
+                  Overnight Shipping: $30
+                </label>
               </li>
             </ul>
           </div>
         )}
       </div>
-      
-      <button>CHECKOUT</button>
+
+      <button
+        style={{
+          width: 'auto',
+        }}
+        onClick={() => goTo('/thankyoupage')}
+      >
+        CHECKOUT
+      </button>
     </div>
   )
 }
