@@ -39,8 +39,10 @@ function Cart() {
   async function handleDecrease(
     updatedCartItemQuantity: UpdatedCartItemQuantity
   ) {
+    if (updatedCartItemQuantity.quantity > 0) {
     await updateCartItemQuantityByProductIdApi(updatedCartItemQuantity)
     refetch()
+    }
   }
 
   async function handleRemove(removedItem: RemovedItem) {
