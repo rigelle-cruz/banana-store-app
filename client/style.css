@@ -299,6 +299,8 @@
     outline: 0;
     padding: 0;
     cursor: pointer;
+    height: auto;
+    min-width: auto;
   }
   .header__nav-list button:hover {
     color: var(--black);
@@ -418,14 +420,37 @@ margin: 0;
   margin-bottom: 0.3em;
 }
 
+.about-origin {
+  background-color: var(--light-grey);
+}
 .about-origin h2 {
   display: inline-block;
 }
 
+/* ==========================================================================
+	 Shop page
+	 ========================================================================== */
+
+.shop {
+  margin: 4rem 0;
+}
+.shop__h1-container {
+  text-align: center;
+}
+
+.shop h1 {
+  display: inline-block;
+  margin: 0 auto 4rem;
+  margin-bottom: 4rem;
+}
+
  /* ==========================================================================
-	 Products
+	 Products module
 	 ========================================================================== */  
 
+.products__product {
+  margin-bottom: 3rem;
+}
 .products__product-img {
   position: relative;
   height: 0;
@@ -469,5 +494,5 @@ margin: 0;
   margin: 1em auto 0em;
 }
 .products__product-price {
-  margin: 0.25em auto 0em;
+  margin: 0.1em auto 0;
 }
