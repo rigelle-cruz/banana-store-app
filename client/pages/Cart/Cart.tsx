@@ -1,22 +1,17 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { useAuth0 } from '@auth0/auth0-react'
-import { useNavigate } from 'react-router-dom'
-import { useMutation } from 'react-query'
 import { useQuery } from 'react-query'
-import { useParams } from 'react-router-dom'
 import {
   clearCartApi,
   getCartByIdApi,
   updateCartItemQuantityByProductIdApi,
 } from '../../apis/cart'
-import { useState } from 'react'
-import { getProductByIdApi } from '../../apis/shop'
 import {
   CartItem,
   RemovedItem,
   UpdatedCartItemQuantity,
 } from '../../../models/cart'
+import CartSummaryDetails from '../../components/CartSummaryDetails/CartSummaryDetails'
 
 function Cart() {
   const { isLoading, data, refetch } = useQuery(['getCart'], async () => {
@@ -56,6 +51,7 @@ function Cart() {
 
   return (
     <>
+    <div>
       {products &&
         products.map((item) => (
           <div key={item.name}>
@@ -117,6 +113,11 @@ function Cart() {
           </div>
         ))}
       <button style={{ cursor: 'pointer' }} onClick={() => handleRemoveAll()}>clear cart</button>
+      </div>
+      <div>
+      <CartSummaryDetails products={products}/>
+      
+      </div>
     </>
   )
 }
