@@ -12,8 +12,14 @@ import {
   UpdatedCartItemQuantity,
 } from '../../../models/cart'
 import CartSummaryDetails from '../../components/CartSummaryDetails/CartSummaryDetails'
+import { useNavigate } from 'react-router-dom'
 
 function Cart() {
+  const navigate = useNavigate()
+  function goTo(link: string) {
+    navigate(link)
+  }
+
   const { isLoading, data, refetch } = useQuery(['getCart'], async () => {
     return getCartByIdApi(1)
   })
@@ -51,6 +57,14 @@ function Cart() {
 
   return (
     <>
+    <button
+          style={{
+            width: 'auto',
+          }}
+          onClick={() => goTo('/shop')}
+        >
+          CONTINUE SHOPPING
+        </button>
       <div>
         {products &&
           products.map((item) => (
