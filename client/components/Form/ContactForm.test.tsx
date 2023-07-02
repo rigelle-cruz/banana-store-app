@@ -28,7 +28,6 @@ describe('ContactForm', () => {
     const submitButton = screen.getAllByRole('button', { name: 'Send' })
     expect(submitButton).toHaveLength(1)
   })
-
   it('displays the "Submitted!" message after submitting the form', () => {
     render(
       <MemoryRouter>
