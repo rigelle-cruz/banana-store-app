@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { Link } from 'react-router-dom'
 import { useQuery } from 'react-query'
 import { getAllProductsApi } from '../../apis/shop'
@@ -27,21 +29,43 @@ function FeaturedBanana() {
     <>
       {!isLoading && data && (
         <>
-          <h2>Best sellers</h2>
-
-          {filteredProducts.map((product) => (
-            <div key={product.id}>
-              <Link to={`/shop/${product.id}`}>
-                <img
-                  src={product.imgSrc}
-                  style={{ maxWidth: '400px' }}
-                  alt={product.name}
-                />
-                <p>{product.name}</p>
-              </Link>
-              <p>${product.price}</p>
+          <div className="home-featured">
+            <div className="container">
+              <div className="row">
+                <div className="col">
+                  <h2>Best sellers</h2>
+                  <div className="products row">
+                    {filteredProducts.map((product) => (
+                      <div
+                        key={product.id}
+                        className="products__product col-12 col-sm-6"
+                      >
+                        <div className="products__product-img">
+                          <Link
+                            to={`/shop/${product.id}`}
+                            className="products__product-overlay"
+                            onClick = {() => window.scrollTo(0,0)}
+                          >
+                            <button className="products__product-btn">
+                              Shop
+                            </button>
+                            <img src={product.imgSrc} alt={product.name}  />
+                          </Link>
+                        </div>
+                        <p className="products__product-name" onClick = {() => window.scrollTo(0,0)}>
+                          <Link to={`/shop/${product.id}`}>{product.name}
+                          </Link>
+                        </p>
+                        <p className="products__product-price">
+                          ${product.price}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
-          ))}
+          </div>
         </>
       )}
     </>

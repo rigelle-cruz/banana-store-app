@@ -1,13 +1,41 @@
 import request from 'superagent'
-import { fakeCart } from './fakeData'
+import { UpdatedCartItemQuantity, RemovedItem } from '../../models/cart'
 
 const baseUrl = '/api/v1/cart'
 
+export async function getCartByIdApi(userId: number) {
+  const response = await request.get(`${baseUrl}/${userId}`)
+  return response.body as any
+}
 
-export async function getCartApi(userId : number) {
-  // const response = await request.get(`${baseUrl}/${id}`)
-  // return response.body as any
+export async function updateCartItemQuantityByProductIdApi(
+  updatedItem: UpdatedCartItemQuantity
+) {
+  await request
+    .patch(`${baseUrl}`)
+    .send(updatedItem)
+    .set('Content-Type', 'application/json')
+}
 
-  //MOCKED RESPONSE
-  return Promise.resolve(fakeCart.filter(cartItem => cartItem.userId === userId))
+export async function clearCartApi(userId: number) {
+  await request
+    .delete(`${baseUrl}/all`)
+    .send({ userId })
+    .set('Content-Type', 'application/json')
+}
+
+
+export async function removeCartItemApi(removedItem : RemovedItem) {
+  await request
+  .delete(`${baseUrl}/single`)
+  .send(removedItem)
+  .set('Content-Type', 'application/json')
+}
+
+
+export async function addToCartByIdApi(newItem : UpdatedCartItemQuantity) {
+  await request
+  .post(`${baseUrl}`)
+  .send(newItem)
+  .set('Content-Type', 'application/json')
 }

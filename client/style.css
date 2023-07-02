@@ -25,7 +25,7 @@
   }
   
   button {
-    background-color: transparent;
+    background-color: var(--white);
     outline: 0;
     padding: 10px 20px 13px;
     border: solid 1px var(--black);
@@ -34,6 +34,16 @@
     font-weight: 400; /* regular */
     display: flex;
     align-items: center;
+    justify-content: center;
+    height: 42px;
+    width: 140px;
+    cursor: pointer;
+    transition: background-color 0.4s, color 0.4s, opacity 0.4s;
+  }
+
+  button:hover {
+    background-color: var(--black);
+    color: var(--white)
   }
 
   /* ==========================================================================
@@ -42,6 +52,9 @@
 
   .display-flex {
     display: flex;
+  }
+  .col-full-bleed img {
+    width: 100%;
   }
   @media (min-width: 768px) {
     .col-full-bleed {
@@ -162,11 +175,17 @@
       font-size: 1rem; /* 16px */
     }
   }
+  p strong {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500; /* Medium */
+    font-size: 1rem; /* 16px */
+    margin: 1em auto 1em;
+    color: var(--black)z
+  }
   p.subtitle {
     font-family: 'Playfair Display', serif;
     font-weight: 400; /* Regular */
     font-size: 1.125rem; /* 18px */
-
   }
   ul {
     padding: 0 2em;
@@ -196,7 +215,7 @@
     transition: color 0.2s;
   }
   a:hover {
-    color: var(--white);
+    color: var(--black);
   }
   strong {
     font-weight: 700;
@@ -269,10 +288,16 @@
     font-size: 1.125rem; /* 18px */
     font-weight: 400; /* regular */
     background-color: transparent;
+    height: auto;
+    width: auto;
+    min-width: auto;
     border: 0;
     outline: 0;
     padding: 0;
     cursor: pointer;
+  }
+  .header__user-login-list button:hover {
+    color: var(--black);
   }
   .header__nav-list button {
     display: block;
@@ -284,6 +309,11 @@
     outline: 0;
     padding: 0;
     cursor: pointer;
+    height: auto;
+    min-width: auto;
+  }
+  .header__nav-list button:hover {
+    color: var(--black);
   }
   .header__cart-icon {
     width: 18px;
@@ -376,13 +406,16 @@ margin: 0;
   font-family: 'Lato', sans-serif;
   display: block;
   font-size: 0.875rem; /* 14px */
-    font-weight: 400; /* regular */
-    color: var(--black);
-    background-color: transparent;
-    border: 0;
-    outline: 0;
-    padding: 0;
-    cursor: pointer;
+  font-weight: 400; /* regular */
+  color: var(--black);
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  cursor: pointer;
+  width: auto;
+  height: auto;
+  min-width: auto;
 }
 
 /* ==========================================================================
@@ -392,10 +425,28 @@ margin: 0;
    .home-banner {
     margin-top: -64px;
   }
+  .home-banner h1 {
+    display: inline-block;
+    padding-bottom: 0.1em;
+  }
+
 
   .home-benefits {
     background-color: var(--light-grey);
   }
+  .home-benefits h2 {
+    display: inline-block;
+    margin-bottom: 0.5em;
+  }
+
+  .home-featured {
+    margin: 4rem 0;
+  }
+  .home-featured h2 {
+    display: inline-block;
+    margin-bottom: 4rem;
+  }
+
 
 
 /* ==========================================================================
@@ -425,6 +476,137 @@ margin: 0;
   margin-bottom: 0.3em;
 }
 
+.about-origin {
+  background-color: var(--light-grey);
+}
 .about-origin h2 {
   display: inline-block;
+}
+
+/* ==========================================================================
+	 Shop list page
+	 ========================================================================== */
+
+.shop {
+  margin: 4rem 0;
+}
+.shop__h1-container {
+  text-align: center;
+}
+.shop h1 {
+  display: inline-block;
+  margin: 0 auto 4rem;
+  margin-bottom: 4rem;
+}
+
+.shop-single-product__weight {
+  font-size: 1.3125rem; /* 21px */
+  margin: 1rem 0 0;
+}
+
+.shop-single-product__price {
+  font-family: 'Lato', sans-serif;
+    font-weight: 300; /* light */
+    font-size: 2.25rem; /* 36px */
+    margin: 0 0 1rem;
+}
+.shop-single-product__select {
+  font-family: 'Lato', sans-serif;
+    font-weight: 300; /* light */
+    font-size: 1.3125rem; /* 21px */
+  min-width: 140px;
+  height: 40px;
+  background-color: white;
+  border: solid 1px var(--black);
+  border-radius: 6px;
+  padding: 0px 0.75rem;
+}
+.shop-single-product__select option {
+  font-family: 'Lato', sans-serif;
+    font-weight: 300; /* light */
+    font-size: 1.3125rem; /* 21px */
+}
+.shop-single-product__description {
+  margin: 1.5em auto 1.5em;
+}
+
+.shop-faq {
+  margin: 4rem 0;
+}
+.shop-faq__container {
+  padding: 3rem;
+  border-top: solid 1px var(--black);
+  border-bottom: solid 1px var(--black);
+}
+.shop-faq h2 {
+  display: inline-block;
+  margin-bottom: 1em;
+}
+.shop-faq p {
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+/* ==========================================================================
+	 Shop single page
+	 ========================================================================== */
+
+.shop-single {
+  margin: 4rem 0;
+}
+
+.shop-single-product h1 {
+  display: inline-block;
+}
+
+ /* ==========================================================================
+	 Products module
+	 ========================================================================== */  
+
+.products__product {
+  margin-bottom: 3rem;
+}
+.products__product-img {
+  position: relative;
+  height: 0;
+  padding-top: 100%;
+  overflow: hidden;
+}
+.products__product-img img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: filter 0.4s;
+  filter: grayscale(0);
+}
+.products__product-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.products__product-overlay:hover img {
+  filter: grayscale(1);
+}
+.products__product-btn {
+  opacity: 0;
+  z-index: 1;
+}
+.products__product-overlay:hover .products__product-btn {
+  opacity: 1;
+}
+.products__product-name a {
+  font-family: 'Playfair Display', serif;
+    font-weight: 400; /* Regular */
+    font-size: 1.125rem; /* 18px */
+}
+.products__product-name {
+  margin: 1em auto 0em;
+}
+.products__product-price {
+  margin: 0.1em auto 0;
 }

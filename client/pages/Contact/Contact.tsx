@@ -1,13 +1,14 @@
-import { useAuth0 } from '@auth0/auth0-react'
-import { useNavigate } from 'react-router-dom'
-import { useMutation } from 'react-query'
-import { useQuery } from 'react-query'
-import { useParams } from 'react-router-dom'
+import ContactForm from '../../components/Form/ContactForm'
 
 function Contact() {
   return (
     <>
-      <p>On Contact page</p>
+      <div>
+        <h1>Contact.</h1>
+        <h2>Bnana.</h2>
+        <p>Level 5/12 Morgan Street, Newmarket, Auckland 1023</p>
+      </div>
+      <ContactForm />
     </>
   )
 }

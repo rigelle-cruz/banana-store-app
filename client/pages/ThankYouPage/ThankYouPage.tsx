@@ -1,15 +1,19 @@
-import { useAuth0 } from '@auth0/auth0-react'
+/* eslint-disable react/no-unescaped-entities */
+
 import { useNavigate } from 'react-router-dom'
-import { useMutation } from 'react-query'
-import { useQuery } from 'react-query'
-import { useParams } from 'react-router-dom'
 
-
-function ThankYouPage () {
-
+function ThankYouPage() {
+  const navigate = useNavigate()
+  function goTo(link: string) {
+    navigate(link)
+  }
   return (
     <>
-      <p>On ThankYouPage page</p>
+      <div>
+        <h1>Thank You For Your Purchase!</h1>
+        <p>We're totally bananas for you!</p>
+        <button onClick={() => goTo('/')}>home</button>
+      </div>
     </>
   )
 }
