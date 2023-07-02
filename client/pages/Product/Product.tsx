@@ -37,45 +37,69 @@ function Product() {
 
   return (
     <>
-      <div>
-        <div>
-          <img src={product.imgSrc} alt="" />
-        </div>
-        <div>
-          <h1>{product.name}</h1>
-          <p>{product.weight}g</p>
-          <p>${product.price}</p>
-          <select value={selectedValue} onChange={handleSelectChange}>
-            <option>1</option>
-            {[1, 2, 3, 4, 5].map((number) => (
-              <option key={number} value={number.toString()}>
-                {number}
-              </option>
-            ))}
-          </select>
-          <p>{product.description}</p>
-          <button onClick={() => handleClick}>Add to cart</button>
+      <div className="shop-single">
+        <div className="shop-single-product">
+          <div className="container">
+            <div className="row">
+              <div className="col-12 col-sm-6">
+                <img src={product.imgSrc} alt="" />
+              </div>
+              <div className="col-12 col-sm-6">
+                <div>
+                  <h1>{product.name}</h1>
+                  <p className="shop-single-product__weight">
+                    {product.weight}g
+                  </p>
+                  <p className="shop-single-product__price">${product.price}</p>
+                  <select
+                    value={selectedValue}
+                    onChange={handleSelectChange}
+                    className="shop-single-product__select"
+                  >
+                    <option>1</option>
+                    {[1, 2, 3, 4, 5].map((number) => (
+                      <option key={number} value={number.toString()}>
+                        {number}
+                      </option>
+                    ))}
+                  </select>
+                  <p className="shop-single-product__description">
+                    {product.description}
+                  </p>
+                  <button onClick={() => handleClick}>Add to cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div>
-        <h2>FAQ</h2>
-        <p>
-          <span>Random fact, </span>
-          {product.randomFact}
-        </p>
-        <p>
-          <span>Origin, </span>
-          {product.origin}
-        </p>
-        <p>
-          <span>Calories, </span>
-          {product.calorieCount}
-        </p>
-        <p>
-          <span>Taste, </span>
-          {product.tasteProfile}
-        </p>
+      <div className="shop-faq">
+        <div className="container">
+          <div className="row">
+            <div className="col-12">
+              <div className="shop-faq__container">
+                <h2>FAQ</h2>
+                <p>
+                  <strong>Random fact, </strong>
+                  {product.randomFact}
+                </p>
+                <p>
+                  <strong>Origin, </strong>
+                  {product.origin}
+                </p>
+                <p>
+                  <strong>Calories, </strong>
+                  {product.calorieCount}
+                </p>
+                <p>
+                  <strong>Taste, </strong>
+                  {product.tasteProfile}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div>

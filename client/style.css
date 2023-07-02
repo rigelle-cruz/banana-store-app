@@ -175,6 +175,13 @@
       font-size: 1rem; /* 16px */
     }
   }
+  p strong {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500; /* Medium */
+    font-size: 1rem; /* 16px */
+    margin: 1em auto 1em;
+    color: var(--black)z
+  }
   p.subtitle {
     font-family: 'Playfair Display', serif;
     font-weight: 400; /* Regular */
@@ -428,7 +435,7 @@ margin: 0;
 }
 
 /* ==========================================================================
-	 Shop page
+	 Shop list page
 	 ========================================================================== */
 
 .shop {
@@ -437,11 +444,69 @@ margin: 0;
 .shop__h1-container {
   text-align: center;
 }
-
 .shop h1 {
   display: inline-block;
   margin: 0 auto 4rem;
   margin-bottom: 4rem;
+}
+
+.shop-single-product__weight {
+  font-size: 1.3125rem; /* 21px */
+  margin: 1rem 0 0;
+}
+
+.shop-single-product__price {
+  font-family: 'Lato', sans-serif;
+    font-weight: 300; /* light */
+    font-size: 2.25rem; /* 36px */
+    margin: 0 0 1rem;
+}
+.shop-single-product__select {
+  font-family: 'Lato', sans-serif;
+    font-weight: 300; /* light */
+    font-size: 1.3125rem; /* 21px */
+  min-width: 140px;
+  height: 40px;
+  background-color: white;
+  border: solid 1px var(--black);
+  border-radius: 6px;
+  padding: 0px 0.75rem;
+}
+.shop-single-product__select option {
+  font-family: 'Lato', sans-serif;
+    font-weight: 300; /* light */
+    font-size: 1.3125rem; /* 21px */
+}
+.shop-single-product__description {
+  margin: 1.5em auto 1.5em;
+}
+
+.shop-faq {
+  margin: 4rem 0;
+}
+.shop-faq__container {
+  padding: 3rem;
+  border-top: solid 1px var(--black);
+  border-bottom: solid 1px var(--black);
+}
+.shop-faq h2 {
+  display: inline-block;
+  margin-bottom: 1em;
+}
+.shop-faq p {
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+/* ==========================================================================
+	 Shop single page
+	 ========================================================================== */
+
+.shop-single {
+  margin: 4rem 0;
+}
+
+.shop-single-product h1 {
+  display: inline-block;
 }
 
  /* ==========================================================================
