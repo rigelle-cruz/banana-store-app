@@ -1,15 +1,34 @@
-import { useAuth0 } from '@auth0/auth0-react'
 import { useNavigate } from 'react-router-dom'
-import { useMutation } from 'react-query'
-import { useQuery } from 'react-query'
-import { useParams } from 'react-router-dom'
 
-
-function ErrorPage () {
-
+function ErrorPage() {
+  const navigate = useNavigate()
+  function goTo(link: string) {
+    navigate(link)
+  }
   return (
     <>
-      <p>On the Error Page</p>
+      <div
+        style={{
+          margin: 'auto',
+          width: '200px',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          minHeight: '100vh',
+        }}
+      >
+        <img src="images/notice.svg" alt="notice" />
+        <p>oops something went wrong!</p>
+        <button
+          style={{
+            width: 'auto',
+          }}
+          onClick={() => goTo('/')}
+        >
+          home
+        </button>
+      </div>
     </>
   )
 }

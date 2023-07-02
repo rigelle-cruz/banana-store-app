@@ -23,8 +23,7 @@ describe('GET /api/v1/shop', () => {
       id: 1,
       name: 'cavendish',
       price: 10,
-      description: 'wow its yellow',
-      img_src: 'cavendish.png',
+      imgSrc: 'cavendish.png',
     },
   ] as unknown as shop.Products[]
 
@@ -32,13 +31,12 @@ describe('GET /api/v1/shop', () => {
     vi.mocked(shop.getAllProducts).mockResolvedValue(mockedProduct)
 
     const response = await request(server).get('/api/v1/shop')
-    const products = response.body.products
+    const products = response.body
 
     expect(products[0].id).toBe(1)
     expect(products[0].name).toBe('cavendish')
     expect(products[0].price).toBe(10)
-    expect(products[0].description).toBe('wow its yellow')
-    expect(products[0].img_src).toBe('cavendish.png')
+    expect(products[0].imgSrc).toBe('cavendish.png')
   })
 })
 
@@ -203,7 +201,7 @@ describe('POST /api/v1/cart', () => {
     },
   ] as unknown as cart.newItem
 
-  it('responds with correct data structure and values', async () => {
+  it('responds with status 200', async () => {
     vi.mocked(cart.addToCartById).mockResolvedValue(mockedFeatured)
 
     const response = await request(server).post('/api/v1/cart')
@@ -220,6 +218,70 @@ describe('POST /api/v1/cart', () => {
     vi.mocked(cart.addToCartById).mockRejectedValue(mockedError)
 
     const response = await request(server).post('/api/v1/cart')
+
+    expect(response.status).toBe(500)
+    expect(response.body.error).toBe('Internal Server Error')
+  })
+})
+
+//CART PATCH ROUTE SUCCESS
+describe('PATCH /api/v1/cart', () => {
+  const mockedFeatured = [
+    {
+      userId: 1,
+      productId: 2,
+      quantity: 5,
+    },
+  ] as unknown as cart.newItem
+
+  it('responds with status 200', async () => {
+    vi.mocked(cart.updateCartItemQuantityByProductId).mockResolvedValue(
+      mockedFeatured
+    )
+
+    const response = await request(server).patch('/api/v1/cart')
+
+    expect(response.status).toBe(200)
+  })
+})
+
+//CART PATCH ROUTE FAIL
+describe('PATCH /api/v1/cart', () => {
+  const mockedError = new Error('Internal Server Error')
+
+  it('responds with status 500 and error message on failure', async () => {
+    vi.mocked(cart.updateCartItemQuantityByProductId).mockRejectedValue(
+      mockedError
+    )
+
+    const response = await request(server).patch('/api/v1/cart')
+
+    expect(response.status).toBe(500)
+    expect(response.body.error).toBe('Internal Server Error')
+  })
+})
+
+//CART DELETE ROUTE SUCCESS
+describe('DELETE /api/v1/cart', () => {
+  const mockedUser = 1
+
+  it('responds with status 200', async () => {
+    vi.mocked(cart.clearCart).mockResolvedValue(mockedUser)
+
+    const response = await request(server).delete('/api/v1/cart')
+
+    expect(response.status).toBe(200)
+  })
+})
+
+//CART DELETE ROUTE FAIL
+describe('DELETE /api/v1/cart', () => {
+  const mockedError = new Error('Internal Server Error')
+
+  it('responds with status 500 and error message on failure', async () => {
+    vi.mocked(cart.clearCart).mockRejectedValue(mockedError)
+
+    const response = await request(server).delete('/api/v1/cart')
 
     expect(response.status).toBe(500)
     expect(response.body.error).toBe('Internal Server Error')

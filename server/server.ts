@@ -67,6 +67,36 @@ server.post('/api/v1/cart', async (req, res) => {
   }
 })
 
+//CART DELETE ROUTE - ADD TO CART BY ID
+server.patch('/api/v1/cart', async (req, res) => {
+  try {
+    const updateItem = req.body
+
+    await cart.updateCartItemQuantityByProductId(updateItem)
+
+    res.sendStatus(200)
+  } catch (error) {
+    if (error instanceof Error) {
+      res.status(500).json({ error: error.message })
+    }
+  }
+})
+
+//CART DELETE ROUTE - ADD TO CART BY ID
+server.delete('/api/v1/cart', async (req, res) => {
+  try {
+    const input = req.body
+
+    await cart.clearCart(input)
+
+    res.sendStatus(200)
+  } catch (error) {
+    if (error instanceof Error) {
+      res.status(500).json({ error: error.message })
+    }
+  }
+})
+
 //HOME GET ROUTE - FEATURED BY ID
 server.post('/api/v1/home', async (req, res) => {
   try {

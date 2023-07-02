@@ -37,7 +37,7 @@ describe('getFeaturedById', () => {
   it('first product has correct image source', async () => {
     const featured = await db.getFeaturedById(testArr, testDb)
 
-    expect(featured[0].imgSrc).toBe('h1')
+    expect(featured[0].imgSrc).toBe('/images/red-banana.jpg')
   })
 
   it('second product has correct name', async () => {
@@ -53,7 +53,7 @@ describe('getFeaturedById', () => {
   it('second product has correct image source', async () => {
     const featured = await db.getFeaturedById(testArr, testDb)
 
-    expect(featured[1].imgSrc).toBe('hi')
+    expect(featured[1].imgSrc).toBe('/images/lady-finger.jpg')
   })
 
   it('third product has correct name', async () => {
@@ -69,6 +69,6 @@ describe('getFeaturedById', () => {
   it('third product has correct image source', async () => {
     const featured = await db.getFeaturedById(testArr, testDb)
 
-    expect(featured[2].imgSrc).toBe('hi')
+    expect(featured[2].imgSrc).toBe('/images/goldfinger.jpg')
   })
 })

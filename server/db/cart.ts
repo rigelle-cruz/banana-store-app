@@ -34,3 +34,17 @@ export async function addToCartById(newItem: newItem, db = connection) {
     quantity: newItem.quantity,
   }) as unknown as newItem
 }
+
+export async function updateCartItemQuantityByProductId(
+  newItem: newItem,
+  db = connection
+) {
+  return db('cart')
+    .where('user_id', newItem.userId)
+    .andWhere('product_id', newItem.productId)
+    .update('quantity', newItem.quantity) as unknown as newItem
+}
+
+export async function clearCart(userId: number, db = connection) {
+  return db('cart').where('user_id', userId).del()
+}
