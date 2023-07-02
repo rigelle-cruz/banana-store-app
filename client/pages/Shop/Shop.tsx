@@ -8,8 +8,6 @@ function Shop() {
     return await getAllProductsApi()
   })
 
-
-
   //Check if data is undefined.
   if (isLoading) {
     return <p>Loading...</p>
@@ -23,24 +21,47 @@ function Shop() {
 
   return (
     <>
-      <h1>shop.</h1>
-      {!isLoading && data && (
-        <>
-          {products.map((product) => (
-            <div key={product.name}>
-              <Link to={`/shop/${product.id}`}>
-                <img
-                  src={product.imgSrc}
-                  style={{ maxWidth: '400px' }}
-                  alt=""
-                />
-                <p>{product.name}</p>
-              </Link>
-              <p>${product.price}</p>
+      <div className="shop">
+        <div className="container">
+          <div className="row">
+            <div className="col">
+              <div className="shop__h1-container">
+                <h1>&nbsp;&nbsp;Shop.&nbsp;&nbsp;</h1>
+              </div>
+              <div className="products row">
+                {!isLoading && data && (
+                  <>
+                    {products.map((product) => (
+                      <div
+                        key={product.name}
+                        className="products__product col-12 col-sm-6"
+                      >
+                        <div className="products__product-img">
+                          <Link
+                            to={`/shop/${product.id}`}
+                            className="products__product-overlay"
+                          >
+                            <button className="products__product-btn">
+                              Shop
+                            </button>
+                            <img src={product.imgSrc} alt={product.name} />
+                          </Link>
+                        </div>
+                        <p className="products__product-name">
+                          <Link to={`/shop/${product.id}`}>{product.name}</Link>
+                        </p>
+                        <p className="products__product-price">
+                          ${product.price}
+                        </p>
+                      </div>
+                    ))}
+                  </>
+                )}
+              </div>
             </div>
-          ))}
-        </>
-      )}
+          </div>
+        </div>
+      </div>
     </>
   )
 }
