@@ -22,7 +22,6 @@ function Product() {
     if (id === undefined) {
       return <div>Error with parameter!</div>
     }
-    window.scrollTo(0, 0)
     return await getProductByIdApi(id)
   })
 
