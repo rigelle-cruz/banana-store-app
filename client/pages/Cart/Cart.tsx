@@ -40,8 +40,8 @@ function Cart() {
     updatedCartItemQuantity: UpdatedCartItemQuantity
   ) {
     if (updatedCartItemQuantity.quantity > 0) {
-      await updateCartItemQuantityByProductIdApi(updatedCartItemQuantity)
-      refetch()
+        await updateCartItemQuantityByProductIdApi(updatedCartItemQuantity)
+        refetch()
     }
   }
 

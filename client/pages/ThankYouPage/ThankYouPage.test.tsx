@@ -7,16 +7,28 @@ import matchers from '@testing-library/jest-dom/matchers'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
 
-import ErrorPage from './ErrorPage'
+import ThankYouPage from './ThankYouPage'
 
 afterEach(cleanup)
 expect.extend(matchers)
 const user = userEvent.setup()
 
+test('If thank you message renders on the page', async () => {
+  render(
+    <MemoryRouter initialEntries={['/thankyoupage']}>
+      <ThankYouPage />
+    </MemoryRouter>
+  )
+
+  const message = screen.getByText('Thank You For Your Purchase!')
+
+  expect(message).toBeInTheDocument()
+})
+
 test('If button is on the page', async () => {
   render(
     <MemoryRouter>
-      <ErrorPage />
+      <ThankYouPage />
     </MemoryRouter>
   )
 
@@ -27,10 +39,10 @@ test('If button is on the page', async () => {
   expect(button).toBeInTheDocument()
 })
 
-test('If button redirects to root route', async () => {
+test('If button redirects to home page', async () => {
   render(
-    <MemoryRouter initialEntries={['/some-invalid-path']}>
-      <ErrorPage />
+    <MemoryRouter initialEntries={['/thankyoupage']}>
+      <ThankYouPage />
     </MemoryRouter>
   )
 

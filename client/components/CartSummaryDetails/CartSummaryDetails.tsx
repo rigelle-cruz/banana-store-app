@@ -1,9 +1,12 @@
 import { useState } from 'react'
 import { CartItem } from '../../../models/cart'
 import { useNavigate } from 'react-router-dom'
+import { clearCartApi } from '../../apis/cart'
 
 interface Props {
   products: CartItem[]
+  userId: number
+  refetch: () => void
 }
 
 function calculateTotalCost(cart: CartItem[], shippingPrice: number): number {
@@ -22,9 +25,11 @@ function calculateTotalCost(cart: CartItem[], shippingPrice: number): number {
   return totalCost
 }
 
-function CartSummaryDetails({ products }: Props) {
+function CartSummaryDetails({ products, userId, refetch }: Props) {
   const navigate = useNavigate()
   function goTo(link: string) {
+    clearCartApi(userId)
+    refetch()
     navigate(link)
   }
 

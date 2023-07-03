@@ -37,13 +37,22 @@ export async function getCartById(id: number, db = connection) {
 }
 
 export async function addToCartById(newItem: newItem, db = connection) {
-  return db('cart').insert({
-    user_id: newItem.userId,
-    product_id: newItem.productId,
-    quantity: newItem.quantity,
-  }) as unknown as newItem
-}
+  const existingItem = await db('cart')
+    .where('user_id', newItem.userId)
+    .andWhere('product_id', newItem.productId)
+    .first();
 
+  if (existingItem) {
+    return updateCartItemQuantityByProductId({...newItem,
+    quantity : existingItem.quantity + newItem.quantity}, db);
+  } else {
+    return db('cart').insert({
+      user_id: newItem.userId,
+      product_id: newItem.productId,
+      quantity: newItem.quantity,
+    }) as unknown as newItem;
+  }
+}
 export async function updateCartItemQuantityByProductId(
   newItem: newItem,
   db = connection
