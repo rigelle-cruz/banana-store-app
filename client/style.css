@@ -20,8 +20,14 @@
   .color-white {
     color: var(--white);
   }
+  .color-white:hover {
+    color: var(--white);
+  }
   .border-white {
     border-color: var(--white);
+  }
+  .border-clear {
+    border-color: transparent;
   }
   
   button {
@@ -269,12 +275,16 @@
   }
   .header__nav-list li {
     display: flex;
+    justify-content: center;
     padding: 0 2rem;
+    width: 110px;
     height: 100%;
-  }
-  .header__nav-list li.header__border-right {
     border-right-width: 1px;
     border-right-style: solid;
+    transition: border-right-color 0.2s;
+  }
+  .header__nav-list li:last-child {
+    border-right: 0;
   }
   .header__user-login-list {
     display: flex;
@@ -305,8 +315,9 @@
   .header__user-login-list button:hover {
     color: var(--black);
   }
-  .header__nav-list button {
-    display: block;
+  .header__nav-list a {
+    display: flex;
+    align-items: center;
     font-family: 'Lato', sans-serif;
     font-size: 1.125rem; /* 18px */
     font-weight: 400; /* regular */
@@ -316,6 +327,7 @@
     padding: 0;
     cursor: pointer;
     height: auto;
+    width: auto;
     min-width: auto;
   }
   .header__nav-list button:hover {
