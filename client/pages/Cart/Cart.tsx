@@ -14,19 +14,21 @@ import {
 } from '../../../models/cart'
 import CartSummaryDetails from '../../components/CartSummaryDetails/CartSummaryDetails'
 import { useNavigate } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react'
 
 function Cart() {
+  const { user } = useAuth0()
   const navigate = useNavigate()
   function goTo(link: string) {
     navigate(link)
   }
 
-  const { isLoading, data, refetch } = useQuery(['getCart'], async () => {
-    return getCartByIdApi(1)
-  })
+  const userId =
+    user === undefined ? 'a0' : user.sub === undefined ? 'a0' : user.sub
 
-  //Hardcoded user id. This will change if we implement Auth0.
-  const userId = 1
+  const { data, refetch } = useQuery(['getCart'], async () => {
+    return await getCartByIdApi(userId)
+  })
 
   //FUNCTIONS TO HANDLE QUANTITY CHANGES
   async function handleIncrease(
@@ -52,7 +54,7 @@ function Cart() {
   }
 
   async function handleRemoveAll() {
-    await clearCartApi(userId)
+    await clearCartApi('')
     refetch()
   }
 

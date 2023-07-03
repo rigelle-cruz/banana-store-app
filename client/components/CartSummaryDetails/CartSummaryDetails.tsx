@@ -5,7 +5,7 @@ import { clearCartApi } from '../../apis/cart'
 
 interface Props {
   products: CartItem[]
-  userId: number
+  userId: string
   refetch: () => void
 }
 

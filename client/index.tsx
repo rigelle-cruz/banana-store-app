@@ -50,17 +50,15 @@ document.addEventListener('DOMContentLoaded', () => {
     <Auth0Provider
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      domain={import.meta.env.VITE_AUTH0_DOMAIN as string}
+      domain="daniel-g.au.auth0.com"
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      clientId={import.meta.env.VITE_AUTH0_CLIENT_ID as string}
+      clientId="aIGYkqO3IqkivZ75hgkU5kk7DTvBjjuL"
       cacheLocation="localstorage"
-      authorizationParams={{
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        audience: import.meta.env.VITE_AUTH0_AUDIENCE as string,
-        redirect_uri: window.location.origin,
-      }}
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      audience="https://bnanas/api"
+      redirectUri={window.location.origin + '/'}
     >
       <QueryClientProvider client={queryClient}>
         <AppProvider />

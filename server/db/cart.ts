@@ -11,17 +11,17 @@ export interface Cart {
 }
 
 export interface newItem {
-  userId: number
+  userId: string
   productId: number
   quantity: number
 }
 
 export interface deleteItem {
-  userId: number
+  userId: string
   productId: number
 }
 
-export async function getCartById(id: number, db = connection) {
+export async function getCartById(id: string, db = connection) {
   return db('cart')
     .join('products', 'cart.product_id', 'products.id')
     .where('cart.user_id', id)
@@ -63,7 +63,7 @@ export async function updateCartItemQuantityByProductId(
     .update('quantity', newItem.quantity) as unknown as newItem
 }
 
-export async function clearCart(userId: number, db = connection) {
+export async function clearCart(userId: string, db = connection) {
   return db('cart').where('user_id', userId).del()
 }
 
