@@ -6,7 +6,7 @@ import { IoClose } from 'react-icons/io5'
 import { IfAuthenticated, IfNotAuthenticated } from '../Authenticated'
 
 function Nav() {
-  const { isAuthenticated, logout, loginWithRedirect } = useAuth0()
+  const { logout, loginWithRedirect } = useAuth0()
   const navigate = useNavigate()
   const [open, setOpen] = useState(false)
   const [width, setWidth] = useState(window.innerWidth)
@@ -70,14 +70,13 @@ function Nav() {
             <li>
               <button onClick={() => goTo('/shop')}>shop</button>
             </li>
+
             <IfNotAuthenticated>
-              <p>not Authenticated</p>
               <li>
                 <button onClick={handleLogin}>log in</button>
               </li>
             </IfNotAuthenticated>
             <IfAuthenticated>
-              <p>Authenticated</p>
               <li>
                 <button onClick={handleLogout}>log out</button>
               </li>
@@ -114,16 +113,16 @@ function Nav() {
               </li>
             </ul>
             <ul className="header__user-login-list">
-              {!isAuthenticated && (
+              <IfNotAuthenticated>
                 <li>
                   <button onClick={handleLogin}>log in</button>
                 </li>
-              )}
-              {isAuthenticated && (
+              </IfNotAuthenticated>
+              <IfAuthenticated>
                 <li>
                   <button onClick={handleLogout}>log out</button>
                 </li>
-              )}
+              </IfAuthenticated>
               <li>
                 <button onClick={() => goTo('/cart')}>
                   <img
