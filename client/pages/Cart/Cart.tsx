@@ -14,19 +14,43 @@ import {
 } from '../../../models/cart'
 import CartSummaryDetails from '../../components/CartSummaryDetails/CartSummaryDetails'
 import { useNavigate } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react'
 
 function Cart() {
+  const { user } = useAuth0()
   const navigate = useNavigate()
   function goTo(link: string) {
     navigate(link)
   }
 
+  
+  // if (user !== undefined && user.sub !== undefined) {
+  //   let userId = user.sub
+  // }
+
+  // async function getUserId() {
+  //   const userId = user === undefined ? "a0" : user.sub;
+  //   if (userId === undefined) {
+  //     return "a0"
+  //   }
+  //   return userId;
+  // }
+
+ 
+
+  
+
   const { isLoading, data, refetch } = useQuery(['getCart'], async () => {
-    return getCartByIdApi(1)
+    const userId = getUserId()
+    return await getCartByIdApi(userId)
   })
 
-  //Hardcoded user id. This will change if we implement Auth0.
-  const userId = 1
+    refetch()
+
+  function getUserId() {
+    const userId = user === undefined ? "a0" : user.sub;
+    return userId;
+  }
 
   //FUNCTIONS TO HANDLE QUANTITY CHANGES
   async function handleIncrease(
@@ -52,10 +76,10 @@ function Cart() {
   }
 
   async function handleRemoveAll() {
-    await clearCartApi(userId)
+    await clearCartApi('')
     refetch()
   }
-
+  const userId = "a0"
   const products: CartItem[] = data
 
   return (

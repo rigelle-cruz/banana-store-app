@@ -42,7 +42,7 @@ server.get('/api/v1/shop/:id', async (req, res) => {
 //CART GET ROUTE - CART BY USER ID
 server.get('/api/v1/cart/:id', async (req, res) => {
   try {
-    const id = Number(req.params.id)
+    const id = req.params.id
     const targetCart = await cart.getCartById(id)
 
     res.json(targetCart)

@@ -12,13 +12,19 @@ import { UpdatedCartItemQuantity } from '../../../models/cart'
 import { addToCartByIdApi } from '../../apis/cart'
 
 function Product() {
+  const { user } = useAuth0()
   const params = useParams()
   const id = Number(params.id)
   const [selectedQuantity, setSelectedQuantity] = useState<string>('1')
   const [buttonText, setButtonText] = useState('Add to Cart')
 
   // Hardcoded user id
-  const userId = 1
+  let userId = 'auth0|64a23407eb6673dd663c9d62'
+  if (user !== undefined && user.sub !== undefined) {
+    userId = user.sub
+  }
+
+  
 
   const { isLoading, data: product } = useQuery(
     ['getProduct', id],
