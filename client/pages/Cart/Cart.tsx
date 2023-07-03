@@ -54,7 +54,7 @@ function Cart() {
   }
 
   async function handleRemoveAll() {
-    await clearCartApi('')
+    await clearCartApi(userId)
     refetch()
   }
 
