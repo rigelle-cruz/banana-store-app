@@ -1,15 +1,5 @@
 import connection from './connection'
-
-export interface Users {
-  id: number
-  nickname: string
-  auth0Id: string
-}
-
-export interface NewUser {
-  nickname: string
-  auth0Id: string
-}
+import {Users, NewUser} from '../../models/user'
 
 export async function getAllUsers(db = connection) {
   return (await db('users').select(
