@@ -27,10 +27,6 @@ function Product() {
     return await getProductByIdApi(id)
   })
 
-  if (data === undefined) {
-    return <div>Error getting product!</div>
-  }
-
   function handleSelectChange(event: ChangeEvent<HTMLSelectElement>) {
     setSelectedQuantity(event.target.value)
   }
@@ -46,7 +42,11 @@ function Product() {
 
   const product: any = data
 
+  if (!isLoading && !data) {
+    return <p>Error getting product</p>
+  }
 
+  console.log(product)
   return (
     <>
       <div className="shop-single">
@@ -79,16 +79,16 @@ function Product() {
                     {product.description}
                   </p>
                   <button
-            onClick={() =>
-              handleClick({
-                userId: userId,
-                productId: product.id,
-                quantity: Number(selectedQuantity),
-              })
-            }
-          >
-            {buttonText}
-          </button>
+                    onClick={() =>
+                      handleClick({
+                        userId: userId,
+                        productId: product.id,
+                        quantity: Number(selectedQuantity),
+                      })
+                    }
+                  >
+                    {buttonText}
+                  </button>
                 </div>
               </div>
             </div>
