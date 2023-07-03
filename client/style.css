@@ -50,6 +50,12 @@
 	 Layout
 	 ========================================================================== */
 
+   .page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+   }
   .display-flex {
     display: flex;
   }
@@ -318,7 +324,7 @@
   .header__cart-icon {
     width: 18px;
     top: 2px;
-position: relative;
+    position: relative;
   }
 
   .header__nav.hidden {
@@ -375,7 +381,8 @@ position: relative;
   display: flex;
   justify-content: space-between;
   padding: 1rem 1.5rem;
-  border-top: solid 1px var(--light-grey)
+  margin-top: auto;
+  border-top: solid 1px var(--grey)
 }
 .footer__copyright {
   font-family: 'Lato', sans-serif;
@@ -499,64 +506,65 @@ margin: 0;
   margin-bottom: 4rem;
 }
 
-.shop-single-product__weight {
-  font-size: 1.3125rem; /* 21px */
-  margin: 1rem 0 0;
-}
 
-.shop-single-product__price {
-  font-family: 'Lato', sans-serif;
-    font-weight: 300; /* light */
-    font-size: 2.25rem; /* 36px */
-    margin: 0 0 1rem;
-}
-.shop-single-product__select {
-  font-family: 'Lato', sans-serif;
-    font-weight: 300; /* light */
-    font-size: 1.3125rem; /* 21px */
-  min-width: 140px;
-  height: 40px;
-  background-color: white;
-  border: solid 1px var(--black);
-  border-radius: 6px;
-  padding: 0px 0.75rem;
-}
-.shop-single-product__select option {
-  font-family: 'Lato', sans-serif;
-    font-weight: 300; /* light */
-    font-size: 1.3125rem; /* 21px */
-}
-.shop-single-product__description {
-  margin: 1.5em auto 1.5em;
-}
-
-.shop-faq {
-  margin: 4rem 0;
-}
-.shop-faq__container {
-  padding: 3rem;
-  border-top: solid 1px var(--black);
-  border-bottom: solid 1px var(--black);
-}
-.shop-faq h2 {
-  display: inline-block;
-  margin-bottom: 1em;
-}
-.shop-faq p {
-  margin-top: 0;
-  margin-bottom: 1.5em;
-}
-/* ==========================================================================
+ /* ==========================================================================
 	 Shop single page
-	 ========================================================================== */
+	 ========================================================================== */  
 
-.shop-single {
-  margin: 4rem 0;
-}
-
-.shop-single-product h1 {
-  display: inline-block;
-}
+   .shop-single {
+    margin: 4rem 0;
+  }
+  
+  .shop-single-product h1 {
+    display: inline-block;
+  }
+  .shop-single-product__weight {
+    font-size: 1.3125rem; /* 21px */
+    margin: 1rem 0 0;
+  }
+  
+  .shop-single-product__price {
+    font-family: 'Lato', sans-serif;
+      font-weight: 300; /* light */
+      font-size: 2.25rem; /* 36px */
+      margin: 0 0 1rem;
+  }
+  .shop-single-product__select {
+    font-family: 'Lato', sans-serif;
+      font-weight: 300; /* light */
+      font-size: 1.3125rem; /* 21px */
+    min-width: 140px;
+    height: 40px;
+    background-color: white;
+    border: solid 1px var(--black);
+    border-radius: 6px;
+    padding: 0px 0.75rem;
+  }
+  .shop-single-product__select option {
+    font-family: 'Lato', sans-serif;
+      font-weight: 300; /* light */
+      font-size: 1.3125rem; /* 21px */
+  }
+  .shop-single-product__description {
+    margin: 1.5em auto 1.5em;
+  }
+  
+  .shop-faq {
+    margin: 4rem 0;
+  }
+  .shop-faq__container {
+    padding: 3rem;
+    border-top: solid 1px var(--black);
+    border-bottom: solid 1px var(--black);
+  }
+  .shop-faq h2 {
+    display: inline-block;
+    margin-bottom: 1em;
+  }
+  .shop-faq p {
+    margin-top: 0;
+    margin-bottom: 1.5em;
+  }   
 
  /* ==========================================================================
 	 Products module
@@ -610,3 +618,215 @@ margin: 0;
 .products__product-price {
   margin: 0.1em auto 0;
 }
+
+ /* ==========================================================================
+	 Cart page
+	 ========================================================================== */  
+
+  .cart {
+    margin: 4rem 0;
+  }
+  .cart__continue-btn {
+    width: auto;
+    margin: 0 auto 3rem;
+  }
+  .cart__items {
+    margin-bottom: 2rem;
+  }
+  .cart__item {
+    border-top: solid 1px var(--grey);
+    display: flex;
+  }
+  .cart__item:last-child {
+    border-bottom: solid 1px var(--grey);
+  }
+  .cart__item h2 {
+    border-bottom: 0;
+  }
+  .cart__img-container {
+    width: 20%;
+    padding: 1rem 1rem 1rem 0;
+  }
+  .cart__item-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+  }
+  .cart__item-name p {
+    font-size: 1.125rem; /* 18px */
+    margin: 0;
+  }
+  .cart__item-price {
+    display: flex;
+    align-items: center;
+    width: 20%;
+  }
+  .cart__item-price p {
+    font-size: 1.3125rem; /* 21px */
+  }
+  .cart__item-qty {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    align-items: center;
+    justify-content: center;
+  }
+  .cart__item-qty-selector {
+    display: flex;
+    border: solid 1px var(--black);
+    border-radius: 6px;
+    width: 90px;
+    padding: 0.25rem;
+    align-items: center;
+    height: 30px;
+    justify-content: space-between;
+  }
+  .cart__item-qty-selector p {
+    font-size: 1.3125rem; /* 21px */
+  }
+  .cart__item-qty-btn {
+    display: flex;
+    border: 0;
+    min-width:auto;
+    width: 20px;
+    height: auto;
+    padding: 0;
+  }
+  .cart__item-trash {
+    position: absolute;
+    bottom: 1rem;
+  }
+  .cart__clear-btn {
+    float: right;
+  }
+  .cart__sidebar {
+    background-color: var(--light-grey);
+    padding: 1rem;
+  }
+  .cart__sidebar-total-container {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px var(--grey);
+    padding: 0 0.5rem 1rem;
+    margin-bottom: 1rem;
+  }
+  .cart__sidebar-total {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: 1.5rem; /* 24px */
+    line-height: 1;
+  }
+  .cart__sidebar-cost {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400; /* regular */
+    font-size: 1.5rem; /* 24px */
+    line-height: 1;
+  }
+  .cart__sidebar-btn {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300; /* light */
+    font-size: 1.125rem; /* 18px */
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 0.5rem;
+    width: 100%;
+    background-color: transparent;
+    border: 0;
+    border-bottom: solid 1px var(--grey);
+  }
+  .cart__sidebar-btn:hover {
+    color: var(--black);
+    background-color: var(--light-grey);
+  }
+  .cart__sidebar-order-input {
+    margin: 1rem 0.5rem;
+    display: inline-block;
+    height: 40px;
+    padding: 0 0.75rem;
+  }
+  .cart__checkout-btn {
+    margin: 1.5rem auto 0.75rem;
+  }
+  .cart__shipping-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  .cart__shipping-title {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300; /* light */
+    font-size: 1.125rem; /* 18px */
+    color: var(--black);
+  }
+  .cart__shipping-list li {
+    display: flex;
+    margin-bottom: 0.25rem;
+  }
+  .cart__shipping-list input {
+    margin: 0 0.5rem 0 0;
+  }
+  .cart__shipping-details {
+    padding: 0 0.5rem;
+  }
+
+/* ==========================================================================
+	 Contact Page
+	 ========================================================================== */
+   
+   .contactHeader {
+    background-image: url('/public/images/ContactBnana.png');
+    background-size: cover; 
+    background-position: center; 
+    background-color: rgb(224, 224, 224);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px;
+}
+  
+  .form-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .form-control {
+    width: 100%;
+    height: 40px;
+    padding: .75rem;
+  }
+  
+  .submit-button {
+    cursor: pointer;
+    margin: 0 auto;
+  }
+  
+  @media (min-width: 500px) {
+    .form-label, .submit-button {
+      max-width: 100%;
+    }
+  }
+
+  .contactH2 {
+    border: 0;
+  }
+
+  .form-text-area {
+    width: 100%;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.875rem; /* 14px */
+    font-weight: 400; /* regular */ 
+    padding: .75rem;
+  }
+  
+  .formRow {
+width: 100%;
+  }
+
+  .contactFormContainer {
+    margin: 4rem 0;
+  }

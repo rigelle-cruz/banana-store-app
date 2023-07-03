@@ -60,83 +60,98 @@ function Cart() {
 
   return (
     <>
-      <button
-        style={{
-          width: 'auto',
-        }}
-        onClick={() => goTo('/shop')}
-      >
-        CONTINUE SHOPPING
-      </button>
-      <div>
-        {products &&
-          products.map((item) => (
-            <div key={item.name}>
-              <div>
-                <img src={item.imgSrc} style={{ maxWidth: '200px' }} alt="" />
-              </div>
-              <div>
-                <h2>{item.name}</h2>
-                <p>{item.weight * item.quantity}g</p>
-              </div>
-              <div>
-                <p>$ {item.price * item.quantity}</p>
-              </div>
-              <div>
-                <div>
-                  <button
-                    onClick={() =>
-                      handleDecrease({
-                        userId: userId,
-                        productId: item.productId,
-                        quantity: item.quantity - 1,
-                      })
-                    }
-                  >
-                    -
-                  </button>
-                  <p>{item.quantity}</p>
-                  <button
-                    onClick={() =>
-                      handleIncrease({
-                        userId: userId,
-                        productId: item.productId,
-                        quantity: item.quantity + 1,
-                      })
-                    }
-                  >
-                    +
-                  </button>
-                </div>
-                <div>
-                  <img
-                    style={{
-                      cursor: 'pointer',
-                    }}
-                    src="/images/trash-can.svg"
-                    alt=""
-                    onClick={() =>
-                      handleRemove({
-                        productId: item.productId,
-                        userId: userId,
-                      })
-                    }
-                  />
-                </div>
-              </div>
-              {item.name}
+      <div className="cart">
+        <div className="container">
+          <div className="row">
+            <div className="col-12">
+              <button
+                className="cart__continue-btn"
+                onClick={() => goTo('/shop')}
+              >
+                CONTINUE SHOPPING
+              </button>
             </div>
-          ))}
-        <button style={{ cursor: 'pointer' }} onClick={() => handleRemoveAll()}>
-          clear cart
-        </button>
-      </div>
-      <div>
-        <CartSummaryDetails
-          products={products}
-          userId={userId}
-          refetch={refetch}
-        />
+          </div>
+          <div className="row">
+            <div className="col-12 col-md-8">
+              <div className="cart__items">
+                {products &&
+                  products.map((item) => (
+                    <div key={item.name} className="cart__item">
+                      <div className="cart__img-container">
+                        <img src={item.imgSrc} alt="" />
+                      </div>
+                      <div className="cart__item-name">
+                        <h2>{item.name}</h2>
+                        <p>{item.weight * item.quantity}g</p>
+                      </div>
+                      <div className="cart__item-price">
+                        <p>$ {item.price * item.quantity}</p>
+                      </div>
+                      <div className="cart__item-qty">
+                        <div className="cart__item-qty-selector">
+                          <button
+                            className="cart__item-qty-btn"
+                            onClick={() =>
+                              handleDecrease({
+                                userId: userId,
+                                productId: item.productId,
+                                quantity: item.quantity - 1,
+                              })
+                            }
+                          >
+                            -
+                          </button>
+                          <p>{item.quantity}</p>
+                          <button
+                            className="cart__item-qty-btn"
+                            onClick={() =>
+                              handleIncrease({
+                                userId: userId,
+                                productId: item.productId,
+                                quantity: item.quantity + 1,
+                              })
+                            }
+                          >
+                            +
+                          </button>
+                        </div>
+                        <div className="cart__item-trash">
+                          <img
+                            style={{
+                              cursor: 'pointer',
+                            }}
+                            src="/images/trash-can.svg"
+                            alt=""
+                            onClick={() =>
+                              handleRemove({
+                                productId: item.productId,
+                                userId: userId,
+                              })
+                            }
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+              <button
+                className="cart__clear-btn"
+                style={{ cursor: 'pointer' }}
+                onClick={() => handleRemoveAll()}
+              >
+                clear cart
+              </button>
+            </div>
+            <div className="col-12 col-md-4">
+              <CartSummaryDetails
+                products={products}
+                userId={userId}
+                refetch={refetch}
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </>
   )

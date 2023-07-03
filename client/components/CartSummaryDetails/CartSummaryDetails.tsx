@@ -61,20 +61,20 @@ function CartSummaryDetails({ products, userId, refetch }: Props) {
   const totalCost = calculateTotalCost(products, selectedShippingPrice)
 
   return (
-    <div>
-      <div>
-        <h2>
-          Total: <span>{totalCost}</span>
-        </h2>
+    <div className="cart__sidebar">
+      <div className="cart__sidebar-total-container">
+        <span className="cart__sidebar-total">Total: </span>
+        <span className="cart__sidebar-cost">${totalCost}</span>
       </div>
 
       <div>
-        <button onClick={handleOrderNotesClick}>
+        <button onClick={handleOrderNotesClick} className="cart__sidebar-btn">
           {showOrderNotes ? 'Hide order notes -' : 'Add order notes +'}
         </button>
 
         {showOrderNotes && (
           <input
+            className="cart__sidebar-order-input"
             type="text"
             value={orderNotes}
             onChange={handleOrderNotesChange}
@@ -83,16 +83,19 @@ function CartSummaryDetails({ products, userId, refetch }: Props) {
         )}
       </div>
       <div>
-        <button onClick={handleShippingDetailsClick}>
+        <button
+          onClick={handleShippingDetailsClick}
+          className="cart__sidebar-btn"
+        >
           {showShippingDetails
             ? 'Hide shipping details'
             : 'View shipping details'}
         </button>
 
         {showShippingDetails && (
-          <div>
-            <p>Shipping Details:</p>
-            <ul>
+          <div className="cart__shipping-details">
+            <p className="cart__shipping-title">Shipping Details:</p>
+            <ul className="cart__shipping-list">
               <li>
                 <input
                   type="radio"
@@ -134,9 +137,7 @@ function CartSummaryDetails({ products, userId, refetch }: Props) {
       </div>
 
       <button
-        style={{
-          width: 'auto',
-        }}
+        className="cart__checkout-btn"
         onClick={() => goTo('/thankyoupage')}
       >
         CHECKOUT
