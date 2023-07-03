@@ -1,11 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
-import { useNavigate } from 'react-router-dom'
-import { useMutation } from 'react-query'
 import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
 import { getProductByIdApi } from '../../apis/shop'
-import { IndividualProduct } from '../../../models/product'
 import { ChangeEvent } from 'react'
 import FeaturedBanana from '../../components/FeaturedBanana/FeaturedBanana'
 import { UpdatedCartItemQuantity } from '../../../models/cart'
@@ -18,20 +15,12 @@ function Product() {
   const [selectedQuantity, setSelectedQuantity] = useState<string>('1')
   const [buttonText, setButtonText] = useState('Add to Cart')
 
-  // Hardcoded user id
-  let userId = 'auth0|64a23407eb6673dd663c9d62'
-  if (user !== undefined && user.sub !== undefined) {
-    userId = user.sub
-  }
+  const userId =
+    user === undefined ? 'a0' : user.sub === undefined ? 'a0' : user.sub
 
-  
-
-  const { isLoading, data: product } = useQuery(
-    ['getProduct', id],
-    async () => {
-      return await getProductByIdApi(id)
-    }
-  )
+  const { data: product } = useQuery(['getProduct', id], async () => {
+    return await getProductByIdApi(id)
+  })
 
   function handleSelectChange(event: ChangeEvent<HTMLSelectElement>) {
     setSelectedQuantity(event.target.value)

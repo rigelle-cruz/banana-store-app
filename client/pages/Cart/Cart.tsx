@@ -23,34 +23,12 @@ function Cart() {
     navigate(link)
   }
 
-  
-  // if (user !== undefined && user.sub !== undefined) {
-  //   let userId = user.sub
-  // }
+  const userId =
+    user === undefined ? 'a0' : user.sub === undefined ? 'a0' : user.sub
 
-  // async function getUserId() {
-  //   const userId = user === undefined ? "a0" : user.sub;
-  //   if (userId === undefined) {
-  //     return "a0"
-  //   }
-  //   return userId;
-  // }
-
- 
-
-  
-
-  const { isLoading, data, refetch } = useQuery(['getCart'], async () => {
-    const userId = getUserId()
+  const { data, refetch } = useQuery(['getCart'], async () => {
     return await getCartByIdApi(userId)
   })
-
-    refetch()
-
-  function getUserId() {
-    const userId = user === undefined ? "a0" : user.sub;
-    return userId;
-  }
 
   //FUNCTIONS TO HANDLE QUANTITY CHANGES
   async function handleIncrease(
@@ -79,7 +57,7 @@ function Cart() {
     await clearCartApi('')
     refetch()
   }
-  const userId = "a0"
+
   const products: CartItem[] = data
 
   return (
