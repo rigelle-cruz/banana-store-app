@@ -40,8 +40,8 @@ function Cart() {
     updatedCartItemQuantity: UpdatedCartItemQuantity
   ) {
     if (updatedCartItemQuantity.quantity > 0) {
-        await updateCartItemQuantityByProductIdApi(updatedCartItemQuantity)
-        refetch()
+      await updateCartItemQuantityByProductIdApi(updatedCartItemQuantity)
+      refetch()
     }
   }
 
@@ -147,7 +147,11 @@ function Cart() {
               </button>
             </div>
             <div className="col-12 col-md-4">
-              <CartSummaryDetails products={products} />
+              <CartSummaryDetails
+                products={products}
+                userId={userId}
+                refetch={refetch}
+              />
             </div>
           </div>
         </div>

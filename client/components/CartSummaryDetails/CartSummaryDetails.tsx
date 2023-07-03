@@ -94,7 +94,7 @@ function CartSummaryDetails({ products, userId, refetch }: Props) {
 
         {showShippingDetails && (
           <div className="cart__shipping-details">
-            <p className='cart__shipping-title'>Shipping Details:</p>
+            <p className="cart__shipping-title">Shipping Details:</p>
             <ul className="cart__shipping-list">
               <li>
                 <input
