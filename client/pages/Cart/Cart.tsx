@@ -40,8 +40,8 @@ function Cart() {
     updatedCartItemQuantity: UpdatedCartItemQuantity
   ) {
     if (updatedCartItemQuantity.quantity > 0) {
-    await updateCartItemQuantityByProductIdApi(updatedCartItemQuantity)
-    refetch()
+      await updateCartItemQuantityByProductIdApi(updatedCartItemQuantity)
+      refetch()
     }
   }
 
@@ -60,14 +60,14 @@ function Cart() {
 
   return (
     <>
-    <button
-          style={{
-            width: 'auto',
-          }}
-          onClick={() => goTo('/shop')}
-        >
-          CONTINUE SHOPPING
-        </button>
+      <button
+        style={{
+          width: 'auto',
+        }}
+        onClick={() => goTo('/shop')}
+      >
+        CONTINUE SHOPPING
+      </button>
       <div>
         {products &&
           products.map((item) => (
@@ -132,7 +132,11 @@ function Cart() {
         </button>
       </div>
       <div>
-        <CartSummaryDetails products={products} />
+        <CartSummaryDetails
+          products={products}
+          userId={userId}
+          refetch={refetch}
+        />
       </div>
     </>
   )
