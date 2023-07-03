@@ -15,3 +15,12 @@ export async function addUser(newUser: NewUser, db = connection) {
     auth0_id: newUser.auth0Id,
   })) as NewUser
 }
+
+export async function checkIfUserExists(auth0Id: string, db = connection) {
+  const result = await db('users')
+    .where('auth0_id', auth0Id)
+    .first()
+
+  return !!result
+  //The !! operator is used to convert the result to a boolean value.
+}
