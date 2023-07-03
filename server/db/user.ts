@@ -12,16 +12,16 @@ export interface NewUser {
 }
 
 export async function getAllUsers(db = connection) {
-  return (await db('products').select(
+  return (await db('users').select(
     'id',
     'nickname',
     'auth0_id as auth0Id'
   )) as Users[]
 }
 
-export async function addUser(db = connection) {
-  return (await db('products').insert(
-    'nickname',
-    'auth0_id as auth0Id'
-  )) as NewUser
+export async function addUser(newUser: NewUser, db = connection) {
+  return (await db('users').insert({
+    nickname: newUser.nickname,
+    auth0_id: newUser.auth0Id,
+  })) as NewUser
 }

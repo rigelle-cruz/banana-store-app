@@ -6,6 +6,7 @@ import * as shop from './db/shop'
 import * as product from './db/product'
 import * as cart from './db/cart'
 import * as home from './db/home'
+import * as user from './db/user'
 
 const server = express()
 
@@ -119,6 +120,34 @@ server.post('/api/v1/home', async (req, res) => {
     const targetProducts = await home.getFeaturedById(featuredArr)
 
     res.json(targetProducts)
+  } catch (error) {
+    if (error instanceof Error) {
+      res.status(500).json({ error: error.message })
+    }
+  }
+})
+
+//USERS ROUTE - GET ALL USERS
+server.get('/api/v1/user', async (req, res) => {
+  try {
+    const users = await user.getAllUsers()
+    res.json(users)
+  } catch (error) {
+    if (error instanceof Error) {
+      res.status(500).json({ error: error.message })
+    }
+  }
+})
+
+//USERS ROUTE - ADD NEW USER
+server.post('/api/v1/user', async (req, res) => {
+  try {
+    const newUser = req.body
+    // { nickname : '', auth0Id : ''}
+
+    await user.addUser(newUser)
+
+    res.sendStatus(200)
   } catch (error) {
     if (error instanceof Error) {
       res.status(500).json({ error: error.message })
