@@ -36,7 +36,7 @@ describe('getAllProducts', () => {
   it('gets correct product price', async () => {
     const produce = await db.getAllProducts(testDb)
 
-    expect(produce[0].price).toBe(1)
+    expect(produce[0].price).toBe(49.99)
   })
   it('gets correct image source', async () => {
     const produce = await db.getAllProducts(testDb)
