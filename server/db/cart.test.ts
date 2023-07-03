@@ -19,17 +19,17 @@ afterAll(async () => {
 
 describe('getCartById', () => {
   it('has the correct length', async () => {
-    const cart = await db.getCartById(1, testDb)
+    const cart = await db.getCartById('a0', testDb)
 
     expect(cart).toHaveLength(4)
   })
   it('first product has correct name', async () => {
-    const cart = await db.getCartById(1, testDb)
+    const cart = await db.getCartById('a0', testDb)
 
     expect(cart[0].name).toBe('Cavendish')
   })
   it('first product has correct quantity', async () => {
-    const cart = await db.getCartById(1, testDb)
+    const cart = await db.getCartById('a0', testDb)
 
     expect(cart[0].quantity).toBe(1)
   })
@@ -38,7 +38,7 @@ describe('getCartById', () => {
 describe('addToCartById', () => {
   it('adds an item to cart', async () => {
     const test = {
-      userId: 2,
+      userId: 'a0',
       productId: 6,
       quantity: 2,
     }
@@ -58,7 +58,7 @@ describe('addToCartById', () => {
 describe('updateCartItemQuantityByProductId', () => {
   it('updates quantity for an item in cart', async () => {
     const test = {
-      userId: 1,
+      userId: 'a0',
       productId: 3,
       quantity: 4,
     }
@@ -77,7 +77,7 @@ describe('updateCartItemQuantityByProductId', () => {
 
 describe('clearCart', () => {
   it('clears the cart for a given user', async () => {
-    const test = 1
+    const test = 'a0'
 
     await db.clearCart(test, testDb)
     const clearedCart = await testDb('cart').where('user_id', test)
@@ -88,7 +88,7 @@ describe('clearCart', () => {
 
 describe('removeCartItemByProductId', () => {
   it("clears a given item from a user's cart", async () => {
-    const test = { userId: 1, productId: 3 }
+    const test = { userId: 'a0', productId: 3 }
 
     await db.removeCartItemByProductId(test, testDb)
     const clearedItem = await testDb('cart')
