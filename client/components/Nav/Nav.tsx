@@ -7,7 +7,6 @@ import { IfAuthenticated, IfNotAuthenticated } from '../Authenticated'
 
 function Nav() {
   const { logout, loginWithRedirect, user } = useAuth0()
-  console.log(user)
 
   const navigate = useNavigate()
   const [open, setOpen] = useState(false)
@@ -103,7 +102,7 @@ function Nav() {
             <ul>
               <li>
                 <img src="/images/user-icon.svg" alt="icon" />
-              {user ? <p>Signed in as: {user?.nickname}</p> : <p>Guest</p>}
+                {user ? <p>Signed in as: {user?.nickname}</p> : <p>Guest</p>}
               </li>
             </ul>
             <ul className="header__nav-list">
