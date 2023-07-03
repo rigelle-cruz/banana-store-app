@@ -42,10 +42,16 @@ describe('Contact Page', async () => {
       </MemoryRouter>
     )
 
-    const address = screen.getByText(
-      'Level 5/12 Morgan Street, Newmarket, Auckland 1023'
-    )
+    const addressLineOne = screen.getByText('Level 5/12 Morgan Street')
 
-    expect(address).toBeInTheDocument()
+    expect(addressLineOne).toBeInTheDocument()
+
+    const addressLineTwo = screen.getByText('Newmarket')
+
+    expect(addressLineTwo).toBeInTheDocument()
+
+    const addressLineThree = screen.getByText('Auckland 1023')
+
+    expect(addressLineThree).toBeInTheDocument()
   })
 })
