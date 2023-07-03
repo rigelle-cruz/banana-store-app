@@ -5,11 +5,10 @@ import { GiHamburgerMenu } from 'react-icons/gi'
 import { IoClose } from 'react-icons/io5'
 import { IfAuthenticated, IfNotAuthenticated } from '../Authenticated'
 import { useQuery } from 'react-query'
-import { checkIfUserExistsApi } from '../../apis/users'
+import { addUserApi, checkIfUserExistsApi } from '../../apis/users'
 
 function Nav() {
-  const { logout, loginWithRedirect, user } = useAuth0()
-
+  const { logout, loginWithRedirect, user, isLoading } = useAuth0()
 
   const navigate = useNavigate()
   const [open, setOpen] = useState(false)
@@ -45,7 +44,22 @@ function Nav() {
     setOpen((prev) => !prev)
   }
 
+  async function checkUser() {
+    if (user === undefined) {
+      return
+    } else if (user.sub !== undefined && user.nickname !== undefined) {
+      if (await checkIfUserExistsApi(user.sub)) {
+        return
+      } else {
+        addUserApi({
+          nickname: user.nickname,
+          auth0Id: user.sub,
+        })
+      }
+    }
+  }
 
+  checkUser()
 
   return (
     <header className="header">
