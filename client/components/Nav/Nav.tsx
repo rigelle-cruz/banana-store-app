@@ -4,9 +4,12 @@ import { useNavigate } from 'react-router-dom'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { IoClose } from 'react-icons/io5'
 import { IfAuthenticated, IfNotAuthenticated } from '../Authenticated'
+import { useQuery } from 'react-query'
+import { checkIfUserExistsApi } from '../../apis/users'
 
 function Nav() {
   const { logout, loginWithRedirect, user } = useAuth0()
+
 
   const navigate = useNavigate()
   const [open, setOpen] = useState(false)
@@ -41,6 +44,8 @@ function Nav() {
   const toggleMenu = () => {
     setOpen((prev) => !prev)
   }
+
+
 
   return (
     <header className="header">
