@@ -4,7 +4,7 @@ import Footer from '../Footer/Footer'
 
 function AppLayout() {
   return (
-    <div>
+    <div className="page">
       <Nav />
       <Outlet />
       <Footer />
