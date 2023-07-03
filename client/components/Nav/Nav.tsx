@@ -6,7 +6,9 @@ import { IoClose } from 'react-icons/io5'
 import { IfAuthenticated, IfNotAuthenticated } from '../Authenticated'
 
 function Nav() {
-  const { logout, loginWithRedirect } = useAuth0()
+  const { logout, loginWithRedirect, user } = useAuth0()
+  console.log(user)
+
   const navigate = useNavigate()
   const [open, setOpen] = useState(false)
   const [width, setWidth] = useState(window.innerWidth)
@@ -59,6 +61,10 @@ function Nav() {
         {width < breakpoint && open && (
           <ul className="mobile__nav-list">
             <li>
+              {user ? <p>Signed in as: {user?.nickname}</p> : <p>Guest</p>}
+            </li>
+
+            <li>
               <button onClick={() => goTo('/')}>home</button>
             </li>
             <li>
@@ -94,6 +100,12 @@ function Nav() {
         )}
         {width > breakpoint && (
           <>
+            <ul>
+              <li>
+                <img src="/images/user-icon.svg" alt="icon" />
+              {user ? <p>Signed in as: {user?.nickname}</p> : <p>Guest</p>}
+              </li>
+            </ul>
             <ul className="header__nav-list">
               <li className="header__border-right border-white">
                 <button className="color-white" onClick={() => goTo('/')}>
