@@ -627,6 +627,7 @@ margin: 0;
     margin: 4rem 0;
   }
   .cart__continue-btn {
+    width: auto;
     margin: 0 auto 3rem;
   }
   .cart__items {
@@ -768,6 +769,7 @@ margin: 0;
   .cart__shipping-details {
     padding: 0 0.5rem;
   }
+
 /* ==========================================================================
 	 Contact Page
 	 ========================================================================== */
@@ -784,20 +786,12 @@ margin: 0;
     text-align: center;
     padding: 50px;
 }
-
-   .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-  }
   
   .form-label {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    
   }
   
   .form-control {

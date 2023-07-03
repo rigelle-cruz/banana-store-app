@@ -66,9 +66,6 @@ function Cart() {
             <div className="col-12">
               <button
                 className="cart__continue-btn"
-                style={{
-                  width: 'auto',
-                }}
                 onClick={() => goTo('/shop')}
               >
                 CONTINUE SHOPPING
