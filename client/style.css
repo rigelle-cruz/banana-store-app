@@ -610,3 +610,72 @@ margin: 0;
 .products__product-price {
   margin: 0.1em auto 0;
 }
+
+/* ==========================================================================
+	 Contact Page
+	 ========================================================================== */
+   
+   .contactHeader {
+    background-image: url('/public/images/ContactBnana.png');
+    background-size: cover; 
+    background-position: center; 
+    background-color: rgb(224, 224, 224);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px;
+}
+
+   .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .form-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    
+  }
+  
+  .form-control {
+    width: 100%;
+    height: 40px;
+    padding: .75rem;
+  }
+  
+  .submit-button {
+    cursor: pointer;
+    margin: 0 auto;
+  }
+  
+  @media (min-width: 500px) {
+    .form-label, .submit-button {
+      max-width: 100%;
+    }
+  }
+
+  .contactH2 {
+    border: 0;
+  }
+
+  .form-text-area {
+    width: 100%;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.875rem; /* 14px */
+    font-weight: 400; /* regular */ 
+    padding: .75rem;
+  }
+  
+  .formRow {
+width: 100%;
+  }
+
+  .contactFormContainer {
+    margin: 4rem 0;
+  }
