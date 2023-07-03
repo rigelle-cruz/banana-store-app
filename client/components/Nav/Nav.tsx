@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, NavLink, useLocation } from 'react-router-dom'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { IoClose } from 'react-icons/io5'
 
@@ -10,6 +10,8 @@ function Nav() {
   const [open, setOpen] = useState(false)
   const [width, setWidth] = useState(window.innerWidth)
   const breakpoint = 1024
+  const [pageTitle, setPageTitle] = useState('')
+  const location = useLocation()
 
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth)
@@ -19,6 +21,27 @@ function Nav() {
       window.removeEventListener('resize', handleResize)
     }
   }, [])
+
+  useEffect(() => {
+    const pageTitle = getPageTitle(location.pathname)
+    setPageTitle(pageTitle)
+    console.log('pageTitle', pageTitle)
+  }, [location])
+
+  const getPageTitle = (pathname: string) => {
+    switch (pathname) {
+      case '/':
+        return 'Home'
+      case '/about':
+        return 'About'
+      case '/contact':
+        return 'Contact'
+      case '/shop':
+        return 'shop'
+      default:
+        return 'React App'
+    }
+  }
 
   function handleLogin() {
     loginWithRedirect({
@@ -58,7 +81,7 @@ function Nav() {
         {width < breakpoint && open && (
           <ul className="mobile__nav-list">
             <li>
-              <button onClick={() => goTo('/')}>home</button>
+              <NavLink to="/">home</NavLink>
             </li>
             <li>
               <button onClick={() => goTo('/about')}>about</button>
@@ -93,21 +116,47 @@ function Nav() {
         {width > breakpoint && (
           <>
             <ul className="header__nav-list">
-              <li className="header__border-right border-white">
-                <button className="color-white" onClick={() => goTo('/')}>
+              <li
+                className={
+                  pageTitle === 'Home' || pageTitle === 'About'
+                    ? 'border-white'
+                    : ''
+                }
+              >
+                <NavLink
+                  to="/"
+                  className={
+                    pageTitle === 'Home' || pageTitle === 'About'
+                      ? 'color-white'
+                      : ''
+                  }
+                >
                   home
-                </button>
+                </NavLink>
               </li>
-              <li>
-                <button className="color-white" onClick={() => goTo('/about')}>
+              <li
+                className={
+                  pageTitle === 'Home' || pageTitle === 'About'
+                    ? 'border-clear'
+                    : ''
+                }
+              >
+                <NavLink
+                  to="/about"
+                  className={
+                    pageTitle === 'Home' || pageTitle === 'About'
+                      ? 'color-white'
+                      : ''
+                  }
+                >
                   about
-                </button>
-              </li>
-              <li className="header__border-right">
-                <button onClick={() => goTo('/contact')}>contact</button>
+                </NavLink>
               </li>
               <li>
-                <button onClick={() => goTo('/shop')}>shop</button>
+                <NavLink to="/contact">contact</NavLink>
+              </li>
+              <li>
+                <NavLink to="/shop">shop</NavLink>
               </li>
             </ul>
             <ul className="header__user-login-list">
