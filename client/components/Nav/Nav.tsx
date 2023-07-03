@@ -3,6 +3,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 import { useNavigate } from 'react-router-dom'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { IoClose } from 'react-icons/io5'
+import { IfAuthenticated, IfNotAuthenticated } from '../Authenticated'
 
 function Nav() {
   const { isAuthenticated, logout, loginWithRedirect } = useAuth0()
@@ -29,7 +30,7 @@ function Nav() {
   }
 
   function handleLogout() {
-    logout({ logoutParams: { returnTo: window.location.origin } })
+    logout()
   }
 
   function goTo(link: string) {
@@ -69,16 +70,18 @@ function Nav() {
             <li>
               <button onClick={() => goTo('/shop')}>shop</button>
             </li>
-            {!isAuthenticated && (
+            <IfNotAuthenticated>
+              <p>not Authenticated</p>
               <li>
                 <button onClick={handleLogin}>log in</button>
               </li>
-            )}
-            {isAuthenticated && (
+            </IfNotAuthenticated>
+            <IfAuthenticated>
+              <p>Authenticated</p>
               <li>
                 <button onClick={handleLogout}>log out</button>
               </li>
-            )}
+            </IfAuthenticated>
             <li>
               <button onClick={() => goTo('/cart')}>
                 <img

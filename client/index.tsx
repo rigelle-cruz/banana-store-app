@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       audience="https://bnanas/api"
-      redirectUri={window.location.origin}
+      redirectUri={window.location.origin + '/'}
     >
       <QueryClientProvider client={queryClient}>
         <AppProvider />
