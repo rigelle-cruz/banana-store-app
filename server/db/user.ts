@@ -1,5 +1,5 @@
 import connection from './connection'
-import {Users, NewUser} from '../../models/user'
+import { Users, NewUser } from '../../models/user'
 
 export async function getAllUsers(db = connection) {
   return (await db('users').select(
@@ -18,6 +18,7 @@ export async function addUser(newUser: NewUser, db = connection) {
 
 export async function checkIfUserExists(auth0Id: string, db = connection) {
   const result = await db('users')
+    .select('auth0_id')
     .where('auth0_id', auth0Id)
     .first()
 

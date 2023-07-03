@@ -155,4 +155,18 @@ server.post('/api/v1/user', async (req, res) => {
   }
 })
 
+server.post('/api/v1/user/check', async (req, res) => {
+  try {
+    const auth0Id = req.body.auth0Id
+    // { auth0Id : qnwoen12oi3n123}
+
+    const status = await user.checkIfUserExists(auth0Id)
+    res.json(status)
+  } catch (error) {
+    if (error instanceof Error) {
+      res.status(500).json({ error: error.message })
+    }
+  }
+})
+
 export default server
