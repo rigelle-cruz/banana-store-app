@@ -679,3 +679,33 @@ width: 100%;
   .contactFormContainer {
     margin: 4rem 0;
   }
+
+  /* ==========================================================================
+	 Thank you page
+	 ========================================================================== */
+
+   .thankYou-Header {
+    background-image: url('/public/images/Thankyou-Bananas.png');
+    background-size: cover; 
+    background-position: center; 
+    background-color: rgb(224, 224, 224);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px;
+   }
+
+   .thankYou-Header div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;  /* Adjust as necessary */
+  }
+
+  .thanks-para {
+    padding: 20px;
+  }
+   
