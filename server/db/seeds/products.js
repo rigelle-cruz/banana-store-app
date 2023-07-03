@@ -5,7 +5,7 @@ exports.seed = async function (knex) {
     {
       id: 1,
       name: 'Cavendish',
-      price: 1,
+      price: 49.99,
       description:
         'The Cavendish banana is a widely recognized and cultivated variety known for its elongated shape, bright yellow skin, and creamy, sweet flavor. It is a popular choice for both fresh consumption and culinary applications due to its appealing taste and texture.',
       img_src: '/images/cavendish.jpg',
@@ -20,7 +20,7 @@ exports.seed = async function (knex) {
     {
       id: 2,
       name: 'Red Banana',
-      price: 1,
+      price: 499.99,
       description:
         'The red banana is a unique and visually striking variety of banana known for its distinctive reddish-purple skin. The peel of the red banana is thicker and tougher compared to other banana varieties. Inside, the flesh of the red banana is cream-colored with a slight pinkish hue. The red banana is smaller in size compared to the common yellow Cavendish banana, typically measuring about 4 to 6 inches (10 to 15 centimeters) in length.',
       img_src: '/images/red-banana.jpg',
@@ -35,7 +35,7 @@ exports.seed = async function (knex) {
     {
       id: 3,
       name: 'Blue Java',
-      price: 1,
+      price: 999.99,
       description:
         'The Blue Java banana, also known as the Ice Cream banana, is a unique and visually striking variety of banana. It gets its name from the distinctive blueish-green color of its peel, which gives it a cool and intriguing appearance. This variety is known for its ability to thrive in cooler climates, making it a sought-after banana type in regions with milder temperatures.',
       img_src: '/images/blue-java.jpg',
@@ -50,7 +50,7 @@ exports.seed = async function (knex) {
     {
       id: 4,
       name: 'Lady Finger',
-      price: 1,
+      price: 199.99,
       description:
         'The Lady Finger banana, also known as the Sugar Banana or Sucrier, is a petite and slender variety of banana. It has a thin, delicate yellow skin that is easy to peel, and it typically measures around 4 to 6 inches (10 to 15 centimeters) in length',
       img_src: '/images/lady-finger.jpg',
@@ -65,7 +65,7 @@ exports.seed = async function (knex) {
     {
       id: 5,
       name: 'Manzano',
-      price: 1,
+      price: 199.99,
       description:
         "The Manzano banana, also known as the Apple banana or the Apple of the Tropics, is a unique and flavorful variety of banana. It is relatively small in size, usually measuring around 3 to 4 inches (7 to 10 centimeters) in length. The Manzano banana's peel is thick and yellow, often speckled with black spots.",
       img_src: '/images/manzano.jpg',
@@ -79,8 +79,8 @@ exports.seed = async function (knex) {
     },
     {
       id: 6,
-      name: 'Barangan',
-      price: 1,
+      name: 'Berangan',
+      price: 59.99,
       description:
         'The Berangan banana, also known as the Pisang Berangan or Dwarf Cavendish, is a popular variety of banana. It is characterized by its medium-sized, elongated shape and yellow peel. It has a smooth texture and is known for being soft and easy to eat.',
       img_src: '/images/barangan.jpg',
@@ -95,7 +95,7 @@ exports.seed = async function (knex) {
     {
       id: 7,
       name: 'Goldfinger',
-      price: 1,
+      price: 139.99,
       description:
         'The Goldfinger banana is a unique and visually striking variety of banana. It features a bright golden-yellow peel that stands out from other banana varieties. The Goldfinger banana is known for its larger size, typically measuring around 7 to 8 inches (18 to 20 centimeters) in length. The Goldfinger banana is also recognized for its excellent shelf life and resistance to disease, making it a favored choice among growers and consumers alike.',
       img_src: '/images/goldfinger.jpg',
@@ -110,14 +110,14 @@ exports.seed = async function (knex) {
     {
       id: 8,
       name: 'Praying Hands',
-      price: 1,
+      price: 79.99,
       description:
         "The Praying Hands banana is a visually striking and unique variety. It gets it's name from its distinctive hand-like appearance, with fused fingers that resemble a praying gesture. ",
       img_src: '/images/praying-hands.jpg',
       calorie_count: 100,
       weight: 90,
       taste_profile:
-        'The Praying Hands banana, or Lady Finger banana, offers a unique and delightful taste profile. It has a sweet and creamy flavor with a hint of tanginess. The taste is often described as more complex and intense compared to other common banana varieties. Its flavor profile makes it a popular choice for those who appreciate a slightly more pronounced and distinctive taste in their bananas.',
+        'The Praying Hands banana offers a unique and delightful taste profile. It has a sweet and creamy flavor with a hint of tanginess. The taste is often described as more complex and intense compared to other common banana varieties. Its flavor profile makes it a popular choice for those who appreciate a slightly more pronounced and distinctive taste in their bananas.',
       origin: 'Southeast Asia',
       random_fact:
         'The Praying Hands banana is not only recognized for its unique appearance but also for its versatility in culinary applications. Due to its firm texture and rich flavor, it is often favored for cooking and baking purposes. The Praying Hands banana holds its shape well when cooked, making it ideal for grilling, sautéing, or caramelizing.',
@@ -125,7 +125,7 @@ exports.seed = async function (knex) {
     {
       id: 9,
       name: 'Mysore',
-      price: 1,
+      price: 299.99,
       description:
         "The Mysore banana, also known as the Mysore Plantain or Pisang Mas, is characterized by its medium to large size, with a gentle curve and a vibrant yellow peel when fully ripe. It's widely consumed as a fresh fruit and is also used in various culinary applications, including desserts and savory dishes.",
       img_src: '/images/mysore.jpg',
@@ -140,7 +140,7 @@ exports.seed = async function (knex) {
     {
       id: 10,
       name: 'Gros Michel',
-      price: 1,
+      price: 499.99,
       description:
         'The Gros Michel banana, also known as "Big Mike," is a banana variety that gained popularity in the early 20th century. It features a thick, firm peel that turns from green to bright yellow when fully ripe. The Gros Michel banana is larger in size compared to many modern banana varieties.',
       img_src: '/images/gros-michel.jpg',
@@ -155,7 +155,7 @@ exports.seed = async function (knex) {
     {
       id: 11,
       name: 'Pisang Raja',
-      price: 1,
+      price: 299.99,
       description:
         'The Pisang Raja banana, also known as the King banana or Musa Belle banana, is a popular banana variety known for its distinct flavor and appearance. It is larger than the average banana, with a length of about 6 to 8 inches (15 to 20 centimeters). The Pisang Raja banana has a bright yellow peel that develops brown speckles as it ripens.',
       img_src: '/images/pisang-raja.jpg',
@@ -170,7 +170,7 @@ exports.seed = async function (knex) {
     {
       id: 12,
       name: 'Rhino Horn',
-      price: 1,
+      price: 119.99,
       description:
         'The Rhino Horn banana, also known as the Rhino Horn Plantain or Cocos Banana, is a distinctive and visually striking banana variety. It gets its name from the unique shape of its fruits, which resemble the horn of a rhinoceros. The Rhino Horn banana is larger than the average banana, with a length of about 8 to 10 inches (20 to 25 centimeters). It has a thick and tough peel that turns from green to yellow as it ripens. ',
       img_src: '/images/rhino-horn.jpg',
