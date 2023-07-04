@@ -1,0 +1,10 @@
+Domain:
+daniel-g.au.auth0.com
+
+
+Client ID:
+aIGYkqO3IqkivZ75hgkU5kk7DTvBjjuL
+
+
+Audience
+https://bnanas/api

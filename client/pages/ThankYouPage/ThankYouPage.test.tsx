@@ -20,7 +20,10 @@ test('If thank you message renders on the page', async () => {
     </MemoryRouter>
   )
 
-  const message = screen.getByText('Thank You For Your Purchase!')
+  const message = screen.getByRole('heading', {
+    level: 1,
+    name: /Thank You For Your Purchase!/i,
+  })
 
   expect(message).toBeInTheDocument()
 })

@@ -3,7 +3,7 @@ import { UpdatedCartItemQuantity, RemovedItem } from '../../models/cart'
 
 const baseUrl = '/api/v1/cart'
 
-export async function getCartByIdApi(userId: number) {
+export async function getCartByIdApi(userId: string) {
   const response = await request.get(`${baseUrl}/${userId}`)
   return response.body as any
 }
@@ -17,7 +17,7 @@ export async function updateCartItemQuantityByProductIdApi(
     .set('Content-Type', 'application/json')
 }
 
-export async function clearCartApi(userId: number) {
+export async function clearCartApi(userId: string) {
   await request
     .delete(`${baseUrl}/all`)
     .send({ userId })

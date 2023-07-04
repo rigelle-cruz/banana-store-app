@@ -9,12 +9,12 @@ export interface CartItem {
 }
 
 export interface UpdatedCartItemQuantity {
-  userId: number
+  userId: string
   productId: number
   quantity: number
 }
 
 export interface RemovedItem {
-  userId: number
+  userId: string
   productId: number
 }
