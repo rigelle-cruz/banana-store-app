@@ -12,7 +12,13 @@ function AboutBanner() {
         <div className="row">
           <div className="col col-md-6">
             <div className="col-full-bleed">
-              <img src="images/about-hero.jpg" alt="team"></img>
+              <img
+                src="images/about-hero.jpg"
+                alt="team"
+                style={{
+                  filter: 'brightness(70%)',
+                }}
+              />
             </div>
           </div>
           <div className="col col-md-6 col-vertical-center">
