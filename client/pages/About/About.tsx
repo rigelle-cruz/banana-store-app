@@ -43,7 +43,9 @@ function About() {
             </div>
             <div className="col col-md-6">
               <div className="col-full-bleed">
-                <img src="images/company-origin.jpg" alt="company" />
+                <img src="images/company-origin.jpg" style={{
+                  filter: 'brightness(85%)',
+                }} alt="company" />
               </div>
             </div>
           </div>
