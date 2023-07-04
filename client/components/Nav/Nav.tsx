@@ -9,7 +9,7 @@ function Nav() {
   const navigate = useNavigate()
   const [open, setOpen] = useState(false)
   const [width, setWidth] = useState(window.innerWidth)
-  const breakpoint = 1024
+  const breakpoint = 768
   const [pageTitle, setPageTitle] = useState('')
   const location = useLocation()
 
@@ -37,9 +37,9 @@ function Nav() {
       case '/contact':
         return 'Contact'
       case '/shop':
-        return 'shop'
+        return 'Shop'
       default:
-        return 'React App'
+        return ''
     }
   }
 
@@ -113,7 +113,7 @@ function Nav() {
             </li>
           </ul>
         )}
-        {width > breakpoint && (
+        {width >= breakpoint && (
           <>
             <ul className="header__nav-list">
               <li
