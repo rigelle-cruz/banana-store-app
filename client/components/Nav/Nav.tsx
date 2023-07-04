@@ -12,7 +12,7 @@ function Nav() {
   const navigate = useNavigate()
   const [open, setOpen] = useState(false)
   const [width, setWidth] = useState(window.innerWidth)
-  const breakpoint = 768
+  const breakpoint = 992
   const [pageTitle, setPageTitle] = useState('')
   const location = useLocation()
 
@@ -101,21 +101,25 @@ function Nav() {
         {width < breakpoint && open && (
           <ul className="mobile__nav-list">
             <li>
-              {user ? <p>Signed in as: {user?.nickname}</p> : <p>Guest</p>}
-            </li>
-            <li>
               <NavLink to="/">home</NavLink>
             </li>
             <li>
-              <button onClick={() => goTo('/about')}>about</button>
+              <NavLink to="/about">about</NavLink>
             </li>
             <li>
-              <button onClick={() => goTo('/contact')}>contact</button>
+              <NavLink to="/contact">contact</NavLink>
             </li>
             <li>
-              <button onClick={() => goTo('/shop')}>shop</button>
+              <NavLink to="/shop">shop</NavLink>
             </li>
-
+            <li className='mobile__user-description'>
+              <img
+                className="mobile__user-descrition-icon"
+                src="/images/user-icon.svg"
+                alt="icon"
+              />
+              {user ? <p>Signed in as: {user?.nickname}</p> : <p>guest</p>}
+            </li>
             <IfNotAuthenticated>
               <li>
                 <button onClick={handleLogin}>log in</button>
