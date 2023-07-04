@@ -9,7 +9,7 @@ export const founderStories = [
   },
   {
     name: 'Rigelle',
-    title: 'Banana Scientist',
+    title: 'Banana Caretaker',
     description:
       "Rigelle's tenure in the esteemed banana company has been a delightful journey, fueled by an unwavering passion for the fruit. Captivated by the vibrant hues, tantalizing flavors, and versatile applications of bananas, Rigelle is wholeheartedly dedicated to driving innovation and spreading joy through these remarkable fruits.",
     favouriteBanana: 'Blue Java',
