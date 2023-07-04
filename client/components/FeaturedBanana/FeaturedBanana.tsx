@@ -20,7 +20,7 @@ function FeaturedBanana() {
   }
 
   const products: ShopProduct[] = data
-  const productIdsToShow = [2, 3]
+  const productIdsToShow = [5, 12]
   const filteredProducts = products.filter((product) =>
     productIdsToShow.includes(product.id)
   )
