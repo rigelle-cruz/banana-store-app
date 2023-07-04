@@ -139,10 +139,14 @@ function Nav() {
         )}
         {width >= breakpoint && (
           <>
-            <ul>
+            <ul className="header__user-description-list">
               <li>
-                <img src="/images/user-icon.svg" alt="icon" />
-                {user ? <p>Signed in as: {user?.nickname}</p> : <p>Guest</p>}
+                <img
+                  className="header__user-descrition-icon"
+                  src="/images/user-icon.svg"
+                  alt="icon"
+                />
+                {user ? <p>Signed in as: {user?.nickname}</p> : <p>guest</p>}
               </li>
             </ul>
             <ul className="header__nav-list">

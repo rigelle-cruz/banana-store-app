@@ -258,7 +258,7 @@
   }
   .header__nav {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     position: relative;
     height: 100%;
@@ -313,6 +313,29 @@
   }
   .header__user-login-list button:hover {
     color: var(--black);
+  }
+  .header__user-description-list {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  .header__user-description-list li {
+    display: flex;
+  }
+  .header__user-description-list p {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--black)
+  }
+  .header__user-descrition-icon {
+    top: 0.1rem;
+    position: relative;
+    width: 22px;
+    margin-right: 0.6rem;
   }
   .header__nav-list a {
     display: flex;
@@ -474,6 +497,9 @@ margin: 0;
 
 .about-banner {
   margin-top: -64px;
+}
+.about-banner h1 {
+ display: inline-block;
 }
 .about-banner__subtitle {
   margin-bottom: 7rem;
@@ -797,6 +823,7 @@ margin: 0;
     align-items: center;
     text-align: center;
     padding: 50px;
+    margin-top: 1.5rem;
 }
   
   .form-label {
