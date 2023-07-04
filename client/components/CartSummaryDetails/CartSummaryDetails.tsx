@@ -22,7 +22,7 @@ function calculateTotalCost(cart: CartItem[], shippingPrice: number): number {
   // Add the selected shipping price to the total cost
   totalCost += shippingPrice
 
-  return totalCost
+  return parseFloat(totalCost.toFixed(2))
 }
 
 function CartSummaryDetails({ products, userId, refetch }: Props) {

@@ -88,7 +88,7 @@ function Cart() {
                         <p>{item.weight * item.quantity}g</p>
                       </div>
                       <div className="cart__item-price">
-                        <p>$ {item.price * item.quantity}</p>
+                      <p>$ { (item.price * item.quantity).toFixed(2) }</p>
                       </div>
                       <div className="cart__item-qty">
                         <div className="cart__item-qty-selector">
