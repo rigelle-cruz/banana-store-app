@@ -13,11 +13,9 @@ function AboutBanner() {
           <div className="col col-md-6">
             <div className="col-full-bleed">
               <img
+                className="about-banner__img"
                 src="images/about-hero.jpg"
                 alt="team"
-                style={{
-                  filter: 'brightness(70%)',
-                }}
               />
             </div>
           </div>
