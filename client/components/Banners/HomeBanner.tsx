@@ -12,14 +12,18 @@ function HomeBanner() {
         <div className="row">
           <div className="col col-md-6">
             <div className="col-full-bleed">
-              <img src="images/leaningbanana.png" alt="team"></img>
+              <img
+                className="home-banner__img"
+                src="images/leaningbanana.png"
+                alt="team"
+              ></img>
             </div>
           </div>
           <div className="col col-md-6 col-vertical-center">
             <div className="col-constrain">
               <img src="images/logo.png" alt="logo"></img>
               <h1>Bnana.&nbsp;&nbsp;</h1>
-              <p className="subtitle about-banner__subtitle">
+              <p className="subtitle home-banner__subtitle">
                 Take a tropical journey with our luscious tropical bananas.
               </p>
               <button onClick={() => goTo('/shop')}>view full range</button>

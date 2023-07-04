@@ -12,7 +12,7 @@ function Nav() {
   const navigate = useNavigate()
   const [open, setOpen] = useState(false)
   const [width, setWidth] = useState(window.innerWidth)
-  const breakpoint = 1024
+  const breakpoint = 768
   const [pageTitle, setPageTitle] = useState('')
   const location = useLocation()
 
@@ -40,9 +40,9 @@ function Nav() {
       case '/contact':
         return 'Contact'
       case '/shop':
-        return 'shop'
+        return 'Shop'
       default:
-        return 'React App'
+        return ''
     }
   }
 
@@ -137,12 +137,16 @@ function Nav() {
             </li>
           </ul>
         )}
-        {width > breakpoint && (
+        {width >= breakpoint && (
           <>
-            <ul>
+            <ul className="header__user-description-list">
               <li>
-                <img src="/images/user-icon.svg" alt="icon" />
-                {user ? <p>Signed in as: {user?.nickname}</p> : <p>Guest</p>}
+                <img
+                  className="header__user-descrition-icon"
+                  src="/images/user-icon.svg"
+                  alt="icon"
+                />
+                {user ? <p>Signed in as: {user?.nickname}</p> : <p>guest</p>}
               </li>
             </ul>
             <ul className="header__nav-list">

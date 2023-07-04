@@ -29,7 +29,11 @@ function Home() {
             </div>
             <div className="col col-md-6">
               <div className="col-full-bleed">
-                <img src="images/yellow-banana.png" alt="banana"></img>
+                <img
+                  className="home-benefits__img"
+                  src="images/yellow-banana.png"
+                  alt="banana"
+                ></img>
               </div>
             </div>
           </div>
