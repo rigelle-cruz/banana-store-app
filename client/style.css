@@ -813,7 +813,7 @@ margin: 0;
 	 ========================================================================== */
    
    .contactHeader {
-    background-image: url('/public/images/ContactBnana.png');
+    background-image: url('/images/ContactBnana.png');
     background-size: cover; 
     background-position: center; 
     background-color: rgb(224, 224, 224);
@@ -875,7 +875,7 @@ width: 100%;
 	 ========================================================================== */
 
    .thankYou-Header {
-    background-image: url('/public/images/Thankyou-Bananas.png');
+    background-image: url('/images/Thankyou-Bananas.png');
     background-size: cover; 
     background-position: center; 
     background-color: rgb(224, 224, 224);
