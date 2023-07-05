@@ -41,7 +41,7 @@ function About() {
                 </p>
               </div>
             </div>
-            <div className="col-12 col-md-6 d-none d-md-flex">
+            <div className="col-12 col-md-6 d-none d-md-block">
               <div className="col-full-bleed">
                 <img
                   src="images/company-origin.jpg"
