@@ -21,7 +21,7 @@ function About() {
       <div className="about-origin">
         <div className="container-fluid">
           <div className="row">
-            <div className="col col-md-6 col-vertical-center col-flex-end">
+            <div className="col-12 col-md-6 col-vertical-center col-flex-end">
               <div className="col-constrain">
                 <h2>Company Origin</h2>
                 <p className="subtitle">We're all a bit bananas!</p>
@@ -41,11 +41,15 @@ function About() {
                 </p>
               </div>
             </div>
-            <div className="col col-md-6">
+            <div className="col-12 col-md-6 d-none d-md-flex">
               <div className="col-full-bleed">
-                <img src="images/company-origin.jpg" style={{
-                  filter: 'brightness(85%)',
-                }} alt="company" />
+                <img
+                  src="images/company-origin.jpg"
+                  style={{
+                    filter: 'brightness(85%)',
+                  }}
+                  alt="company"
+                />
               </div>
             </div>
           </div>
