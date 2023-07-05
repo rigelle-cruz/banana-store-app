@@ -17,9 +17,16 @@ function AboutBanner() {
                 src="images/about-hero.jpg"
                 alt="team"
               />
+              <div className="about-banner__mobile d-md-none">
+                <h1>Meet Our Team.</h1>
+                <p className="subtitle about-banner__subtitle">
+                  Bananas are awesome and so is our team!
+                </p>
+                <button onClick={() => goTo('/shop')}>view full range</button>
+              </div>
             </div>
           </div>
-          <div className="col col-md-6 col-vertical-center">
+          <div className="col col-md-6 col-vertical-center d-none d-md-flex">
             <div className="col-constrain">
               <h1>Meet Our Team.</h1>
               <p className="subtitle about-banner__subtitle">
