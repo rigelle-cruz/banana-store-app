@@ -46,7 +46,7 @@ function Product() {
                   <div className="col-12 col-sm-6">
                     <img src={product.imgSrc} alt="" />
                   </div>
-                  <div className="col-12 col-sm-6">
+                  <div className="col-12 col-sm-6 col-vertical-center">
                     <div>
                       <h1>{product.name}</h1>
                       <p className="shop-single-product__weight">

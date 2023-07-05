@@ -27,7 +27,7 @@ function Home() {
                 </p>
               </div>
             </div>
-            <div className="col col-md-6">
+            <div className="col col-md-6 d-none d-md-block">
               <div className="col-full-bleed">
                 <img
                   className="home-benefits__img"
